@@ -1,3 +1,6 @@
 $(document).ready(function() {
-  console.log('testing .info update');
+  var view = $('#content-area').html();
+  view = '<textarea>' + view + '</textarea>';
+  $('#block-block-1').append(view);
+  console.log(view);
 });
