@@ -633,3 +633,12 @@ div.view div.views-admin-links li a {
 
 /* display block */
 .display-block { display: block; }
+
+
+
+
+.publications-index .views-row, .publications-index .view-header {float:left; margin-right:10px; margin-bottom: 10px; height:100px; display:block; vertical-align:bottom; }
+.publications-index .view-header { font: bold 18px Verdana, Helvetica, Arial, sans-serif; margin-right:25px; text-align:right; }
+
+
+#main {width: 711px; border: 3px dashed black; }
