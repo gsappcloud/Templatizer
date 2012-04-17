@@ -68,7 +68,6 @@ h1, .h1 {
 h2, .h2 {
   font-size: 1.5em;
   line-height: 1;
-  margin-top: 1em;
 }
 
 h3, .h3 {
@@ -122,8 +121,8 @@ th { padding-right: 1em; }
 
 #container {
   margin: 0 auto;
-  padding: 0 10px;
-  width: 940px;
+  padding: 0;
+  width: 960px;
 }
 
 /**
@@ -133,36 +132,15 @@ th { padding-right: 1em; }
 /* 1 column: global values*/
 
 #main {
-  display: inline;
+  display: block;
   margin: 0;
+  width:711px;
+  float:right;
 }
 
 /* 3 columns */
 
-body.two-sidebars #main {
-  float: left;
-  margin: 0 0 0 240px;
-  padding: 0;
-  width: 460px;
-}
 
-/* 2 columns: sidebar-left */
-
-body.sidebar-left #main {
-  float: right;
-  margin: 0;
-  padding: 0;
-  width: 700px;
-}
-
-/* 2 columns: sidebar-right */
-
-body.sidebar-right #main {
-  float: left;
-  margin: 0;
-  padding: 0;
-  width: 700px;
-}
 
 /**
  * 4.SIDEBARS
