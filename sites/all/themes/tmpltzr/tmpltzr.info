@@ -1,0 +1,23 @@
+name = tmpltzr
+description = tmpltzr a theme for the GSAPP Templatizer site.
+core = 6.x
+engine = phptemplate
+stylesheets[all][] = style.css
+
+
+scripts[] = tmpltzr.js
+
+regions[left] = Left sidebar
+regions[right] = Right sidebar
+regions[header] = Header
+regions[content] = Content
+regions[navigation] = Navigation
+regions[footer] = Footer
+
+
+; Information added by drupal.org packaging script on 2011-11-09
+version = "6.x-3.3"
+core = "6.x"
+project = "framework"
+datestamp = "1320861932"
+

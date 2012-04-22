@@ -5,7 +5,7 @@
 <?php //dsm($node); ?>
 
   <div class="content">
-  
+  	<div class="entry">
   	<?php if(!empty($node->field_thumbnail)){ ?>
   		<div class="publication-listing-image">
   			<?php print $node->field_thumbnail[0]['view']; ?>
@@ -44,6 +44,7 @@
 			</div>
 		<?php } ?>
 	</div><!-- .publication-description -->
+	</div><!-- .entry -->
   </div><!-- .content -->
 
 
