@@ -38,21 +38,20 @@
     </header> <!-- /#header -->
 
     <section id="content" role="main" class="clearfix">
+    	<div id="one_col_lt" class="left_outer">
+    		<?php if (!empty($left)): ?>
+        		<?php print $left; ?>
+		    <?php endif; ?>
+    	</div>
     	<div id="three_col_rt">
-    		<?php if (!empty($title)): ?><h3 class="title"><?php print $title ?></h3><?php endif; ?>
-    		<div id="template">
+    		
+    		<div id="tmpltzr">
       			<!-- #content -->
       			<?php print $content; ?>
       			<!-- /#content -->
       		</div>
       	</div>
     </section> <!-- /#main -->
-
-    <?php if (!empty($left)): ?>
-      <aside id="sidebar-left" role="complementary" class="sidebar clearfix">
-        <?php print $left; ?>
-      </aside> <!-- /sidebar-left -->
-    <?php endif; ?>
 
     <?php if (!empty($right)): ?>
       <aside id="sidebar-right" role="complementary" class="sidebar clearfix">

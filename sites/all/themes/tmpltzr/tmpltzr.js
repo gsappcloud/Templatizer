@@ -1,6 +1,6 @@
 $(document).ready(function() {
-  var view = $('#template').html();
+  var view = $('#tmpltzr .view-content').html();
   view = '<textarea>' + view + '</textarea>';
-  $('#block-block-1').append(view);
+  $('#copy-paste').append(view);
   console.log(view);
 });
