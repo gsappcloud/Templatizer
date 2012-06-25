@@ -15,9 +15,14 @@ script.type = 'text/javascript';
 head.appendChild(script);
 
 $(document).ready(function() {
+  gsappFetcher.start();
+  
+  
   var view = $('#tmpltzr .view-content').html();
   view = '<textarea>' + view + '</textarea>';
   $('#copy-paste').append(view);
+  
+	
   
   
   
