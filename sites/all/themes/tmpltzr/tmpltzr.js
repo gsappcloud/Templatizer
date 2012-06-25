@@ -15,6 +15,7 @@ script.type = 'text/javascript';
 head.appendChild(script);
 
 $(document).ready(function() {
+  
   gsappFetcher.start();
   
   

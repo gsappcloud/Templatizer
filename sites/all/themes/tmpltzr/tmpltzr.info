@@ -5,7 +5,7 @@ engine = phptemplate
 stylesheets[all][] = style.css
 
 
-scripts[] = tmpltzr.js
+
 
 
 
@@ -17,7 +17,7 @@ regions[content] = Content
 regions[navigation] = Navigation
 regions[footer] = Footer
 
-
+scripts[] = tmpltzr.js
 
 
 ; Information added by drupal.org packaging script on 2011-11-09
