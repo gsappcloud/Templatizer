@@ -8,6 +8,7 @@
 	<h3 class="title"><?php print $node->field_page_title[0]['view']; ?></h3>
 <?php } ?>
 
+
 <?php
 	$viewName = 'Pages';
 	$display_id = 'page_1';

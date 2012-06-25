@@ -92,15 +92,13 @@ Equation for font sizing:
 .display-block { display: block; }
 
 
-
-
-
-
-
-
 #tmpltzr #copy-paste {margin-left:5%; width: 90%; }
 #tmpltzr #gsapp-url { margin-left:5%; width: 90%; font:bold 36px Helvetica, Arial, sans-serif; margin-bottom: 20px;}
 #tmpltzr #page-wrapper-footer { display:block; clear: both; background:#222; color: white; padding:40px 0; margin: 40px 0; width:500px;}
+#tmpltzr .view-content {width: 711px;  }
+#tmpltzr #copy-paste {margin-left:5%; width: 90%; }
+#tmpltzr #gsapp-url { margin-left:5%; width: 90%; font:bold 36px Helvetica, Arial, sans-serif; margin-bottom: 20px;}
+#tmpltzr #page-wrapper-footer { display:block; clear: both; background:#222; color: white; padding:40px 0; width: 100%; margin: 40px 0;}
 #tmpltzr #page-wrapper-footer a, #tmpltzr #page-wrapper-footer h4 { color: white; }
 #tmpltzr #page-wrapper-footer h4 { text-decoration: none; }
 #tmpltzr #page-wrapper-footer a:hover { color: #FFFFEE; }

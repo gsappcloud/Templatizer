@@ -53,6 +53,11 @@
       				<?php print $content; ?>
       				<!-- /#content -->
       			</div>
+    		
+    		<div id="tmpltzr">
+      			<!-- #content -->
+      			<?php print $content; ?>
+      			<!-- /#content -->
       		</div>
       	</div>
     </section> <!-- /#main -->
