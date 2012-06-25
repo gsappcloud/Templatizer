@@ -18,6 +18,9 @@ regions[navigation] = Navigation
 regions[footer] = Footer
 
 scripts[] = tmpltzr.js
+scripts[] = http://postfog.org/assets/js/jquery.masonry.min.js
+scripts[] = http://postfog.org/assets/js/jquery.cycle.all.pack.js
+scripts[] = http://postfog.org/assets/js/fetcher.js
 
 
 ; Information added by drupal.org packaging script on 2011-11-09
