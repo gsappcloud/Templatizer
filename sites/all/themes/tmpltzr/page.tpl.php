@@ -8,12 +8,13 @@
   <!-- Set the viewport width to device width for mobile -->
   <meta name="viewport" content="width=device-width" />
   <title><?php print $head_title; ?></title>
-  	<link type="text/css" rel="stylesheet" media="all" href="http://www.columbia.edu/cu/arch/staging/html-elements.css" />
-	<link type="text/css" rel="stylesheet" media="all" href="http://www.columbia.edu/cu/arch/staging/tabs.css" />
-	<link type="text/css" rel="stylesheet" media="all" href="http://www.columbia.edu/cu/arch/staging/gsapp.css" />
-	<link type="text/css" rel="stylesheet" media="print" href="http://www.columbia.edu/cu/arch/staging/print.css" />
+  	<link type="text/css" rel="stylesheet" media="all" href="http://www.columbia.edu/cu/arch/tmpltzr/html-elements.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="http://www.columbia.edu/cu/arch/tmpltzr/tabs.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="http://www.columbia.edu/cu/arch/tmpltzr/gsapp.css" />
+	<link type="text/css" rel="stylesheet" media="print" href="http://www.columbia.edu/cu/arch/tmpltzr/print.css" />
   <?php print $styles; ?>
   <?php print $scripts; ?>
+  <script type="text/javascript" src="http://www.columbia.edu/cu/arch/tmpltzr/gsapp.js"></script>
   <!-- IE Fix for HTML5 Tags -->
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -35,24 +36,26 @@
       
       <?php if ($search_box): ?><?php print $search_box ?><?php endif; ?>
       
+      <img id="searchBar" src="/templatizer/sites/default/files/assets/searchBar.png" />
+      
     </header> <!-- /#header -->
 
     <section id="content" role="main" class="clearfix">
+    	<div id="one_col_lt" class="left_outer">
+    		<?php if (!empty($left)): ?>
+        		<?php print $left; ?>
+		    <?php endif; ?>
+    	</div>
     	<div id="three_col_rt">
-    		<?php if (!empty($title)): ?><h3 class="title"><?php print $title ?></h3><?php endif; ?>
-    		<div id="template">
-      			<!-- #content -->
-      			<?php print $content; ?>
-      			<!-- /#content -->
+    		<div id="content">
+    			<div id="tmpltzr">
+      				<!-- #content -->
+      				<?php print $content; ?>
+      				<!-- /#content -->
+      			</div>
       		</div>
       	</div>
     </section> <!-- /#main -->
-
-    <?php if (!empty($left)): ?>
-      <aside id="sidebar-left" role="complementary" class="sidebar clearfix">
-        <?php print $left; ?>
-      </aside> <!-- /sidebar-left -->
-    <?php endif; ?>
 
     <?php if (!empty($right)): ?>
       <aside id="sidebar-right" role="complementary" class="sidebar clearfix">

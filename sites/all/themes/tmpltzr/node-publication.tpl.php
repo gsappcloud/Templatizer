@@ -2,7 +2,7 @@
   <article id="node-<?php print $node->nid; ?>" class="node<?php if ($sticky) { print ' sticky'; } ?><?php if (!$status) { print ' node-unpublished'; } ?> clearfix">
   <?php endif;?>
 
-<?php //dsm($node); ?>
+<?php dsm($node); ?>
 
   <div class="content">
   	<div class="entry">
@@ -33,14 +33,14 @@
 			</div>
 		<?php } ?>
 		
-		<?php if(!empty($node->field_issuu_link)){ ?>
+		<?php if(!empty($node->field_issuu_link[0]['view'])){ ?>
 			<div class="publication-link">
-				<?php print '<a href=""' . $node->field_issuu_link[0]['view'] . '" target="_blank">Look inside</a>'; ?>
+				<?php print '<a href="' . $node->field_issuu_link[0]['view'] . '" target="_blank">Look inside</a>'; ?>
 			</div>
 		<?php } ?>
-		<?php if(!empty($node->field_buy_link)){ ?>
+		<?php if(!empty($node->field_buy_link[0]['view'])){ ?>
 			<div class="publication-link">
-				<?php print '<a href=""' . $node->field_buy_link[0]['view'] . '" target="_blank">Buy this book</a>'; ?>
+				<?php print '<a href="' . $node->field_buy_link[0]['view'] . '" target="_blank">Buy this book</a>'; ?>
 			</div>
 		<?php } ?>
 	</div><!-- .publication-description -->
