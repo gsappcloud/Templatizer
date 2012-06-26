@@ -1,10 +1,12 @@
 /*= masonry general styles */
-body #masonrycontainer2 {
+/* dimensions for the container */
+#masonrycontainer2 {
 	width: 100%;
 	height: 800px;
 }
 
-body .masonry-brick-widget {
+/* dimensions for any masonry child element */
+#masonrycontainer2 .masonry-brick-widget {
 		float: left;
 		text-align:center;
 		margin: 5px;
@@ -13,122 +15,97 @@ body .masonry-brick-widget {
 		border: 1px solid #ddd;
 }
 
-
-
 /*= end masonry general styles */
 /*  ------------------------------------------------- */
-
 
 /* masonry styles for 
 	flickr images for one-column 
 */
-.flickr-image.flickr_widget.one-column {
+#masonrycontainer2 .flickr-image.flickr_widget.one-column {
 		width: 220px;
 		height: 220px;
 		margin: 10px 10px 5px 10px;
 		overflow: hidden;
 }
 
+#masonrycontainer2 .flickr-image.flickr_widget.two-columns {
+		width: 480px;
+		height: 355px;
+		margin: 10px 10px 5px 10px;
+		overflow: hidden;
+}
+
+.masonry-brick-widget .button {
+	z-index:999;
+	position: absolute;
+	top: 105px;
+	cursor: pointer;
+	width: 30px;
+	height: 30px;
+}
+.masonry-brick-widget .button a {
+	text-decoration: none;
+	padding: 5px;
+}
+.masonry-brick-widget #prev-button {
+	left: 0;	background:url(http://events.gsapp.org/sites/all/themes/events/images/slider-arrows.png) 0 0;
+}
+.masonry-brick-widget #next-button {
+	left: 88%;
+	background:url(http://events.gsapp.org/sites/all/themes/events/images/slider-arrows.png) -31px 0;
+}
 .masonry-brick-widget .widget-data {
 	margin: 10px 10px 0px 10px;
 	width: 220px;
+	text-align: left;
 }
-
+.widget-data .widget-data-title {
+	font-size: 11px;
+	font-weight: bold;
+	margin-bottom: 2px;
+}
+.widget-data .widget-data-description {
+	font-size: 10px;
+}
 
 /*  ------------------------------------------------- */
 /*= flickr widget container 1 - #item-1 */
-body #item-1 {
+#masonrycontainer2 #item-1 {
 	background-color: #eee;
+	min-height: 375px;
+	width: 500px;
+
 }
-body #item-1 .slideshow {
-	height: 240px;
-	width: 240px;
+#masonrycontainer2 #item-1 .slideshow {
+	height: 375px;
+	width: 500px;
 	overflow: hidden;
 	margin: auto;
 	padding: 0;
 }
-#item-1 .button {
-	z-index:999;
+#masonrycontainer2 #item-1 .button {
+	z-index: 999;
 	position: absolute;
-	top: 45%;
+	top: 160px;
 	cursor: pointer;
 	width: 30px;
 	height: 30px;
 }
-#item-1 .button a {
-	text-decoration: none;
-	padding: 5px;
+#masonrycontainer2 #item-1 #next-button {
+	left: 88%;
+	background:url(http://events.gsapp.org/sites/all/themes/events/images/slider-arrows.png) -31px 0;
 }
-#item-1 #prev-button {
-	left: 0;	background:url(http://events.gsapp.org/sites/all/themes/events/images/slider-arrows.png) 0 0;
-}
-#item-1 #next-button {
-	left: 88%;	background:url(http://events.gsapp.org/sites/all/themes/events/images/slider-arrows.png) -31px 0;
-}
-#item-1 .widget-data {
-	width: inherit;
-	text-align: left;
-	padding: inherit;
-}
-#item-1 .widget-data .widget-data-title {
-	font-size: 11px;
-	font-weight: bold;
-	margin-bottom: 2px;
-}
-#item-1 .widget-data .widget-data-description {
-	font-size: 10px;
-}
-
-
-
-
-
 /*  ------------------------------------------------- */
 /*= flickr widget container 1 - #item-2 */
-body #item-2 {
+#masonrycontainer2 #item-2 {
 	background-color: #ddd;
 }
-body #item-2 .slideshow {
+#masonrycontainer2 #item-2 .slideshow {
 	height: 240px;
 	width: 240px;
 	overflow: hidden;
 	margin: auto;
 	padding: 0;
 }
-#item-2 .button {
-	z-index:999;
-	position: absolute;
-	top: 45%;
-	cursor: pointer;
-	width: 30px;
-	height: 30px;
-}
-#item-2 .button a {
-	text-decoration: none;
-	padding: 5px;
-}
-#item-2 #prev-button {
-	left: 0;	background:url(http://events.gsapp.org/sites/all/themes/events/images/slider-arrows.png) 0 0;
-}
-#item-2 #next-button {
-	left: 88%;	background:url(http://events.gsapp.org/sites/all/themes/events/images/slider-arrows.png) -31px 0;
-}
-#item-2 .widget-data {
-	width: inherit;
-	text-align: left;
-	padding: inherit;
-}
-#item-2 .widget-data .widget-data-title {
-	font-size: 11px;
-	font-weight: bold;
-	margin-bottom: 2px;
-}
-#item-2 .widget-data .widget-data-description {
-	font-size: 10px;
-}
+
 /*= end #item-2 */
-
-
-
-body #item-3 {height: 600px; width: 700px;}
-body #item-4 {height: 200px; }
