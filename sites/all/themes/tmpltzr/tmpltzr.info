@@ -10,7 +10,6 @@ stylesheets[all][] = dashboard-widgets.css
 stylesheets[all][] = css/html-elements.css
 stylesheets[all][] = css/tabs.css
 stylesheets[all][] = css/gsapp.css
-stylesheets[all][] = css/print.css
 
 
 regions[left] = Left sidebar
