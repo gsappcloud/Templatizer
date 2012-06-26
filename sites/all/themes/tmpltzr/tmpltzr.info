@@ -3,6 +3,7 @@ description = tmpltzr a theme for the GSAPP Templatizer site.
 core = 6.x
 engine = phptemplate
 stylesheets[all][] = style.css
+stylesheets[all][] = dashboard-widgets.css
 
 
 

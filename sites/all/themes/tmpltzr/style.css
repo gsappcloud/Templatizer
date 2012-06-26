@@ -35,9 +35,16 @@ Equation for font sizing:
 
 /**
  * 0.RESET 
+ 
+ 
+ //TODO should probably have a reset in here but ATM it is causing issues with the main style
+ 
+ @import "reset.css";
+ 
+ 
  */
 
-@import "reset.css";
+
 
 /**
  * 1.GLOBAL
