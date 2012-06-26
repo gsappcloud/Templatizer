@@ -39,9 +39,6 @@ Equation for font sizing:
 
 @import "reset.css";
 
-/* add the css overrides specific to fetcher and jquery masonry */
-@import url("http://postfog.org/assets/staging-redirect/gsapp.css");
-
 /**
  * 1.GLOBAL
  */

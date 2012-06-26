@@ -7,9 +7,6 @@ stylesheets[all][] = style.css
 
 
 
-
-
-
 regions[left] = Left sidebar
 regions[right] = Right sidebar
 regions[header] = Header
@@ -18,10 +15,7 @@ regions[navigation] = Navigation
 regions[footer] = Footer
 
 scripts[] = tmpltzr.js
-scripts[] = http://postfog.org/assets/js/jquery.masonry.min.js
-scripts[] = http://postfog.org/assets/js/jquery.cycle.all.pack.js
-scripts[] = http://postfog.org/assets/js/fetcher.js
-
+; note: moved the other includes directly into the page template...
 
 ; Information added by drupal.org packaging script on 2011-11-09
 version = "6.x-3.3"

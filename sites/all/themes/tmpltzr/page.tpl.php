@@ -12,9 +12,19 @@
 	<link type="text/css" rel="stylesheet" media="all" href="http://www.columbia.edu/cu/arch/tmpltzr/tabs.css" />
 	<link type="text/css" rel="stylesheet" media="all" href="http://www.columbia.edu/cu/arch/tmpltzr/gsapp.css" />
 	<link type="text/css" rel="stylesheet" media="print" href="http://www.columbia.edu/cu/arch/tmpltzr/print.css" />
+  
   <?php print $styles; ?>
   <?php print $scripts; ?>
+  
+  
+  <script type="text/javascript" src="http://postfog.org/assets/js/fetcher.js"></script>
+  <script type="text/javascript" src="http://postfog.org/assets/js/jquery.cycle.all.pack.js"></script>
+  <script type="text/javascript" src="http://postfog.org/assets/js/jquery.masonry.min.js"></script>
   <script type="text/javascript" src="http://www.columbia.edu/cu/arch/tmpltzr/gsapp.js"></script>
+
+
+  
+  
   <!-- IE Fix for HTML5 Tags -->
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -54,12 +64,7 @@
       				<!-- /#content -->
       			</div>
     		
-    		<div id="tmpltzr">
-      			<!-- #content -->
-      			<?php print $content; ?>
-      			<!-- /#content -->
-      		</div>
-      	</div>
+    		</div>
     </section> <!-- /#main -->
 
     <?php if (!empty($right)): ?>
