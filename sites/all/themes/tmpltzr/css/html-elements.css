@@ -1,4 +1,7 @@
-/* @override http://www.columbia.edu/cu/arch/tmpltzr/html-elements.css */
+/* @override 
+	http://www.columbia.edu/cu/arch/tmpltzr/html-elements.css
+	http://postfog.org/templatizer/sites/all/themes/tmpltzr/css/html-elements.css?h
+*/
 
 body {
     margin: 0;
@@ -111,11 +114,12 @@ iframe {
     list-style-type: none;
     list-style-image: none;
 }
+
+#tmpltzr li{
+	padding: 0 0 10px 0;
+}
 .wrapper li {
     width: auto;
-}
-.wrapper li:hover {
-    /*tct2003 111228  background-color:#efefef; */
 }
 ol {
     margin: 0.75em 0 1.25em;
