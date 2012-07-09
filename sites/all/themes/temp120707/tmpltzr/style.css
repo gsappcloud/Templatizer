@@ -1,0 +1,128 @@
+/* Drupal 6 Framework - Created by Andre Griffin
+------------------------------------------------
+[Table of contents]
+
+ 0.Reset
+ 1.Global
+ 2.Layout
+ 3.Main
+ 4.Sidebars
+ 5.Header
+ 6.Navigation
+ 7.Nodes
+ 8.Comments
+ 9.Blocks
+10.Footer
+11.CSS Support
+
+Font sizes: 16px base font with 24px line-height
+------------------------------------------------
+       font-size / line-height / margin-top
+------------------------------------------------
+40px = 2.5em     / 1.2         / 0.6em
+32px = 2em       / 1.5         / 0.75em
+24px = 1.5em     / 1           / 1em
+20px = 1.25em    / 1.2         / 1.2em
+16px = 1em       / 1..5        / 1.5em
+14px = 0.875em   / 1.7143      / 1.7143em
+13px = 0.8125em  / 1.8462      / 1.8462em
+12px = 0.75em    / 2           / 2em
+10px = 0.625em   / 2.4         / 2.4em
+
+Equation for font sizing: 
+  Desired px ÷ Default (or parent) px = em size
+------------------------------------------------*/
+
+/**
+ * 0.RESET 
+ 
+ @import "reset.css";
+ 
+ 
+ */
+
+
+
+/**
+ * 1.GLOBAL
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * Markup free clearing.
+ *
+ * @see http://perishablepress.com/press/2009/12/06/new-clearfix-hack
+ */
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+/* IE6 */
+
+* html .clearfix {
+  height: 1%;
+}
+
+/* IE7 */
+
+*:first-child + html .clearfix {
+  min-height: 1%;
+}
+
+/* clear floats */
+.clear { clear: both; }
+
+/* display block */
+.display-block { display: block; }
+
+
+#tmpltzr #copy-paste {margin-left:5%; width: 90%; }
+#tmpltzr #gsapp-url { margin-left:5%; width: 90%; font:bold 36px Helvetica, Arial, sans-serif; margin-bottom: 20px;}
+#tmpltzr #page-wrapper-footer { display:block; clear: both; background:#222; color: white; padding:40px 0; margin: 40px 0; width:500px;}
+#tmpltzr .view-content {width: 711px;  }
+#tmpltzr #copy-paste {margin-left:5%; width: 90%; }
+#tmpltzr #gsapp-url { margin-left:5%; width: 90%; font:bold 36px Helvetica, Arial, sans-serif; margin-bottom: 20px;}
+#tmpltzr #page-wrapper-footer { display:block; clear: both; background:#222; color: white; padding:40px 0; width: 100%; margin: 40px 0;}
+#tmpltzr #page-wrapper-footer a, #tmpltzr #page-wrapper-footer h4 { color: white; }
+#tmpltzr #page-wrapper-footer h4 { text-decoration: none; }
+#tmpltzr #page-wrapper-footer a:hover { color: #FFFFEE; }
+#tmpltzr #copy-paste textarea { width: 100%; height: 100px; }
+
+
+#tmpltzr .tmpltzr-edit {
+	display:block;
+	height:20px;
+	border:1px solid red;
+}
+#tmpltzr .tmpltzr-edit a {
+	color: red;
+	font: bold 10px Arial, sans-serif;
+	text-decoration:none;
+	text-align:center;
+	margin:0 auto;
+}
+
+
+
+
+

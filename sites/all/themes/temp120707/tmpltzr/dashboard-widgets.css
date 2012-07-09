@@ -1,0 +1,111 @@
+/*= masonry general styles */
+/* dimensions for the container */
+#masonrycontainer2 {
+	width: 100%;
+	height: 800px;
+}
+
+/* dimensions for any masonry child element */
+#masonrycontainer2 .masonry-brick-widget {
+		float: left;
+		text-align:center;
+		margin: 5px;
+		width: 240px;
+		min-height: 240px;
+		border: 1px solid #ddd;
+}
+
+/*= end masonry general styles */
+/*  ------------------------------------------------- */
+
+/* masonry styles for 
+	flickr images for one-column 
+*/
+#masonrycontainer2 .flickr-image.flickr_widget.one-column {
+		width: 220px;
+		height: 220px;
+		margin: 10px 10px 5px 10px;
+		overflow: hidden;
+}
+
+#masonrycontainer2 .flickr-image.flickr_widget.two-columns {
+		width: 480px;
+		height: 355px;
+		margin: 10px 10px 5px 10px;
+		overflow: hidden;
+}
+
+.masonry-brick-widget .button {
+	z-index:999;
+	position: absolute;
+	top: 105px;
+	cursor: pointer;
+	width: 30px;
+	height: 30px;
+}
+.masonry-brick-widget .button a {
+	text-decoration: none;
+	padding: 5px;
+}
+.masonry-brick-widget #prev-button {
+	left: 0;	background:url(http://events.gsapp.org/sites/all/themes/events/images/slider-arrows.png) 0 0;
+}
+.masonry-brick-widget #next-button {
+	left: 88%;
+	background:url(http://events.gsapp.org/sites/all/themes/events/images/slider-arrows.png) -31px 0;
+}
+.masonry-brick-widget .widget-data {
+	margin: 10px 10px 0px 10px;
+	width: 220px;
+	text-align: left;
+}
+.widget-data .widget-data-title {
+	font-size: 11px;
+	font-weight: bold;
+	margin-bottom: 2px;
+}
+.widget-data .widget-data-description {
+	font-size: 10px;
+}
+
+/*  ------------------------------------------------- */
+/*= flickr widget container 1 - #item-1 */
+#masonrycontainer2 #item-1 {
+	background-color: #eee;
+	min-height: 375px;
+	width: 500px;
+
+}
+#masonrycontainer2 #item-1 .slideshow {
+	height: 375px;
+	width: 500px;
+	overflow: hidden;
+	margin: auto;
+	padding: 0;
+}
+#masonrycontainer2 #item-1 .button {
+	z-index: 999;
+	position: absolute;
+	top: 160px;
+	cursor: pointer;
+	width: 30px;
+	height: 30px;
+}
+#masonrycontainer2 #item-1 #next-button {
+	left: 94%;
+	background:url(http://events.gsapp.org/sites/all/themes/events/images/slider-arrows.png) -31px 0;
+}
+/*  ------------------------------------------------- */
+/*= flickr widget container 1 - #item-2 */
+#masonrycontainer2 #item-2 {
+	background-color: #ddd;
+}
+#masonrycontainer2 #item-2 .slideshow {
+	height: 240px;
+	width: 240px;
+	overflow: hidden;
+	margin: auto;
+	padding: 0;
+}
+
+/*= end #item-2 */

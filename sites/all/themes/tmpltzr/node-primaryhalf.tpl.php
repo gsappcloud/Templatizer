@@ -1,17 +1,20 @@
-<?php if (!$page) { ?>
-  <div id="node-<?php print $node->nid; ?>" class="tmpltzr-module tmpltzr-primary tmpltzr-primaryfull node<?php if ($sticky) { print ' sticky'; } ?><?php if (!$status) { print ' node-unpublished'; } ?> clearfix">
+<?php if (!$page){ ?>
+  <div id="node-<?php print $node->nid; ?>" class="tmpltzr-module tmpltzr-primary tmpltzr-primaryhalf node<?php if ($sticky) { print ' sticky'; } ?><?php if (!$status) { print ' node-unpublished'; } ?> clearfix">
 	<a id="<?php print $node->title; ?>" name="<?php print $node->title; ?>" class="anchorhash"></a>
 <?php } ?>
 	
-	<?php if(!empty($node->field_image[0]['view'])){ ?>
+
+	
+	<?php if(!empty($node->field_half_image[0]['view'])){ ?>
   		<div class="tmpltzr-image">
-  			<?php print $node->field_image[0]['view']; ?>
+  			<?php print $node->field_half_image[0]['view']; ?>
   		</div>
   	<?php } ?>
 	
-	<?php if(!empty($node->field_title_link[0]['view'])){ ?>
+	<div class="tmpltzr-title-container">
+	<?php if(!empty($node->field_title[0]['view'])){ ?>
   		<div class="tmpltzr-title">
-  			<?php print $node->field_title_link[0]['view']; ?>
+  			<?php print $node->field_title[0]['view']; ?>
   		</div>
   	<?php } ?>
   	
@@ -21,8 +24,11 @@
   			<?php print $node->field_subtitle[0]['view']; ?>
   		</div>
   	<?php } ?>
+  	</div><!-- .tmpltzr-title-container -->
+  	
   	
   	<?php if(!empty($node->field_body[0]['view'])){ ?>
+
   		<div class="tmpltzr-body">
   			<?php print $node->field_body[0]['view']; ?>
   		</div>
