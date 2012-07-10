@@ -20,6 +20,7 @@ regions[navigation] = Navigation
 regions[footer] = Footer
 
 scripts[] = tmpltzr.js
+scripts[] = js/gsapp.js
 ; note: moved the other includes directly into the page template...
 
 ; Information added by drupal.org packaging script on 2011-11-09

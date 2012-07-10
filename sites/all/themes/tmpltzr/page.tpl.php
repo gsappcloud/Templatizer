@@ -19,7 +19,6 @@
   <script type="text/javascript" src="http://postfog.org/assets/js/fetcher.js"></script>
   <script type="text/javascript" src="http://postfog.org/assets/js/jquery.cycle.all.pack.js"></script>
   <script type="text/javascript" src="http://postfog.org/assets/js/jquery.masonry.min.js"></script>
-  <script type="text/javascript" src="http://www.columbia.edu/cu/arch/tmpltzr/gsapp.js"></script>
 
 
   

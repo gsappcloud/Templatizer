@@ -472,6 +472,13 @@ dl dd {
 }
 
 
+#tmpltzr h3.title{
+	width:500px;
+}
+
+#tmpltzr .title-container{
+	width:100%;
+}
 
 
 #tmpltzr a.anchorhash {
@@ -504,10 +511,10 @@ dl dd {
 
 #tmpltzr .views-row {
 
-	display:inline;
+	display:block;
+	float:left;
 
 }
-
 
 
 #tmpltzr .tmpltzr-primary {

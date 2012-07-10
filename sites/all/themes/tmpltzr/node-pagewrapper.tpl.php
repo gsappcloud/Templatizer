@@ -5,7 +5,7 @@
 <?php } ?>
 
 
-<?php
+<?php //wrapper div with Page Wrapper color code based on color-code taxonomy
 	print '<div class="';
     $terms = taxonomy_node_get_terms_by_vocabulary($node, 9); // vid=9 => color-code
 		if(!empty($terms)) {
@@ -19,7 +19,9 @@
 ?>
 
 <?php if(!empty($node->field_page_title[0]['view'])){ ?>
-	<h3 class="title"><?php print $node->field_page_title[0]['view']; ?></h3>
+	<div class="title-container">
+		<h3 class="title"><?php print $node->field_page_title[0]['view']; ?></h3>
+	</div>
 <?php } ?>
 
 
