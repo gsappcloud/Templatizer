@@ -15,11 +15,26 @@ $(document) .ready(function () {
 	
 	scrollMenu();
 
+	/*
+		Resizes the height of the menu based on the actual page size
+	*/
+
 	var resizeMenu = function(){
 		var wh = window.innerHeight;
 		var hh = $("#header").height();
 		$("#main-menu").css('height', wh-hh);
 	}
+	
+	/*
+		Colors the active section of the menu in Columbia Blue
+	*/
+	var menuActiveTrailColor = function(){
+		$("#main-menu .active-trail").each(function(){
+			$('a:eq(0)', this).css('color', '#A6B7C8');
+		});
+	}
+	
+	menuActiveTrailColor();
 
 	var resizeFunc = function(){
 	
