@@ -49,7 +49,7 @@
     </header> <!-- /#header -->
 
     <section id="content" role="main" class="clearfix">
-    	<div id="one_col_lt" class="left_outer">
+    	<div id="main-menu" class="left_outer">
     		<?php if (!empty($left)): ?>
         		<?php print $left; ?>
 		    <?php endif; ?>

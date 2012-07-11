@@ -63,7 +63,7 @@
     float: right;
     background-color: #ebebeb;
 }
-#one_col_lt {
+#main-menu {
     width: 400px;
     background-color:black; /* tct2003 111228 #fff; */
     height:100%;
@@ -2582,4 +2582,4 @@ td.gsc-branding-text, td.gsc-branding-img {
 
 
 /* MENU */
-#one_col_lt h2 {display:none;} /* turn this off in Drupal - menu header, blocks config */
+#main-menu h2 {display:none;} /* turn this off in Drupal - menu header, blocks config */

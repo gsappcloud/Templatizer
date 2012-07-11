@@ -338,7 +338,7 @@ dl dd {
 
 
 
-#one_col_lt:first-child {
+#main-menu:first-child {
 
 	padding-bottom:40px;
 
@@ -427,15 +427,39 @@ dl dd {
 
 
 /* TMPLTZR */
-
-
-
 #tmpltzr {
-
 	color:black;
-
 	width:100%;
+}
 
+
+/*
+	TMPLTZR Page Wrapper
+*/
+#tmpltzr .title-container{
+	width:100%;
+}
+#tmpltzr h3.title{
+	width:500px;
+}
+
+#tmpltzr a.anchorhash {
+	display:none;
+}
+
+#tmpltzr p{
+	padding:0 !important;
+	margin:0 0 25px;
+}
+
+#tmpltzr .view {
+	margin-top:0;
+	width:100%;
+}
+
+#tmpltzr .views-row {
+	display:block;
+	float:left;
 }
 
 #tmpltzr .blue {
@@ -472,68 +496,24 @@ dl dd {
 }
 
 
-#tmpltzr h3.title{
-	width:500px;
-}
 
-#tmpltzr .title-container{
-	width:100%;
-}
-
-
-#tmpltzr a.anchorhash {
-
-	display:none;
-
-}
-
-
-
-#tmpltzr p{
-
-	padding:0 !important;
-
-	margin:0 0 25px;
-
-}
-
-
-
-#tmpltzr .view {
-
-	margin-top:0;
-
-	width:100%;
-
-}
-
-
-
-#tmpltzr .views-row {
-
-	display:block;
-	float:left;
-
-}
-
+/*
+	TMPLTZR Node Primary (full, image, embed, video)
+*/
 
 #tmpltzr .tmpltzr-primary {
-
-	margin:0 20px 48px 0;
-
+	margin:0 40px 48px 0;
 	display:block;
+}
 
+
+#tmpltzr .tmpltzr-primaryimage{
+	margin:0 40px 20px 0;
 }
 
 
 
-#tmpltzr .tmpltzr-primaryimage, #tmpltzr .tmpltzr-secondaryquote, #tmpltzr .tmpltzr-secondaryimage {
-
-	margin:0 20px 20px 0;
-
-}
-
-#tmpltzr .tmpltzr-primaryfull, #tmpltzr .tmpltzr-primaryhalf {
+#tmpltzr .tmpltzr-primaryfull, #tmpltzr .tmpltzr-primaryhalf, #tmpltzr .tmpltzr-primaryvideo, #tmpltzr .tmpltzr-primaryembed {
 
 	float:left;
 
@@ -695,32 +675,27 @@ dl dd {
 
 
 
-.tmpltzr-body {
-
+#tmpltzr .tmpltzr-body {
 	font: bold 14px/18px "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
-
 	padding:0 !important;
-
 }
 
 
 
 #tmpltzr .tmpltzr-primaryhalf .tmpltzr-body, #tmpltzr .tmpltzr-primaryquarter .tmpltzr-body{
-
 	display:block;
-
 	clear:both;
-
 	margin-top:20px;
 
 }
 
+#tmpltzr .tmpltzr-secondaryquote, #tmpltzr .tmpltzr-secondaryimage {
+	margin:0 20px 20px 0;
+}
 
 
 #tmpltzr .tmpltzr-subtitle p {
-
 	margin:0 !important;
-
 }
 
 
@@ -741,7 +716,7 @@ dl dd {
 
 
 
-#tmpltzr .tmpltzr-secondaryembed {
+#tmpltzr .tmpltzr-secondaryvideo {
 
 	display:block;
 

@@ -3,15 +3,9 @@
 <a id="<?php print $node->title; ?>" name="<?php print $node->title; ?>" class="anchorhash"></a>
 <?php } ?>
 	
-	<?php if(!empty($node->field_embedded_video)){ ?>
-  		<div class="tmpltzr-embed-video">
-  			<?php print $node->field_embedded_video[0]['view']; ?>
-  		</div>
-  	<?php } ?>
-  	
-  	<?php if(!empty($node->field_embedded_flickr_set)){ ?>
-  		<div class="tmpltzr-embed-flickr">
-  			<?php print $node->field_embedded_flickr_set[0]['view']; ?>
+	<?php if(!empty($node->field_html)){ ?>
+  		<div class="tmpltzr-embed-html">
+  			<?php print $node->field_html[0]['view']; ?>
   		</div>
   	<?php } ?>
   	
