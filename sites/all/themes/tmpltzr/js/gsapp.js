@@ -1,8 +1,8 @@
 $(document) .ready(function () {
-	/* utilities */
+	/*************************** UTILITIES ***************************/
 	jQuery.fn.exists = function(){return this.length>0;}
 	
-    /* menu */
+    /*************************** MENU ***************************/
 	var scrollMenu = function(){
 		var target = $('#main-menu ul li.active-trail');
 		
@@ -36,9 +36,12 @@ $(document) .ready(function () {
 	
 	menuActiveTrailColor();
 
+
+	/*************************** RESIZE ***************************/
+
 	var resizeFunc = function(){
 	
-		resizeMenu();
+		resizeMenu(); //resize the height of the menu
 	
 		var ww = window.innerWidth;
 		$('#tmpltzr .tmpltzr-primaryfull').parent('.views-row').css('clear', 'left'); //for primary-quarters to not float
@@ -58,10 +61,13 @@ $(document) .ready(function () {
 			
 		}
 	}
-	resizeFunc();
-	$(window).resize(resizeFunc);
+	
+	resizeFunc(); //run the resize function on page load
+	$(window).resize(resizeFunc); //bind the resize function to the page
 	
 	
+	
+	/*************************** LAYOUT ***************************/
 	/*
 		Function to test for any primaryquarter modules and make sure they don't
 		migrate to the top the way secondary modules do
