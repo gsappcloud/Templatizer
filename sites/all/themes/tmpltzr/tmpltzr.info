@@ -21,7 +21,7 @@ regions[footer] = Footer
 
 scripts[] = tmpltzr.js
 scripts[] = js/gsapp.js
-scripts[] = js/jquery.localscroll-1.2.7-min.js
+
 ; note: moved the other includes directly into the page template...
 
 ; Information added by drupal.org packaging script on 2011-11-09

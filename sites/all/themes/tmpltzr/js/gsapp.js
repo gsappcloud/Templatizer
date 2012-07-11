@@ -1,5 +1,19 @@
 $(document) .ready(function () {
+	/* utilities */
+	jQuery.fn.exists = function(){return this.length>0;}
+	
     /* menu */
+	var scrollMenu = function(){
+		var target = $('#main-menu ul li.active-trail');
+		
+		if($('#main-menu ul li.active-trail li.active-trail').exists()){
+			$('#main-menu').scrollTo( target, 0 );
+		}else{
+			$('#main-menu').scrollTo( target, 800, {easing:'linear'} );
+		}
+	}
+	
+	scrollMenu();
 
 	var resizeMenu = function(){
 		var wh = window.innerHeight;
@@ -31,21 +45,6 @@ $(document) .ready(function () {
 	}
 	resizeFunc();
 	$(window).resize(resizeFunc);
-	
-	
-	
-	/*var menuScrollTo = function(){
-		//$('#main-menu').scrollTo( '#main-menu .active-trail .active', 1000 );//all divs w/class pane
-		window.scrollTo(0,0);
-		$("#three_col_rt").scrollTop();
-	}*/
-	
-	
-	
-	$('#main-menu').localScroll({
-   		target:'#main-menu .content .menu'
-	});
-	
 	
 	
 	/*
