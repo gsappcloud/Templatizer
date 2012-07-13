@@ -4,13 +4,15 @@
 <?php } ?>
 	
 	<?php if(!empty($node->field_images)){ ?>
-  		<div class="tmpltzr-photoset">
-  		<?php $count = 0; ?>
-  		<?php foreach($node->field_images as $photo){ ?>
-  			<div class="tmpltzr-image <?php if($count != 0){ echo 'image-hidden'; } ?> <?php echo 'image-'.$count; ?>">
+		<div class="tmpltzr-photoset-container">
+  			<ul id="tmpltzr-photoset-<?php print $node->nid; ?>" class="tmpltzr-photoset">
+  			<?php $count = 0; ?>
+  			<?php foreach($node->field_images as $photo){ ?>
+  				<li class="tmpltzr-image <?php echo 'image-'.$count; ?>">
   				<?php print $photo['view']; ?>
-  			</div>
-  			<?php $count = $count + 1; } ?>
+  				</li>
+  				<?php $count = $count + 1; } ?>
+  			</ul>
   		</div>
   	<?php } ?>
   	

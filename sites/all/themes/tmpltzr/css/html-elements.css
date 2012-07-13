@@ -513,12 +513,9 @@ dl dd {
 
 
 
-#tmpltzr .tmpltzr-primaryfull, #tmpltzr .tmpltzr-primaryhalf, #tmpltzr .tmpltzr-primaryvideo, #tmpltzr .tmpltzr-primaryembed {
-
+#tmpltzr .tmpltzr-primaryfull, #tmpltzr .tmpltzr-primaryhalf, #tmpltzr .tmpltzr-primaryvideo, #tmpltzr .tmpltzr-primaryembed, #tmpltzr .tmpltzr-primaryimage, #tmpltzr .tmpltzr-primaryphotoset {
 	float:left;
-
 	width:500px;
-
 }
 
 
@@ -665,12 +662,13 @@ dl dd {
 
 }
 
-
+#tmpltzr .tmpltzr-primaryquarter-container {
+	width:520px;
+	float:left;
+}
 
 #tmpltzr .tmpltzr-primaryquarter .tmpltzr-title-container {
-
 	width:120px;
-
 }
 
 
@@ -719,16 +717,11 @@ dl dd {
 
 
 
-#tmpltzr .tmpltzr-secondaryvideo {
-
+#tmpltzr .tmpltzr-secondaryvideo, #tmpltzr .tmpltzr-secondaryembed, #tmpltzr .tmpltzr-secondaryphotoset {
 	display:block;
-
 	padding: 20px;
-
 	width:460px;
-
 	float:left;
-
 }
 
 #tmpltzr .none .tmpltzr-secondary, #tmpltzr .grey .tmpltzr-secondary {
@@ -737,6 +730,10 @@ dl dd {
 
 #tmpltzr .green .tmpltzr-secondary{
 	background-color: #e0fcea;
+}
+
+#tmpltzr .pink .tmpltzr-secondary{
+	background-color: #ffebf8;
 }
 
 
@@ -795,4 +792,87 @@ dl dd {
 }
 
 
+/******************** PHOTOSET WITH JCAROUSEL ********************/
 
+#tmpltzr .tmpltzr-primary .jcarousel-clip-horizontal{
+	width:500px;
+	overflow:hidden;
+}	
+
+#tmpltzr .tmpltzr-secondary .jcarousel-clip-horizontal{
+	width:460px;
+	overflow:hidden;
+}	
+
+#tmpltzr .tmpltzr-primary .tmpltzr-photoset-container {
+	position: relative;
+	width:500px;
+	margin-bottom: 12px;
+}
+
+#tmpltzr .tmpltzr-secondary .tmpltzr-photoset-container {
+	position: relative;
+	width:460px;
+	margin-bottom: 12px;
+}
+
+#tmpltzr .tmpltzr-photoset-container .jcarousel-prev {
+	position:absolute;
+	left:0px;
+	width:20px;
+	height:20px;
+	cursor: pointer;
+    background: transparent url("/templatizer/sites/all/themes/tmpltzr/assets/photoslider_prev.png") no-repeat 0 0;
+}
+
+#tmpltzr .jcarousel-prev:hover,
+#tmpltzr .jcarousel-prev:focus {
+    width:55px;
+}
+
+#tmpltzr .tmpltzr-photoset-container .jcarousel-next {
+	position:absolute;
+	right:0px;
+	width:20px;
+	height:20px;
+	cursor: pointer;
+    background: transparent url("/templatizer/sites/all/themes/tmpltzr/assets/photoslider_next.png") no-repeat -35px 0;
+}
+
+#tmpltzr .tmpltzr-primary .tmpltzr-photoset-container .jcarousel-prev, #tmpltzr .tmpltzr-primary .tmpltzr-photoset-container .jcarousel-next  {
+	top:156px;
+}
+
+#tmpltzr .tmpltzr-secondary .tmpltzr-photoset-container .jcarousel-prev, #tmpltzr .tmpltzr-secondary .tmpltzr-photoset-container .jcarousel-next  {
+	top:143px;
+}
+
+#tmpltzr .jcarousel-next:hover,
+#tmpltzr .jcarousel-next:focus {
+	background-position:0 0;
+    width:55px;
+}
+
+#tmpltzr .jcarousel-next:active, #tmpltzr .jcarousel-prev:active {
+    background-color: white;
+}
+
+#tmpltzr .jcarousel-prev-disabled, #tmpltzr .jcarousel-next-disabled {
+	display:none !important;
+}
+
+#tmpltzr .tmpltzr-primary .jcarousel-item {
+	background-color:black;
+	padding:0 !important;
+}
+
+#tmpltzr .tmpltzr-secondary .jcarousel-item {
+	background-color:transparent;
+	padding:0 !important;
+}
+
+#tmpltzr .jcarousel-item img{
+	text-align: center;
+	margin: 0 auto;
+	display: block;
+}

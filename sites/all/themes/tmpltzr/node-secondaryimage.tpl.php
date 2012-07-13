@@ -1,5 +1,5 @@
 <?php if (!$page): ?>
-<div id="node-<?php print $node->nid; ?>" class="tmpltzr-module tmpltzr-secondary tmpltzr-secondaryimage node<?php if ($sticky) { print ' sticky'; } ?><?php if (!$status) { print ' node-unpublished'; } ?> clearfix">
+<div id="node-<?php print $node->nid; ?>" class="tmpltzr-module tmpltzr-secondary tmpltzr-secondary-float tmpltzr-secondaryimage node<?php if ($sticky) { print ' sticky'; } ?><?php if (!$status) { print ' node-unpublished'; } ?> clearfix">
 <a id="<?php print $node->title; ?>" name="<?php print $node->title; ?>" class="anchorhash"></a>
 <?php endif; ?>
 	

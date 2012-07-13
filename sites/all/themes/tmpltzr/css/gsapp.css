@@ -905,18 +905,14 @@ li a.active {
     margin-top: 1em;
 }
 /* Clear floats solution: http://www.positioniseverything.net/easyclearing.html */
-.clearfix:after,
-.views-row-odd:after,
-.views-row-even:after {
+.clearfix:after {
     content: ".";
     display: block;
     height: 0;
     clear: both;
     visibility: hidden;
 }
-.clearfix,
-.views-row-odd,
-.views-row-even {
+.clearfix {
     display: inline-block;
 }
 /* Hides from IE-mac \ */
