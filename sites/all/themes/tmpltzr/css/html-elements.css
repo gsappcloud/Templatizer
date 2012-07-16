@@ -454,7 +454,7 @@ dl dd {
 
 #tmpltzr a {
 	text-decoration: none;
-	border-bottom: solid 2px;
+	border-bottom: solid 1px;
 }
 
 #tmpltzr a:hover {
