@@ -32,6 +32,24 @@ $(document) .ready(function () {
 	}
 	
 	scrollMenu();
+	
+	/* 
+		Adds a dot to all menu items that link to pages off the site
+	*/		
+	var addDotToMenu = function(m){
+		$('li',m).each(function(){
+			var anchor = $('a', this);
+			var href = anchor.attr('href');
+			href = href.substring(0,4);
+			if(href == 'http'){
+				anchor.append(" •");
+				anchor.attr("target", "_blank"); //make sure it opens in a new tab/window
+			}
+		});
+	}
+	
+	var menu = $("#main-menu ul.menu");
+	addDotToMenu(menu);
 
 	/*
 		Resizes the height of the menu based on the actual page size
