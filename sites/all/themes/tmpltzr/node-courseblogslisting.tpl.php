@@ -1,3 +1,9 @@
+<?php if ($user->uid) { ?>
+	<div class="tmpltzr-edit">
+		<a href="http://postfog.org/templatizer/node/<?php print $node->nid; ?>/edit" title="<?php print $node_url; ?>">EDIT THIS PAGE</a>
+	</div>
+<?php } ?>
+
 <div class="title-container">
 	<h3 class="title"><?php print $title; ?></h3>
 </div>
@@ -5,13 +11,13 @@
 
 <div id="fixed-header">
 	<div id="program-list">	
-		<h5>By Program:</h5>
+		<h4>By Program:</h4>
 		<ul class="term-list">
 			<?php //list of Programs
 	    		$terms = taxonomy_get_tree(10); // vid=10 => program
 				if(!empty($terms)) {
         			foreach ($terms as $term){
-            			print '<li class="term-list-term">' . $term->name . '</li>';
+            			print '<li><a class="term-index-term">' . $term->name . '</a></li>';
   		          	}
     	    	}       
 			?>
@@ -19,13 +25,13 @@
 		</ul><!-- .term-list -->
 	</div><!-- #program-list -->
 	<div id="region-list">	
-		<h5>By Region:</h5>
+		<h4>By Region:</h4>
 		<ul class="term-list">
 			<?php //list of Programs
 	    		$terms = taxonomy_get_tree(12); // vid=12 => region
 				if(!empty($terms)) {
         			foreach ($terms as $term){
-            			print '<li class="term-list-term">' . $term->name . '</li>';
+            			print '<li><a class="term-index-term">' . $term->name . '</a></li>';
   		          	}
     	    	}else{
     	    		print '<li>No terms</li>';
@@ -33,17 +39,17 @@
 			?>
 			
 		</ul><!-- .term-list -->
-		<div>Studio-X Affiliation</div>
+		<div id="x-affiliation"><span class="x-affiliated">X</span>Studio-X Affiliation</div>
 	</div><!-- #region-list -->
 	
 	<div id="semester-list">	
-		<h5>By Semester:</h5>
+		<h4>By Semester:</h4>
 		<ul class="term-list">
 			<?php //list of Programs
-	    		$terms = taxonomy_node_get_terms_by_vocabulary($node, 14); // vid=14 => Year and Semester
-				if(!empty($terms)) {
-        			foreach ($terms as $term){
-            			print '<li class="term-list-term">' . $term->name . '</li>';
+	    		$terms_semester = taxonomy_node_get_terms_by_vocabulary($node, 14); // vid=14 => Year and Semester
+				if(!empty($terms_semester)) {
+        			foreach ($terms_semester as $term){
+            			print '<li><a class="term-index-term">' . $term->name . '</a></li>';
   		          	}
     	    	}else{
     	    		print '<li>No terms</li>';
@@ -63,16 +69,20 @@
 
 
 
-<div>
+<div id="course-blogs-index-listing">
 	<?php
-	/*
-		Use the "Page" view to pull in all the modules associated with this page
-	*/
-	print 'testing';
-		$viewName = 'courseblogs';
-		$display_id = 'page_1';
-		print views_embed_view($viewName, $display_id, 2012, spring);
+
+	$semesters = taxonomy_node_get_terms_by_vocabulary($node, 14); // vid=14 => Year and Semester
+	foreach ($semesters as $semester){
+		$start = strlen($semester->name) - 4;
+		$year = substr($semester->name , $start);
+		$term = substr($semester->name , 0, $start - 1);
+		
+		print "<h4>".$term." ".$year."</h4>";
+		print views_embed_view('courseblogs', 'page_1', $year, $term);
+	}
 	?>
+	
 	</div>
 
 	<footer id="page-wrapper-footer">

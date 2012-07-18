@@ -115,30 +115,18 @@ h3 {
 
 h4 {
 
-    width: auto;
-
-    color:#051215;
-
-    font: 12px Arial, Helvetica, sans-serif;
-
-    font-weight:bold;
-
-    text-decoration:underline;
+    font: bold 14px "DIN", Arial, Helvetica, sans-serif;
+    text-transform:uppercase;
+    margin: 0 0 15px;
+    padding:0px 0px 0px 0px;
 
 }
 
 h5 {
-
-    font: 18px Arial, Helvetica, sans-serif;
-
-    font-weight:bold;
-
-    margin: 15px 0 5px;
-
+	font: bold 14px "DIN", Arial, Helvetica, sans-serif;
+    text-transform:uppercase;
+    margin: 0 0 15px;
     padding:0px 0px 0px 0px;
-
-    font-style:normal;
-
 }
 
 h6 {
@@ -472,37 +460,40 @@ dl dd {
 	float:left;
 }
 
-#tmpltzr .blue {
+#tmpltzr .north-america {
 	color:#00D6FF;
 }
 
-#tmpltzr .green {
+#tmpltzr .latin-america {
 	color:#00E652;
 }
 
-#tmpltzr .grey {
-	color:gray;
+#tmpltzr .none {
+
 }
 
-#tmpltzr .orange {
+#tmpltzr .south-asia {
 	color:#FF9E00;
 }
 
-#tmpltzr .pink {
+#tmpltzr .middle-east {
 	color:#FF00A6;
 }
 
+#tmpltzr .africa {
+	color:#008AFF;
+}
 
-#tmpltzr .purple {
+#tmpltzr .europe {
 	color:#AD20FF;
 }
 
-#tmpltzr .red {
+#tmpltzr .asia {
 	color:#FF555A;
 }
 
-#tmpltzr .light-blue {
-	color:#008AFF;
+#tmpltzr .other {
+	color:gray;
 }
 
 
@@ -896,3 +887,44 @@ dl dd {
 	margin: 0 auto;
 	display: block;
 }
+
+/* COURSE BLOG INDEX PAGE */
+
+
+#tmpltzr #fixed-header{
+	width:800px;
+	padding-bottom:35px;
+	border-bottom:1px solid black;
+	margin-bottom:45px;
+}
+
+#tmpltzr #program-list, #tmpltzr #region-list {
+	width:250px;
+	margin-right:23px;
+	display:inline-block;
+	vertical-align: top;
+}
+
+#tmpltzr #semester-list {
+	width:200px;
+	display:inline-block;
+	vertical-align: top;
+}
+
+#tmpltzr #fixed-header li{
+	padding-bottom:0;
+}
+
+
+#course-blogs-index-listing{
+	clear:both;
+}
+
+#tmpltzr .x-affiliated {
+	margin-left:-10px;
+}
+
+#tmpltzr #x-affiliation{
+	margin-top:20px;
+}
+
