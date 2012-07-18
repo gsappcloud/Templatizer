@@ -951,3 +951,96 @@ dl dd {
 	cursor:pointer;
 }
 
+/* start custom event widget styles */
+#tmpltzr .content #event-output {
+}
+
+#tmpltzr .content #event-output .embedded-event {
+	width: 500px;
+	margin-bottom: 50px;
+	font: bold 14px/22px "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#tmpltzr .content #event-output .embedded-event a.region, #tmpltzr .content #event-output .embedded-event a.region:hover {
+	border: none;
+}
+
+
+
+#tmpltzr .content #event-output .embedded-event-top-area {
+	width: 500px;
+	min-height: 55px;
+	display: inline-table;
+	margin-bottom: 20px;
+}
+
+#tmpltzr .content #event-output .embedded-event-date-box {
+	width: 55px;
+	height: 55px;
+	float: left;
+	border: 4px solid black;
+	margin-right: 15px;
+	text-align: center;
+	font-size: 18px;
+}
+
+#tmpltzr .content #event-output .embedded-event-date-box.north-america.filled {
+	background-color:#00D6FF;
+}
+
+#tmpltzr .content #event-output .embedded-event-date-box.latin-america.filled {
+	background-color:#00E652;
+}
+
+#tmpltzr .content #event-output .embedded-event-date-box.south-asia.filled {
+	background-color:#FF9E00;
+}
+
+#tmpltzr .content #event-output .embedded-event-date-box.middle-east.filled {
+	background-color:#FF00A6;
+}
+
+#tmpltzr .content #event-output .embedded-event-date-box.africa.filled {
+	background-color:#008AFF;
+}
+
+#tmpltzr .content #event-output .embedded-event-date-box.europe.filled {
+	background-color:#AD20FF;
+}
+
+#tmpltzr .content #event-output .embedded-event-date-box.asia.filled {
+	background-color:#FF555A;
+}
+
+#tmpltzr .content #event-output .embedded-event-date-box.other.filled {
+	background-color:gray;
+}
+
+#tmpltzr .content #event-output .embedded-event-date-box div {
+	position: relative;
+	top: 7px;
+	line-height: 1.2em;
+	color: #000;
+}
+
+#tmpltzr .content #event-output .embedded-event-title {
+	font-size: 200%;
+	line-height: 1.2em;
+}
+
+#tmpltzr .content #event-output .embedded-event-body-area {
+
+}
+#tmpltzr .content #event-output .embedded-event-description {
+	margin-top: 25px;
+}
+#tmpltzr .content #event-output .embedded-event-description-more {
+	color: red;
+	margin-bottom: 25px;
+}
+
+
+
+
+
+/* end custom event widget styles */
