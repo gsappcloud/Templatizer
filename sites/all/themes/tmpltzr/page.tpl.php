@@ -22,7 +22,7 @@
   <script type="text/javascript" src="/templatizer/sites/all/themes/tmpltzr/js/jquery.scrollTo-1.4.2-min.js"></script>
   <script type="text/javascript" src="/templatizer/sites/all/themes/tmpltzr/js/jquery.jcarousel.min.js"></script>
   
-  
+  <!-- js assets for typekit by Adobe -->
 
 
 
