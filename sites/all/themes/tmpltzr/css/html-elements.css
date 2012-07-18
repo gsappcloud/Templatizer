@@ -73,7 +73,16 @@ h2 {
     font:bold 36px "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	text-transform:uppercase;
 	margin:0 0 30px 0;
+}
 
+#tmpltzr h2 a{
+	text-decoration: none !important;
+	border-bottom: none;
+}
+
+#tmpltzr h2 a:hover {
+	border-bottom: solid 2px;
+	color: black !important;
 }
 
 h3 {
@@ -577,25 +586,6 @@ dl dd {
 
 
 
-#tmpltzr .tmpltzr-title {
-
-	font:bold 36px "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
-
-	text-transform:uppercase;
-
-	margin:0 0 30px 0;
-
-}
-
-#tmpltzr .tmpltzr-title a{
-	text-decoration: none !important;
-	border-bottom: none;
-}
-
-#tmpltzr .tmpltzr-title a:hover {
-	border-bottom: solid 2px;
-	color: black !important;
-}
 
 
 
