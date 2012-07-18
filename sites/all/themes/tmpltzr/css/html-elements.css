@@ -61,55 +61,29 @@ blockquote {
 
 /* HEADINGS */
 
-h1, .front .left_outer h2, .front .right_inner h2, .front .right_outer h2, .front .right_inner #block-block-23 .date-nav {
-
-    font: 10px Arial, Helvetica, sans-serif;
-
-    font-weight:bold;
-
-    text-transform: uppercase;
-
-    color:#fff;
-
-    background-color:#051215;
-
-    margin-top: 0px;
-
-    width: auto;
-
-    padding:6px 0px 6px 10px;
-
+h1 {
+    font: bold 45px "DIN", Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding:0 0 50px;
+    text-transform:uppercase;
 }
 
 h2 {
 
-    font: 10px Arial, Helvetica, sans-serif;
-
-    font-weight:bold;
-
-    text-transform: uppercase;
-
-    color:#051215;
-
-    text-decoration:underline;
-
-    margin: 0px 0px 6px 0px;
-
-    width: auto;
-
-    padding:6px 0px 0px 6px;
+    font:bold 36px "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	text-transform:uppercase;
+	margin:0 0 30px 0;
 
 }
 
 h3 {
 
-    font: bold 45px "DIN", Arial, Helvetica, sans-serif;
-
-    margin: 0;
-
-    padding:0 0 50px;
-
+    font: bold 14px "DIN", Arial, Helvetica, sans-serif;
     text-transform:uppercase;
+    margin: 0 0 15px;
+    padding:0px 0px 0px 0px;
+    
+    
 
 }
 
