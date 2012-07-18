@@ -5,9 +5,45 @@
 <?php } ?>
 
 <div class="title-container">
-	<h3 class="title"><?php print $title; ?></h3>
+	<h1><?php print $title; ?></h1>
 </div>
 
+
+<?php 
+	function applyRegionClass($term){
+		switch($term){
+			case 'Africa':
+				return 'africa';
+				break;
+			case 'North America':
+				return 'north-america';
+				break;
+			case 'Latin America':
+				return 'latin-america';
+				break;
+			case 'Europe':
+				return 'europe';
+				break;
+			case 'Middle East':
+				return 'middle-east';
+				break;
+			case 'South Asia':
+				return 'south-asia';
+				break;
+			case 'Asia':
+				return 'asia';
+				break;
+			case 'Other':
+				return 'other';
+				break;
+			default:
+				return 'none';
+				break;
+			
+		}
+	}
+
+?>
 
 <div id="fixed-header">
 	<div id="program-list">	
@@ -31,7 +67,7 @@
 	    		$terms = taxonomy_get_tree(12); // vid=12 => region
 				if(!empty($terms)) {
         			foreach ($terms as $term){
-            			print '<li><a class="term-index-term">' . $term->name . '</a></li>';
+            			print '<li><a class="term-index-term ' . applyRegionClass($term->name) .'">' . $term->name . '</a></li>';
   		          	}
     	    	}else{
     	    		print '<li>No terms</li>';

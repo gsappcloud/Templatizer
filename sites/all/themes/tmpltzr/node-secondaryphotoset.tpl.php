@@ -17,9 +17,9 @@
   	<?php } ?>
   	
   	<?php if(!empty($node->field_title)){ ?>
-  		<div class="tmpltzr-title">
+  		<h2>
   			<?php print $node->field_title[0]['view']; ?>
-  		</div>
+  		</h2>
   	<?php } ?>
 	
 	<?php if(!empty($node->field_body)){ ?>

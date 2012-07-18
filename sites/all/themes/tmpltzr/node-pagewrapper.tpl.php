@@ -20,7 +20,7 @@
 
 <?php if(!empty($node->field_page_title[0]['view'])){ ?>
 	<div class="title-container">
-		<h3 class="title"><?php print $node->field_page_title[0]['view']; ?></h3>
+		<h1><?php print $node->field_page_title[0]['view']; ?></h1>
 	</div>
 <?php } ?>
 

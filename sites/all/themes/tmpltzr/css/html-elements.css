@@ -926,5 +926,64 @@ dl dd {
 
 #tmpltzr #x-affiliation{
 	margin-top:20px;
+	color:gray;
+}
+
+
+#tmpltzr #fixed-header a.term-index-term {
+	border:none;
+}
+
+#tmpltzr #fixed-header a.term-index-term:hover{
+	border-bottom: 1px solid black;
+	cursor:pointer;
+}
+
+#tmpltzr #fixed-header a.north-america.term-index-term:hover{
+	border-bottom: 1px solid #00D6FF;
+	color:#00D6FF;
+	cursor:pointer;
+}
+
+#tmpltzr #fixed-header a.latin-america.term-index-term:hover{
+	border-bottom: 1px solid #00E652;
+	color:#00E652;
+	cursor:pointer;
+}
+
+#tmpltzr #fixed-header a.south-asia.term-index-term:hover{
+	border-bottom: 1px solid #FF9E00;
+	color:#FF9E00;
+	cursor:pointer;
+}
+
+#tmpltzr #fixed-header a.middle-east.term-index-term:hover{
+	border-bottom: 1px solid #FF00A6;
+	color:#FF00A6;
+	cursor:pointer;
+}
+
+#tmpltzr #fixed-header a.africa.term-index-term:hover{
+	border-bottom: 1px solid #008AFF;
+	color:#008AFF;
+	cursor:pointer;
+}
+
+#tmpltzr #fixed-header a.europe.term-index-term:hover{
+	border-bottom: 1px solid #AD20FF;
+	color:#AD20FF;
+	cursor:pointer;
+}
+
+#tmpltzr #fixed-header a.asia.term-index-term:hover{
+	border-bottom: 1px solid #FF555A;
+	color:#FF555A;
+	cursor:pointer;
+}
+
+#tmpltzr #fixed-header a.other.term-index-term:hover{
+	border-bottom: 1px solid gray;
+	color:gray;
+	cursor:pointer;
 }
 

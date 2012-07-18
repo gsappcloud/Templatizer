@@ -10,9 +10,9 @@
   	<?php } ?>
 	
 	<?php if(!empty($node->field_title_link[0]['view'])){ ?>
-  		<div class="tmpltzr-title">
+  		<h2>
   			<?php print $node->field_title_link[0]['view']; ?>
-  		</div>
+  		</h2>
   	<?php } ?>
   	
 

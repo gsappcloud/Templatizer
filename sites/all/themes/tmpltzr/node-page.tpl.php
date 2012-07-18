@@ -5,7 +5,7 @@
 
     <?php if (!$page): ?>
       <header>
-        <h2><a href="<?php print $node_url ?>" title="<?php print $title ?>"><?php print $title ?></a></h2>
+        <h1><a href="<?php print $node_url ?>" title="<?php print $title ?>"><?php print $title ?></a></h1>
       </header>
 	<?php endif; ?>
 
