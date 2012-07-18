@@ -10,7 +10,16 @@
 	<?php endif; ?>
 
   <div class="content">
-    <?php print 'CONTENT<br/><br/>' .  $content ?>
+  <?php
+		$url = $node->field_json_url[0]['url'];
+		print '<div id="event-output"></div>' .
+			'<script type="text/javascript">' .
+			'gsappFetcher.getEventData("'. $url . '?callback=?","#event-output");' .
+			'</script>';
+  ?>
+  
+  
+  
   </div>
 
   
