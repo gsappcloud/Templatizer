@@ -861,11 +861,11 @@ ul.links li {
     padding: 0;
 }
 li a.active {
-	color: #A6B7C8;
+	color: #00D6FF;
 }
 
 .menu li a:hover{
-	color:white;
+	color:#00D6FF;
 }
 /* Drupal forms */
 /* Wrapper for a form element (or group of form elements) and its label */.form-item,
