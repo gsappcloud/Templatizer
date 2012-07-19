@@ -328,7 +328,7 @@ dl dd {
 
 	display:block;
 
-	padding:0 0 8px 24px !important;
+	padding:0 0 10px 24px !important;
 
 }
 
@@ -959,7 +959,7 @@ dl dd {
 #tmpltzr .content #event-output .embedded-event {
 	width: 500px;
 	margin-bottom: 50px;
-	font: bold 14px/22px "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font: bold 14px/18px "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 #tmpltzr .content #event-output .embedded-event a.region, #tmpltzr .content #event-output .embedded-event a.region:hover {
@@ -979,7 +979,7 @@ dl dd {
 	width: 55px;
 	height: 55px;
 	float: left;
-	border: 4px solid black;
+	border: 3px solid black;
 	margin-right: 15px;
 	text-align: center;
 	font-size: 18px;
