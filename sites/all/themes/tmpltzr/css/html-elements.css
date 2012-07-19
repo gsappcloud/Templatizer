@@ -66,6 +66,7 @@ h1 {
     margin: 0;
     padding:0 0 50px;
     text-transform:uppercase;
+    width:500px;
 }
 
 h2 {
@@ -589,7 +590,7 @@ dl dd {
 
 
 
-#tmpltzr .tmpltzr-primaryhalf .tmpltzr-title, #tmpltzr .tmpltzr-primaryquarter .tmpltzr-title {
+#tmpltzr .tmpltzr-primaryhalf h2, #tmpltzr .tmpltzr-primaryquarter h2 {
 
 	font:bold 14px/21px "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
@@ -601,7 +602,7 @@ dl dd {
 
 
 
-#tmpltzr .tmpltzr-title.large-title {
+#tmpltzr h2.large-title {
 
 	font-size:45px;
 
@@ -699,15 +700,15 @@ dl dd {
 	float:left;
 }
 
-#tmpltzr .none .tmpltzr-secondary, #tmpltzr .grey .tmpltzr-secondary {
+#tmpltzr .none .tmpltzr-secondary, #tmpltzr .none .tmpltzr-secondary, #tmpltzr .other .tmpltzr-secondary, #tmpltzr .none .tmpltzr-secondary {
 	background-color: #efefef;
 }
 
-#tmpltzr .green .tmpltzr-secondary{
+#tmpltzr .latin-america .tmpltzr-secondary{
 	background-color: #e0fcea;
 }
 
-#tmpltzr .pink .tmpltzr-secondary{
+#tmpltzr .middle-east .tmpltzr-secondary{
 	background-color: #ffebf8;
 }
 
@@ -738,7 +739,7 @@ dl dd {
 
 
 
-#tmpltzr .tmpltzr-secondary .tmpltzr-title {
+#tmpltzr .tmpltzr-secondary h2 {
 
 	font:bold 14px "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
