@@ -860,11 +860,9 @@ ul.links li {
     border-bottom: none;
     padding: 0;
 }
-li a.active {
-	color: #00D6FF;
-}
 
-.menu li a:hover{
+
+.menu li a:hover {
 	color:#00D6FF;
 }
 /* Drupal forms */
