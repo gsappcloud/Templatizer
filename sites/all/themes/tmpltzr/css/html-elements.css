@@ -911,7 +911,7 @@ dl dd {
 	border:none;
 }
 
-#tmpltzr #fixed-header a.term-index-term:hover{
+#tmpltzr #fixed-header a.term-index-term:hover, #tmpltzr #fixed-header a.term-index-term.selected{
 	border-bottom: 1px solid black;
 	cursor:pointer;
 }
@@ -1072,6 +1072,10 @@ dl dd {
 }
 #tmpltzr .view-courseblogs .views-row a:hover{
 	border-bottom:1px solid;
+}
+
+#tmpltzr #course-blogs-index-listing .view-courseblogs .views-row a.selected{
+	color:black !important;
 }
 
 

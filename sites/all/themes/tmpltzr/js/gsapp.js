@@ -85,11 +85,13 @@ $(document) .ready(function () {
 			var count = $('.view-content .views-row', this).length;
 			switch($('#three_col_rt #content').css('width')){
 				case "520px":
+					$("#fixed-header").css('width', '500px');
 					var colCount = Math.max(1,Math.floor(count/2));
 					$('.view-content .views-row', this).slice(0, colCount).wrapAll('<div class="col" />');
 					$('.view-content .views-row', this).slice(colCount, count).wrapAll('<div class="col" />');
 					break;
 				case "800px":
+					$("#fixed-header").css('width', '750px');
 					var colCount = Math.max(1,Math.floor(count/3));
 					$('.view-content .views-row', this).slice(0, colCount).wrapAll('<div class="col" />');
 					$('.view-content .views-row', this).slice(colCount, (2*colCount)).wrapAll('<div class="col" />');
@@ -104,15 +106,41 @@ $(document) .ready(function () {
 	
 		$('#semester-list .term-list a.term-index-term').each(function(){
 			$(this).bind('click',function(){
-				console.log('target');
 				var href1 = $(this).attr('href');
 				href1 = "#" + href1;
-				console.log("href1: " + href1);
 				$(window).scrollTo( href1, 200 );
 				return false;
 			});
 		});
 	
+	
+	var unbindProgramCourseBlogIndexFilter = function(link){
+		if(!link){
+			link = $(this);
+		}
+		link.removeClass('selected');
+		var program = link.attr('id');
+		program = '.'+program;
+		$(program).removeClass('selected');
+		link.unbind('click').bind('click', bindProgramCourseBlogIndexFilter);
+		return false;
+	}
+	
+	var bindProgramCourseBlogIndexFilter = function(){
+		$('#program-list .term-list a.term-index-term').each(function(){
+			unbindProgramCourseBlogIndexFilter($(this));
+		});
+		var program = $(this).attr('id');
+		program = '.'+program;
+		$(program).addClass('selected');
+		$(this).addClass('selected');
+		$(this).unbind('click').bind('click', unbindProgramCourseBlogIndexFilter);
+		return false;
+	}
+	
+	$('#program-list .term-list a.term-index-term').each(function(){
+		$(this).bind('click', bindCourseBlogIndexFilter);
+	});
 
 	//scrollCourseBlogsIndex();
 	

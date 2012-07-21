@@ -53,7 +53,7 @@
 	    		$terms = taxonomy_get_tree(10); // vid=10 => program
 				if(!empty($terms)) {
         			foreach ($terms as $term){
-            			print '<li><a class="term-index-term">' . $term->name . '</a></li>';
+            			print '<li><a class="term-index-term" id="' .$term->name. '">' . $term->name . '</a></li>';
   		          	}
     	    	}       
 			?>
@@ -78,25 +78,7 @@
 		<div id="x-affiliation"><span class="x-affiliated">X</span>Studio-X Affiliation</div>
 	</div><!-- #region-list -->
 	
-	<div id="semester-list">	
-		<h4>By Semester:</h4>
-		<ul class="term-list">
-			<?php //list of Programs
-	    		$semesters = taxonomy_node_get_terms_by_vocabulary($node, 14); // vid=14 => Year and Semester
-				if(!empty($semesters)) {
-        			foreach ($semesters as $semester){
-        				$start = strlen($semester->name) - 4;
-						$year = substr($semester->name , $start);
-						$term = substr($semester->name , 0, $start - 1);
-            			print '<li><a class="term-index-term" href="'.$term."-".$year.'">' . $semester->name . '</a></li>';
-  		          	}
-    	    	}else{
-    	    		print '<li>No terms</li>';
-    	    	}    
-			?>
-			
-		</ul><!-- .term-list -->
-	</div><!-- #semester-list -->
+	
 	
 	
 	
