@@ -429,9 +429,44 @@ dl dd {
 	border-bottom: solid 1px;
 }
 
+#tmpltzr .north-america, #tmpltzr .north-america a {
+	color:#00D6FF;
+}
+
+#tmpltzr .latin-america, #tmpltzr .latin-america a {
+	color:#00E652;
+}
+
+#tmpltzr .none {
+
+}
+
+#tmpltzr .south-asia, #tmpltzr .south-asia a {
+	color:#FF9E00;
+}
+
+#tmpltzr .middle-east, #tmpltzr .middle-east a {
+	color:#FF00A6;
+}
+
+#tmpltzr .africa, #tmpltzr .africa a { 
+	color:#008AFF;
+}
+
+#tmpltzr .europe, #tmpltzr .europe a {
+	color:#AD20FF;
+}
+
+#tmpltzr .asia, #tmpltzr .asia a {
+	color:#FF555A;
+}
+
+#tmpltzr .other, #tmpltzr .other a {
+	color:gray;
+}
+
 #tmpltzr a:hover {
 	border-bottom: none;
-	color: #000;
 }
 
 #tmpltzr .view {
@@ -443,44 +478,6 @@ dl dd {
 	display:block;
 	float:left;
 }
-
-#tmpltzr .north-america {
-	color:#00D6FF;
-}
-
-#tmpltzr .latin-america {
-	color:#00E652;
-}
-
-#tmpltzr .none {
-
-}
-
-#tmpltzr .south-asia {
-	color:#FF9E00;
-}
-
-#tmpltzr .middle-east {
-	color:#FF00A6;
-}
-
-#tmpltzr .africa {
-	color:#008AFF;
-}
-
-#tmpltzr .europe {
-	color:#AD20FF;
-}
-
-#tmpltzr .asia {
-	color:#FF555A;
-}
-
-#tmpltzr .other {
-	color:gray;
-}
-
-
 
 /*
 	TMPLTZR Node Primary (full, image, embed, video)
@@ -635,6 +632,7 @@ dl dd {
 	padding:0;
 
 	display:inline-block;
+	width:235px;
 
 }
 
@@ -857,7 +855,7 @@ dl dd {
 
 
 #tmpltzr #fixed-header{
-	width:800px;
+	width:750px;
 	padding-bottom:35px;
 	border-bottom:1px solid black;
 	margin-bottom:45px;
@@ -865,7 +863,6 @@ dl dd {
 
 #tmpltzr #program-list, #tmpltzr #region-list {
 	width:250px;
-	margin-right:23px;
 	display:inline-block;
 	vertical-align: top;
 }
@@ -1041,7 +1038,16 @@ dl dd {
 	margin-bottom: 25px;
 }
 
-
+#tmpltzr .view-courseblogs .views-row{
+	float:none !important;
+	
+}
+#tmpltzr .view-courseblogs .col{
+	width:230px;
+	padding-right:20px;
+	display:inline-block;
+	vertical-align:top;
+}
 
 
 

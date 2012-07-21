@@ -31,7 +31,7 @@ $(document) .ready(function () {
 		}
 	}
 	
-	scrollMenu();
+	//scrollMenu(); //scrolls highest level of .active-trail to the top of the menu
 	
 	/* 
 		Adds a dot to all menu items that link to pages off the site
@@ -66,16 +66,45 @@ $(document) .ready(function () {
 	*/
 	var menuActiveTrailColor = function(){
 		$("#main-menu .active-trail").each(function(){
-			$('a:eq(0)', this).css('color', '#A6B7C8');
+			$('a:eq(0)', this).css('color', '#00D6FF');
 		});
 	}
 	
 	menuActiveTrailColor();
+	
+	
+	
+	
+	/*************************** COURSE BLOGS INDEX ***************************/
+	/*
+		Evenly arranges columns of links to course blogs based on screen width
+	*/
+	var evenColumnsCourseBlogsIndex = function(wrapped){
+		$('.view-courseblogs').each( function(i){ 
+			if(wrapped){ console.log('wrapped'); $('.view-content .views-row', this).unwrap(); }
+			var count = $('.view-content .views-row', this).length;
+			switch($('#three_col_rt #content').css('width')){
+				case "520px":
+					var colCount = Math.max(1,Math.floor(count/2));
+					$('.view-content .views-row', this).slice(0, colCount).wrapAll('<div class="col" />');
+					$('.view-content .views-row', this).slice(colCount, count).wrapAll('<div class="col" />');
+					break;
+				case "800px":
+					var colCount = Math.max(1,Math.floor(count/3));
+					$('.view-content .views-row', this).slice(0, colCount).wrapAll('<div class="col" />');
+					$('.view-content .views-row', this).slice(colCount, (2*colCount)).wrapAll('<div class="col" />');
+					$('.view-content .views-row', this).slice((2*colCount), count).wrapAll('<div class="col" />');
+					break;
+				default:
+					break;
+			}
+		});
+	}
 
 
 	/*************************** RESIZE ***************************/
-
-	var resizeFunc = function(){
+	var resized = false; 
+	var resizeFunc = function(post){
 	
 		resizeMenu(); //resize the height of the menu
 	
@@ -91,6 +120,7 @@ $(document) .ready(function () {
 		if(ww >= 1270){
 			$('#three_col_rt #content').css('width', '800px');
 			if(!$('#tmpltzr .tmpltzr-secondary-float').parent('.views-row').hasClass('views-row-first')){
+				$('#tmpltzr .tmpltzr-secondaryquote').css('width', '200px').css('margin-top', '0');
 				$('#tmpltzr .tmpltzr-secondary-float').parent('.views-row').css('float', 'right');
 				}
 		}else{
@@ -98,8 +128,10 @@ $(document) .ready(function () {
 			//$('#tmpltzr .tmpltzr-secondary').css('float', 'none');
 			//$('#tmpltzr .tmpltzr-primary').css('float', 'none');
 			$('#tmpltzr .tmpltzr-secondary-float').parent('.views-row').css('float', 'left');
-			
+			$('#tmpltzr .tmpltzr-secondaryquote').css('width', '460px').css('margin-top', '-50px');
 		}
+		evenColumnsCourseBlogsIndex(resized); //even out columns in course blog index
+		resized = true; //set to true after the resize function has run once
 	}
 	
 	resizeFunc(); //run the resize function on page load
