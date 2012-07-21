@@ -100,7 +100,32 @@ $(document) .ready(function () {
 			}
 		});
 	}
+	
+	
+		$('#semester-list .term-list a.term-index-term').each(function(){
+			$(this).bind('click',function(){
+				console.log('target');
+				var href1 = $(this).attr('href');
+				href1 = "#" + href1;
+				console.log("href1: " + href1);
+				$(window).scrollTo( href1, 200 );
+				return false;
+			});
+		});
+	
 
+	//scrollCourseBlogsIndex();
+	
+	$(document).scroll(function() {
+		console.log($(document).scrollTop());
+		if($(document).scrollTop() >= 270){
+			$("#fixed-header").addClass('fix-header');
+			$("#course-blogs-index-listing").css('margin-top','395px');
+		}else{
+			$("#fixed-header").removeClass('fix-header');
+			$("#course-blogs-index-listing").css('margin-top','0');
+		}
+	});
 
 	/*************************** RESIZE ***************************/
 	var resized = false; 

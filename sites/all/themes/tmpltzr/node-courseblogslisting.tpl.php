@@ -4,9 +4,9 @@
 	</div>
 <?php } ?>
 
-<div class="title-container">
+<div id="fixed-header">
 	<h1><?php print $title; ?></h1>
-</div>
+
 
 
 <?php 
@@ -45,7 +45,7 @@
 
 ?>
 
-<div id="fixed-header">
+
 	<div id="program-list">	
 		<h4>By Program:</h4>
 		<ul class="term-list">
@@ -82,10 +82,13 @@
 		<h4>By Semester:</h4>
 		<ul class="term-list">
 			<?php //list of Programs
-	    		$terms_semester = taxonomy_node_get_terms_by_vocabulary($node, 14); // vid=14 => Year and Semester
-				if(!empty($terms_semester)) {
-        			foreach ($terms_semester as $term){
-            			print '<li><a class="term-index-term">' . $term->name . '</a></li>';
+	    		$semesters = taxonomy_node_get_terms_by_vocabulary($node, 14); // vid=14 => Year and Semester
+				if(!empty($semesters)) {
+        			foreach ($semesters as $semester){
+        				$start = strlen($semester->name) - 4;
+						$year = substr($semester->name , $start);
+						$term = substr($semester->name , 0, $start - 1);
+            			print '<li><a class="term-index-term" href="'.$term."-".$year.'">' . $semester->name . '</a></li>';
   		          	}
     	    	}else{
     	    		print '<li>No terms</li>';
@@ -110,12 +113,14 @@
 
 	$semesters = taxonomy_node_get_terms_by_vocabulary($node, 14); // vid=14 => Year and Semester
 	foreach ($semesters as $semester){
-		$start = strlen($semester->name) - 4;
-		$year = substr($semester->name , $start);
-		$term = substr($semester->name , 0, $start - 1);
-		
-		print "<h4>".$term." ".$year."</h4>";
-		print views_embed_view('courseblogs', 'page_1', $year, $term);
+		if(!empty($semesters)) {
+			$start = strlen($semester->name) - 4;
+			$year = substr($semester->name , $start);
+			$term = substr($semester->name , 0, $start - 1);
+			
+			print '<h2 id="'.$term."-".$year.'">'.$term." ".$year.'</h2>';
+			print views_embed_view('courseblogs', 'page_1', $year, $term);
+		}
 	}
 	?>
 	
