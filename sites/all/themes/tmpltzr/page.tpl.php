@@ -2,89 +2,109 @@
 <!--[if lt IE 7]> <html class="ie6 ie" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <![endif]-->
 <!--[if IE 7]>    <html class="ie7 ie" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <![endif]-->
 <!--[if IE 8]>    <html class="ie8 ie" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <![endif]-->
-<!--[if gt IE 8]> <!--> <html class="" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <!--<![endif]-->
+<!--[if gt IE 8]> <!--> <html class="" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>" xml:lang="<?php print $language->language; ?>"> <!--<![endif]-->
+
 <head>
-  <?php print $head; ?>
-  <!-- Set the viewport width to device width for mobile -->
-  <meta name="viewport" content="width=device-width" />
-  <title><?php print $head_title; ?></title>
+	<title><?php print $head_title; ?></title>
+	<?php print $head; ?>
+	<!-- Set the viewport width to device width for mobile -->
+	<meta name="viewport" content="width=device-width" />
+	
+	<?php print $styles; ?>
+	<link type="text/css" rel="stylesheet" media="all" href="/templatizer/css/html-elements.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="/templatizer/css/tabs.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="/templatizer/css/gsapp.css" />
+	<link type="text/css" rel="stylesheet" media="print" href="/templatizer/css/print.css" />
+	
+	<!--[if IE]>
+	  <link rel="stylesheet" href="<?php print $includes_dir; ?>/ie.css" type="text/css">
+	<![endif]-->
+	
+	<!--[if IE 6]>
+	  <link rel="stylesheet" href="<?php print $includes_dir; ?>/ie6.css" type="text/css">
+	<![endif]-->
 
-
-  
-  <?php print $styles; ?>
-  <?php print $scripts; ?>
+	<!-- IE Fix for HTML5 Tags -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<?php print $scripts; ?>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
-
+	
 	<!-- js assets for dashboard -->  
-  <script type="text/javascript" src="http://postfog.org/assets/js/fetcher.js"></script>
+	<script type="text/javascript" src="http://postfog.org/assets/js/fetcher.js"></script>
   <script type="text/javascript" src="http://postfog.org/assets/js/jquery.cycle.all.pack.js"></script>
   <script type="text/javascript" src="http://postfog.org/assets/js/jquery.masonry.min.js"></script>
   <script type="text/javascript" src="/templatizer/sites/all/themes/tmpltzr/js/jquery.scrollTo-1.4.2-min.js"></script>
   <script type="text/javascript" src="/templatizer/sites/all/themes/tmpltzr/js/jquery.jcarousel.min.js"></script>
-  
-  <!-- js assets for typekit by Adobe -->
 
-
-
-  
-  
-  <!-- IE Fix for HTML5 Tags -->
-  <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
+	
+	
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script type="text/javascript"> 
+  google.load('search', '1', {language : 'en', style : google.loader.themes.MINIMALIST});
+  google.setOnLoadCallback(function() {
+    var customSearchOptions = {};  var customSearchControl = new google.search.CustomSearchControl(
+      '004033327063740628517:awygqf_dy3q', customSearchOptions);
+    customSearchControl.setResultSetSize(google.search.Search.SMALL_RESULTSET);
+    customSearchControl.draw('cse');
+  }, true);
+</script>
+	
+	<!-- js assets for fonts.com custom font DIN -->
+	
 </head>
 
-<body class="<?php print $body_classes; ?>">
+<body class="<?php print $body_classes;?>">
 
-  <div class="wrapper clearfix">
+	<!-- .wrapper -->
+	<div class="wrapper <?php print (array_intersect(array('Faculty','TA','Student','Director','Alumni'),$user->roles) ? 'faculty' : ''); ?>">
 
-    <header id="header" role="banner" class="clearfix">
-      <?php if ($logo): ?>
-        <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" id="logo">
-          <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
-        </a>
-      <?php endif; ?>
-      
-      <?php print $header; ?>
-      
-      <?php if ($search_box): ?><?php print $search_box ?><?php endif; ?>
-      
-      <img id="searchBar" src="/templatizer/sites/default/files/assets/searchBar.png" />
-      
-    </header> <!-- /#header -->
+		<!-- #menu -->
+		<section id="menu">
+			<header id="header">
+				<a href="<?php print base_path(); ?>" title="<?php print t('Home'); ?>" id="gsapplogo">
+          			<img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
+        		</a>
+			
+				<div id="search-container">
+					<div id="searchbar">
+						<div id="cse" style="width: 100%;">Loading</div>
+					</div>
+				</div>
+				
+				<?php if (!$user->uid): ?>
+					<div id="login"><?php print l("Login", "user/wind"); ?></div>
+				<?php else:?>
+					<div id="login"><?php print l("My Site", "my-site"); ?></div>
+				<?php endif; ?>
+			
+			</header>
+			
+			<nav id="navigation">
+				<?php print $left; ?>
+			</nav><!-- #navigation -->
+  
+		</section><!-- #menu -->
 
-    <section id="content" role="main" class="clearfix">
-    	<div id="main-menu" class="left_outer">
-    		<?php if (!empty($left)): ?>
-        		<?php print $left; ?>
-		    <?php endif; ?>
-    	</div>
-    	<div id="three_col_rt">
-    		<div id="content">
-    			<div id="tmpltzr">
-      				<!-- #content -->
-      				<?php print $content; ?>
-      				<!-- /#content -->
-      			</div>
-    		
-    		</div>
-    </section> <!-- /#main -->
+		<!-- #content -->
+		<section id="content" class="clearfix">
+			<?php if ($tabs): ?><div class="tabs"><?php print $tabs; ?></div><?php endif; ?>
+			<?php print $messages . $help . $header; ?>
+			
+			<div id="tmpltzr">
+				<?php print $content; ?>
+			</div>
+				
+			<!-- Footer -->
+			<footer id="footer">
+				<?php $block_copyr = module_invoke('copyright', 'block', 'view', 7); ?>
+				<div id="footer-inner" class="clearfix"><?php print $footer . $block_copyr['content'] ; ?></div>
+			</footer><!-- /#footer -->
+		</section><!-- /#content -->
+	</div><!-- .wrapper -->
 
-    <?php if (!empty($right)): ?>
-      <aside id="sidebar-right" role="complementary" class="sidebar clearfix">
-        <?php print $right; ?>
-      </aside> <!-- /sidebar-right -->
-    <?php endif; ?>
-
-    <footer id="footer" role="contentinfo" class="clearfix">
-      <?php print $footer_message; ?>
-      <?php if (!empty($footer)): print $footer; endif; ?>
-      <?php print $feed_icons ?>
-    </footer> <!-- /#footer -->
-
-    <?php print $closure ?>
-
-  </div> <!-- /#wrapper -->
+<?php print $closure; ?>
 
 </body>
 </html>
