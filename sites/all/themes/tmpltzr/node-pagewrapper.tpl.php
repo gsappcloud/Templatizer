@@ -17,6 +17,9 @@
         }      
         print '" >';       
 ?>
+	<header id="global-header">
+		<div></div>
+	</header>
 
 <?php if(!empty($node->field_page_title[0]['view'])){ ?>
 	<div class="title-container">

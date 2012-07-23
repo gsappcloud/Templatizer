@@ -461,7 +461,7 @@ dl dd {
 	color:#FF555A;
 }
 
-#tmpltzr .other, #tmpltzr .other a, #tmpltzr a.gray {
+#tmpltzr .other, #tmpltzr .other a{
 	color:gray;
 }
 
@@ -1074,9 +1074,12 @@ dl dd {
 	border-bottom:1px solid;
 }
 
-#tmpltzr #course-blogs-index-listing .view-courseblogs .views-row a.selected{
+#tmpltzr #course-blogs-index-listing .view-courseblogs .views-row a.term-index-term.program{
 	color:black !important;
 }
 
+#tmpltzr .view-courseblogs a.term-index-term.unselected  {
+	color:gray !important;
+}
 
 /* end custom event widget styles */

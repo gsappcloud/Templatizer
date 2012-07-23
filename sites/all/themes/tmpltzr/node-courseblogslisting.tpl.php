@@ -67,7 +67,7 @@
 	    		$terms = taxonomy_get_tree(12); // vid=12 => region
 				if(!empty($terms)) {
         			foreach ($terms as $term){
-            			print '<li><a class="term-index-term ' . applyRegionClass($term->name) .'">' . $term->name . '</a></li>';
+            			print '<li><a class="term-index-term ' . applyRegionClass($term->name) .'" id="'.applyRegionClass($term->name).'">' . $term->name . '</a></li>';
   		          	}
     	    	}else{
     	    		print '<li>No terms</li>';
@@ -92,7 +92,6 @@
 
 <div id="course-blogs-index-listing">
 	<?php
-
 	$semesters = taxonomy_node_get_terms_by_vocabulary($node, 14); // vid=14 => Year and Semester
 	foreach ($semesters as $semester){
 		if(!empty($semesters)) {

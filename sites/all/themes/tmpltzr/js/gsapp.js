@@ -20,13 +20,13 @@ $(document) .ready(function () {
 	
     /*************************** MENU ***************************/
 	var scrollMenu = function(){
-		var target = $('#main-menu ul li.active-trail');
+		var target = $('#menu ul li.active-trail');
 		
-		if($('#main-menu ul li.active-trail').exists()){
-			if($('#main-menu ul li.active-trail li.active-trail').exists()){
-				$('#main-menu').scrollTo( target, 0 );
+		if($('#menu ul li.active-trail').exists()){
+			if($('#menu ul li.active-trail li.active-trail').exists()){
+				$('#menu').scrollTo( target, 0 );
 			}else{
-				$('#main-menu').scrollTo( target, 800, {easing:'linear'} );
+				$('#menu').scrollTo( target, 800, {easing:'linear'} );
 			}
 		}
 	}
@@ -48,7 +48,7 @@ $(document) .ready(function () {
 		});
 	}
 	
-	var menu = $("#main-menu ul.menu");
+	var menu = $("#menu ul.menu");
 	addDotToMenu(menu);
 
 	/*
@@ -58,14 +58,14 @@ $(document) .ready(function () {
 	var resizeMenu = function(){
 		var wh = window.innerHeight;
 		var hh = $("#header").height();
-		$("#main-menu").css('height', wh-hh);
+		$("#menu").css('height', wh-hh);
 	}
 	
 	/*
 		Colors the active section of the menu in Columbia Blue
 	*/
 	var menuActiveTrailColor = function(){
-		$("#main-menu .active-trail").each(function(){
+		$("#menu .active-trail").each(function(){
 			$('a:eq(0)', this).css('color', '#00D6FF');
 		});
 	}
@@ -83,7 +83,7 @@ $(document) .ready(function () {
 		$('.view-courseblogs').each( function(i){ 
 			if(wrapped){ console.log('wrapped'); $('.view-content .views-row', this).unwrap(); }
 			var count = $('.view-content .views-row', this).length;
-			switch($('#three_col_rt #content').css('width')){
+			switch($('.wrapper #content').css('width')){
 				case "520px":
 					$("#fixed-header").css('width', '500px');
 					var colCount = Math.max(1,Math.floor(count/2));
@@ -114,32 +114,58 @@ $(document) .ready(function () {
 		});
 	
 	
-	var unbindProgramCourseBlogIndexFilter = function(link){
-		if(!link){
-			link = $(this);
-		}
+	var unbindRegionCourseBlogIndexFilter = function(){
+		
+		link = $(this);
+		link.removeClass('selected');
+		var region = link.attr('id');
+		region = '.'+region;
+		$(region).addClass('unselected');
+		link.unbind('click').bind('click', bindRegionCourseBlogIndexFilter($(this)) );
+		return false;
+	};
+	
+	var bindRegionCourseBlogIndexFilter = function(){
+		$('.term-list a.term-index-term').removeClass('selected');	
+		$('.view-courseblogs a.term-index-term').addClass('unselected').removeClass("program");
+		var region = $(this).attr('id');
+		region = '.'+region;
+		$(region).removeClass('unselected');
+		$(this).addClass('selected');
+		$(this).unbind('click').bind('click', unbindRegionCourseBlogIndexFilter);
+		console.log('unbound');
+		return false;
+	};
+	
+	var unbindProgramCourseBlogIndexFilter = function(){
+		link = $(this);
 		link.removeClass('selected');
 		var program = link.attr('id');
 		program = '.'+program;
-		$(program).removeClass('selected');
-		link.unbind('click').bind('click', bindProgramCourseBlogIndexFilter);
+		$(program).removeClass('program');
+		link.unbind('click').bind('click', bindProgramCourseBlogIndexFilter );
+		console.log('good');
 		return false;
 	}
 	
 	var bindProgramCourseBlogIndexFilter = function(){
-		$('#program-list .term-list a.term-index-term').each(function(){
-			unbindProgramCourseBlogIndexFilter($(this));
-		});
+		$('.term-list a.term-index-term').removeClass('selected');
+		$('.view-courseblogs a.term-index-term').addClass('unselected').removeClass("program");
+		
 		var program = $(this).attr('id');
 		program = '.'+program;
-		$(program).addClass('selected');
+		$(program).addClass('program');
 		$(this).addClass('selected');
 		$(this).unbind('click').bind('click', unbindProgramCourseBlogIndexFilter);
 		return false;
 	}
 	
+	$('#region-list .term-list a.term-index-term').each(function(){
+		$(this).bind('click', bindRegionCourseBlogIndexFilter);
+	});
+	
 	$('#program-list .term-list a.term-index-term').each(function(){
-		$(this).bind('click', bindCourseBlogIndexFilter);
+		$(this).bind('click', bindProgramCourseBlogIndexFilter);
 	});
 
 	//scrollCourseBlogsIndex();
@@ -171,13 +197,13 @@ $(document) .ready(function () {
 		
 		
 		if(ww >= 1270){
-			$('#three_col_rt #content').css('width', '800px');
+			$('.wrapper #content').css('width', '800px');
 			if(!$('#tmpltzr .tmpltzr-secondary-float').parent('.views-row').hasClass('views-row-first')){
 				$('#tmpltzr .tmpltzr-secondaryquote').css('width', '200px').css('margin-top', '0');
 				$('#tmpltzr .tmpltzr-secondary-float').parent('.views-row').css('float', 'right');
 				}
 		}else{
-			$('#three_col_rt #content').css('width', '520px');
+			$('.wrapper #content').css('width', '520px');
 			//$('#tmpltzr .tmpltzr-secondary').css('float', 'none');
 			//$('#tmpltzr .tmpltzr-primary').css('float', 'none');
 			$('#tmpltzr .tmpltzr-secondary-float').parent('.views-row').css('float', 'left');

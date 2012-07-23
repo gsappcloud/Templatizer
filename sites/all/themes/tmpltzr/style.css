@@ -51,21 +51,6 @@ Equation for font sizing:
  */
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /**
  * Markup free clearing.
  *
@@ -115,7 +100,8 @@ Equation for font sizing:
 #tmpltzr .tmpltzr-edit {
 	display:block;
 	height:20px;
-	width:500px;
+	width:100%;
+	max-width:500px;
 	color:#FF555A;
 	margin:10px 0 15px;
 }

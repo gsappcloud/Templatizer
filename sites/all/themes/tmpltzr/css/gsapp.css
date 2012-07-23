@@ -20,130 +20,37 @@
     background-color:black; /* tct2003 111228 #fff; */
     overflow: hidden;
 }
+
+
+
 #content {
-    width: 100%;
+    margin-left:460px; /* 60px margin from menu */
     background-color:transparent; /* tct2003 111228 #fff; */
 }
-#three_col_lt {
-    width: 723px;
-    float:left;
-}
-#three_col_rt {
-    position:relative;
-    top:0;
-    margin:0 0 0 400px;
-    padding-left:60px;
-    margin-top:0px;
-}
-#two_col_lt, #block-tagadelic-3 {
-    width: 480px;
-    float: left;
-}
-#two_col_lt2 {
-    width: 460px;
-    float: left;
-    overflow:auto;
-}
-#two_col_lt_cnt {
-    width: 470px;
-    float: left;
-    margin-top:10px;
-}
-#two_col_lt_cnt2 {
-    width: 470px;
-    float: left;
-    margin-top:0px;
-}
-#two_col_rt {
-    width: 480px;
-    float: right;
-}
-#two_col_rt2 {
-    width: 460px;
-    float: right;
-    background-color: #ebebeb;
-}
-#main-menu {
+
+
+#menu {
     width: 400px;
     background-color:black; /* tct2003 111228 #fff; */
     height:100%;
-    padding-bottom:190px;
     position:fixed;
     top:170px;
     left:0;
 	overflow: auto;
 }
-#one_col_rt {
-    width: 237px;
-    background-color:transparent; /* tct2003 111228 #fff; */
-    float:right;
+.menu li a:hover {
+	color:#00D6FF;
 }
-#one_col_rt_pgm {
-    width: 237px;
-    background-color:transparent; /* tct2003 111228 #fff; */
-    float:right;
-    margin-top: 10px;
-    line-height:12px;
-}
+
 /* SUB DIVS */
-.container {
-    margin-bottom: 10px;
-    text-transform:uppercase;
-}
-.container2 {
-    margin-bottom: 10px;
-    text-transform:uppercase;
-}
-#tagcontainer, #footer .block .content {
-    margin-bottom: 10px;
-    text-transform:uppercase;
-    padding:0px 10px 6px 10px;
-}
-#container_gray {
-    margin-bottom: 10px;
-    text-transform:uppercase;
-    background-color:#f8f9f9;
-}
-#container_dkgray {
-	margin-bottom: 10px;
-    text-transform:uppercase;
-    background-color:#efefef;
-    height:9em;
-    min-height:9em;
-}
+
 
 #searchBar {
 	margin:20px 0 50px 30px;
 	display:block;
 }
 
-.block-search {
-    display: none;
-    /* was
-    margin-bottom: 10px;
-    text-transform:uppercase;
-    background-color:#efefef;
-    height:9em;
-    min-height:9em;
-    */
-}
-.entryhome {
-    padding: 10px 10px 10px 0px;
-    border-bottom: 1px solid #efefef;
-    line-height:12px;
-    text-transform:none;
-    font-size:11px;
-}
-.entry {
-    line-height:20px;
-    font-size:14px;
-    text-transform:none;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-}
-#comments .entry {
-    font-style: italic;
-}
+
 #footer {
     margin-top: 10px;
     width: auto;
@@ -151,82 +58,14 @@
     clear: both;
     text-align:justify;
 }
-#tags {
-    margin-top:10px;
-    margin-bottom: 0px;
-    padding:0px 0px 0px 10px;
-    font: 10px Arial, Helvetica, sans-serif;
-    text-transform:uppercase;
-}
-.float-entrytags {
-    clear:none;
-}
-#date {
-    font: 18px Arial, Helvetica, sans-serif;
-    font-weight:bold;
-    text-transform: uppercase;
-    color:#000;
-    margin: 0px;
-    width: auto;
-    padding:0px 0px 0px 10px;
-}
-#title, .view-exhibitions .views-field-title, .view-exhibitions .views-field-title .field-content a,
-.node-type-overview-page .right-overview-sidebar .views-field-title a, .front .right_inner #block-block-21 .views-field-title a {
-    font-weight:bold;
-    text-transform: uppercase;
-    color:#000;
-    margin: 0px;
-    width: auto;
-    padding:0px 0px 0px 10px;
-    font-size: 11px;
-}
-#time {
-    font-weight:normal;
-    text-transform: uppercase;
-    color:#000;
-    margin: 0px;
-    width: auto;
-    padding:0px 0px 6px 10px;
-}
-#location {
-    font-weight:normal;
-    text-transform: uppercase;
-    color:#000;
-    margin: 0px;
-    width: auto;
-    padding:0px 0px 0px 10px;
-}
-#date2,.date-display-single, .views-field-field-assign-date-value, .view-exhibitions .views-field-field-date-value .field-content span {
-    font: 18px Arial, Helvetica, sans-serif;
-    font-weight:bold;
-    text-transform: uppercase;
-    color:#000;
-    margin: 0px;
-    width: auto;
-    padding:0px;
-}
-#time2 {
-    font-weight:normal;
-    text-transform: uppercase;
-    color:#000;
-    margin:0px;
-    width: auto;
-    padding:0px 0px 0px 0px;
-}
-#location2 {
-    font-weight:normal;
-    text-transform: uppercase;
-    color:#000;
-    margin:0px 0px 10px 0px;
-    width: auto;
-    padding:0px;
-}
-#scroller {
-    margin-top:10px;
-    margin-bottom:10px;
-}
+
+
 #login {
     text-align:right;
+}
+#login a {
+    display:inline;
+    text-decoration:underline;
 }
 #share {
     margin-top: 2px;
@@ -236,124 +75,17 @@
     color:#68aac1;
     padding:0px 0px 0px 10px;
 }
-#alphabet {
-    padding: 10px 0px 10px 0px;
-    text-align:justify;
-    font-size:10px;
+
+#global-header{
+	display:block;
+	width:100%;
+	height:170px;
 }
-#imgfloater {
-    float:left;
-    margin-right:10px;
-}
+
+
 /* LINKS */
-a.next {
-    text-decoration:none;
-    color:#000;
-    text-transform: uppercase;
-    display:inline;
-}
-a.titleLink,.view-featured-event .views-field-title a,
-.section-profile .views-field-value-3 {
-    font: 24px Georgia, "Times New Roman", Times, serif;
-    font-weight:bold;
-    margin: 0px;
-    color:#051215;
-    text-decoration:underline;
-    text-transform:none;
-    background-color:transparent; /* tct2003 111228 #fff; */
-}
-a.titleLink:hover, .view-featured-event .views-field-title a:hover {
-    text-decoration:underline;
-}
-a.peopleLink {
-    font: 18px Arial, Helvetica, sans-serif;
-    font-weight:bold;
-    line-height: 14px;
-    color:#051215;
-    text-decoration:none;
-    text-transform:none;
-}
-a.peopleLink:hover {
-    text-decoration:underline;
-}
-a.titleLink2, .view-taxonomy-term .views-field-title a, .view-featured-event .views-field-title a, .view-today-events .views-field-title a, .view-calendar-events .views-field-title a,
-.view-events .views-field-title a, .view-upcoming-exhibitions .views-field-title a, .view-work-taxonomy-term .views-field-title a, .view-unpublished .views-field-title a, .view-semesters .views-field-title a, .publication-title {
-    font: 18px Arial, Helvetica, sans-serif;
-    font-weight:bold;
-    text-transform: none;
-    color:#051215;
-    text-decoration: underline;
-    font-size-adjust:none;
-    font-stretch:normal;
-    font-style:normal;
-    font-variant:normal;
-    line-height:normal;
-}
 
 
-a.titleLink2:hover, .views-field-title a:hover {
-    text-decoration:underline;
-}
-a.home:hover {
-    background-color: #fff;
-}
-#header a {
-    padding:30px 0px 6px 24px;
-    display:block;
-}
-#footer a {
-    display:inline;
-}
-#tags a {
-    display:inline;
-}
-#login a {
-    display:inline;
-    text-decoration:underline;
-}
-.entry a {
-    display:inline;
-    text-decoration:underline;
-}
-#inst a,
-.view-work-taxonomy-term .views-field-field-speaker-nid a,
-.section-work .view-taxonomy-term .node #inst a,
-.section-international-workshops .node #inst a,
-.section-imagegallary #inst a,
-.section-imagegallery #inst a,
-.views-field-field-speaker-value a {
-    margin-top:2px;
-    font-size:12px;
-    text-transform:capitalize;
-    text-decoration:none;
-}
-.entrytags a,
-.views-field-tid .field-content a {
-    display:inline;
-    background-color:#d5d5d5;
-    text-decoration:none;
-}
-.entrytags a:hover,
-.views-field-tid .field-content a:hover {
-    background-color:#efefef;
-}
-.entryshare a {
-    color:#68aac1;
-    text-decoration:underline;
-    display: inline;
-}
-.entryshare a:hover {
-    color:#000;
-    background-color:transparent; /* tct2003 111228 #fff; */
-}
-.container2 a {
-    text-decoration:none;
-    color:#68aac1;
-    text-transform: uppercase;
-    font-size: 10px;
-    display:block;
-    font: 10px Arial, Helvetica, sans-serif;
-}
 /* LISTS */
 #footer ul {
     margin: 0px;
@@ -366,156 +98,7 @@ a.home:hover {
     display: inline;
     border-bottom:0px;
 }
-#tags ul {
-    margin: 0px;
-    padding: 0;
-    display: inline;
-}
-#tags ul li {
-    width: 100%;
-    padding: 0px;
-    display: inline;
-    background-color:#d5d5d5;
-}
-#tags ul li:hover {
-    background-color:#efefef;
-}
-.entrytags ul {
-    margin: 0px;
-    padding: 0;
-    display: inline;
-}
-.entrytags ul li {
-    width: 100%;
-    padding: 0px;
-    display: inline;
-    background-color:#d5d5d5;
-}
-.entrytags ul li:hover {
-    background-color:#efefef;
-}
-#alphabet ul {
-    margin: 0px;
-    padding: 0;
-    display: inline;
-}
-#alphabet ul li {
-    width: 100%;
-    padding: 2px;
-    margin: 0px 5px 0px 0px;
-    display: inline;
-}
-#alphabet ul li:hover {
-    background-color:#efefef;
-}
-li.krumo-child:hover {
-    background-color: inherit;
-}
-/* PARAGRAPHS */
-p.gobutton {
-    text-align:right;
-    padding:0px 10px 10px 0px;
-}
-.entryhome p {
-    padding:6px 0px 6px 10px;
-    margin-top:0px;
-}
-.entry p {
-    padding:6px 0px 6px 0px;
-    margin:0px;
-}
-#footer p {
-    padding:6px 0px 6px 0px;
-    margin-top: 6px;
-    clear:both;
-    border-top:1px solid #ebebeb;
-}
-.front #node-6 p {
-    padding: 0;
-    margin: 0;
-}
-/* CALENDAR (TEMP) NOT MINE */
-#block-views-calendar-calendar_block {
-    display:none;
-}
 
-.ec3_ec span {
-    display:none
-}
-#ec3_shadow0 div {
-    width:8px;
-    height:32px;
-}
-#ec3_shadow0 {
-    margin: 0px 0px 0px 0px;
-    padding: 0px 0px 0px 0px;
-    border:none;
-    width:8px;
-    background-repeat:no-repeat;
-    background-position:bottom right;
-    vertical-align:bottom;
-}
-#ec3_shadow1 {
-    margin: 0px 0px 0px 0px;
-    padding: 0px 0px 0px 0px;
-    border:none;
-    height:16px;
-    background-repeat:repeat-x;
-}
-#ec3_shadow2 div {
-    width:8px;
-    height:32px;
-}
-#ec3_shadow2 {
-    margin: 0px 0px 0px 0px;
-    padding: 0px 0px 0px 0px;
-    border:none;
-    width:8px;
-    background-repeat:no-repeat;
-    background-position:bottom left;
-    vertical-align:bottom;
-}
-.ec3_popup {
-    margin: 0px 0px 0px 0px;
-    padding: 0px 0px 0px 0px;
-    width: 239px;
-    position: fixed;
-    z-index:30000;
-}
-.ec3_popup td {
-    padding:0;
-}
-.ec3_popup table {
-    border: solid #666666 1px;
-    background-color: #FFFFFF;
-    font-size:x-small;
-    color: #333333;
-    text-align:left;
-}
-.ec3_popup table td {
-    padding: 5px 5px 5px 5px;
-}
-.ec3_list {
-    width: 100%;
-    background-color: #FF0000;
-    margin: 0;
-    padding: 0;
-    text-align: left;
-}
-.calendar-calendar div.day {
-    display: none;
-}
-.calendar-calendar tbody {
-    border: none;
-}
-.calendar-calendar td {
-    border: none;
-}
-.calendar-calendar .day-view div.calendar {
-    border: none;
-    margin: 0;
-    width: auto;
-}
 /* COURSE TABLE */
 #mytable {
     font: 10px Arial, Helvetica, sans-serif;
@@ -550,31 +133,7 @@ caption {
     text-align: left;
     text-transform: none;
 }
-#nav {
-    float: left;
-    margin-bottom: 10px;
-    width: 750px;
-}
-#subnav {
-    float: left;
-    margin-bottom: 10px;
-    width: 750px;
-}
-#subnav2 {
-    float: left;
-    margin-bottom: 10px;
-    width: auto;
-    background-color:#000;
-    margin-top:-5px;
-}
-#subnav3 {
-    float: left;
-    margin-bottom: 10px;
-    width: 140px;
-    background-color:#000;
-    margin-top:0px;
-    padding:5px;
-}
+
 #mytable th {
     font: bold 11px "arial", helvetica, sans-serif;
     color: #000000;
@@ -619,94 +178,7 @@ caption {
     color: #051215;
 }
 
-#header .block-menu_block li {
-    width: 237px;
-    background-color:transparent; /* tct2003 111228 #fff; */
-    float:left;
-    margin: 0 6px 0 0;
-    padding: 0;
-    display: block;
-    border-bottom: none;
-}
-#header .block-menu_block li.last {
-    margin: 0;
-}
-.block-menu_block.first h2,
-#block-block-3 h2,
-#block-block-2 h2,
-.block-tagadelic h2.title,
-.block-bid-76 h2 a,
-.block-bid-75 h2 a {
-    font: 10px Arial, Helvetica, sans-serif;
-    height:12px;
-    font-weight:bold;
-    text-transform: uppercase;
-    color:#fff;
-    background-color:#051215;
-    margin-top: 0px;
-    width: auto;
-    padding:6px 0px 6px 10px;
-    text-decoration: none;
-}
-.block-bid-76 h2 a,
-.block-bid-75 h2 a {
-    padding:0px;
-}
-.block-bid-76 h2 a:hover,
-.block-bid-75 h2 a:hover {
-	background-color:#EFEFEF;
-	color:#000;
-}
-.left_outer .block-menu_block li {
-    display: block;
-    margin: 0;
-}
-#block-block-3,
-#block-block-2 {
-	display:none;
-	/* was
-    float:left;
-    width:473px;
-    padding:3px;
-    */
-}
-/* Tags */
-.block-tagadelic .more-link {
-    display: none;
-}
 
-a.tagadelic.level5 {
-    font-size: 1em;
-    color: #000;
-}
-
-a.tagadelic.level4 {
-    font-size: 1em;
-    color: #282828;
-}
-a.tagadelic.level3 {
-    font-size: 1em;
-    color: #5D5D5D;
-}
-a.tagadelic.level2 {
-    font-size: 1em;
-    color: #878787;
-}
-a.tagadelic.level1 {
-    font-size: 1em;
-    color: #DEDEDE;
-}
-#breadcrumb-container {
-    font-weight: bold;
-    font-size: 12px;
-}
-.breadcrumb {
-/* The path to the current page in the form of a list of links */
-    display: inline;
-}
-.breadcrumb a {
-    color: #006666;
-}
 /* Important messages (status, warning, and error) for the user */div.messages {
     margin: 0 1em 5px 1em;
     border: 2px solid #ccc;
@@ -774,78 +246,11 @@ div.error, tr.error {
     top: 0px;
     right: 2px;
 }
-#content .pager li {
-    border-bottom: none;
-    display: none;
-    padding: 0;
-}
-#content .pager li.pager-next,
-#content .pager li.pager-previous {
-    display: inline;
-    padding:5px;
-    margin: 0;
-}
-.item-list .pager {
-    text-align:left;
-}
-#content .pager li a {
-    padding: 0;
-    font-weight: normal;
-}
+
 /* "New" or "Updated" marker for content that is new or updated for the current user */.marker {
     color: #c00;
 }
-/* Taxonomy links, node links, comment links */ul.links {
-    margin: 0;
-    padding: 0;
-}
-ul.links.inline {
-    display: inline;
-}
-ul.links li {
-    display: inline;
-    list-style-type: none;
-    padding: 0;
-    margin-right: 0.5em;
-    border-bottom: none;
-}
-/* Comments */
-/* Wrapper for all comments */#comments {
-    margin: 1em 0;
-}
-.box h2,
-#comments-title {
-    font: 18px Georgia, "Times New Roman", Times, serif;
-    font-weight:bold;
-    margin: 0px;
-    padding:0px 0px 0px 0px;
-    font-style:normal;
-    text-decoration:none;
-    text-transform:none;
-}
-.box .form-item,
-.box .form-item label {
-    display: none;
-}
-.box fieldset .form-item {
-    display: block;
-}
-.box #edit-comment-wrapper {
-    display: block;
-}
-/* "New" marker for comments that are new for the current user */.new {
-    color:#768096;
-    font-weight:bold;
-    letter-spacing:1px;
-}
-/* Wrapper for comment links. See also the ul.links declaration in the node section above. */.comment div.links {
-    margin: 0.5em 0 0;
-}
-/* Blocks */
-.block {
-    margin-bottom: 1em;
-    position:relative;
-}
+
 /* Miscellaneous Drupal styles */
 /* Errors that are separate from div.messages status messages (see above.) */.error {
     color: #c00;
@@ -862,9 +267,7 @@ ul.links li {
 }
 
 
-.menu li a:hover {
-	color:#00D6FF;
-}
+
 /* Drupal forms */
 /* Wrapper for a form element (or group of form elements) and its label */.form-item,
 .form-checkboxes,
@@ -899,9 +302,7 @@ ul.links li {
     padding: 0;
     font-size: 0.9em;
 }
-/* Zen's theme settings CSS -- safe to ignore. */.section-admin #div-zen-breadcrumb {
-    margin-top: 1em;
-}
+
 /* Clear floats solution: http://www.positioniseverything.net/easyclearing.html */
 .clearfix:after {
     content: ".";
@@ -1092,149 +493,8 @@ div.view div.views-admin-links li a:hover {
 #views-ui-edit-view-form {
     margin: 1em 10em;
 }
-/* News and events */
-.section-news-events #two_col_rt h3.title {
-    display:none;
-}
-.section-news-events #two_col_rt #content {
-    display:none;
-}
-.node-type-overview-page .overview-page-side-block,
-.section-news-events .right_outer .block {
-    background-color:#F8F9F9;
-    text-transform:uppercase;
-}
-.section-news-events #block-views-today_events-block_1 h2,
-.section-news-events #block-block-5 h2 {
-    font-family:Georgia,"Times New Roman",Times,serif;
-    font-size:24px;
-    font-size-adjust:none;
-    font-stretch:normal;
-    font-style:normal;
-    font-variant:normal;
-    font-weight:bold;
-    line-height:normal;
-    margin:0px;
-    padding:0px 0px 10px;
-    text-decoration:none;
-    text-transform:none;
-}
-.section-news-events #block-views-today_events-block_1 h2.title {
-    -x-system-font:none;
-    font-family:Georgia,"Times New Roman",Times,serif;
-    font-size:24px;
-    font-size-adjust:none;
-    font-stretch:normal;
-    font-style:normal;
-    font-variant:normal;
-    font-weight:bold;
-    line-height:normal;
-    margin:0;
-    padding:0 0 10px;
-    text-decoration:none;
-    text-transform:none;
-}
-.section-calendar .view-content,
-.section-news-events #two_col_rt .block-views .view-content,
-.section-news-events #two_col_rt .block-block .view-content {
-    line-height:18px;
-    font-size:12px;
-    text-transform:none;
-    margin-bottom: 0px;
-    padding-bottom: 0px;
-}
-.section-calendar .view-calendar .view-content {
-    line-height:normal;
-}
-.section-news-events .view-featured-event .view-content {
-    border-bottom:1px solid #EFEFEF;
-}
-.section-news-events .view-today-events .view-content .views-row-even,
-.section-news-events .view-today-events .view-content .views-row-odd,
-.section-calendar .view-calendar-events .view-content .views-row-even,
-.section-calendar .view-calendar-events .view-content .views-row-odd {
-    border-bottom:1px solid #EFEFEF;
-    padding-bottom:10px;
-    margin-bottom:10px;
-}
-.node-type-overview-page .right-overview-sidebar .view .item-list ul li,
-.section-news-events .right_outer .item-list ul li,
-.page-event-archive .left_outer .block-bid-98 .item-list ul li {
-    list-style-image:none;
-    list-style-position:outside;
-    list-style-type:none;
-    width:auto;
-    padding:2px 0 2px 6px;
-    margin:0;
-    border-bottom:1px solid #EFEFEF;
-    padding:2px 0 2px 8px;
-    width:auto;
-}
-.node-type-overview-page .right-overview-sidebar .view .item-list ul li:hover,
-.section-news-events .right_outer .item-list ul li:hover {
-    background-color:#EFEFEF;
-}
-.node-type-overview-page .right-overview-sidebar .view .item-list ul li a:hover,
-.section-news-events .right_outer .item-list ul li a:hover {
-    background-color:#EFEFEF;
-}
-.node-type-overview-page .right-overview-sidebar .view .item-list ul li a,
-.section-news-events .right_outer .item-list ul li a {
-    -x-system-font:none;
-    color:#000000;
-    display:block;
-    font-family:Arial,Helvetica,sans-serif;
-    font-size:10px;
-    font-size-adjust:none;
-    font-stretch:normal;
-    font-style:normal;
-    font-variant:normal;
-    font-weight:normal;
-    line-height:normal;
-    text-decoration:none;
-    text-transform:uppercase;
-}
-.node-type-overview-page .right-overview-sidebar .view .item-list ul li a:hover,
-.section-news-events .right_outer .item-list ul li a:hover {
-    background-color:#EFEFEF;
-}
-.section-work .view-display-id-block_3, .section-work .view-display-id-block_2 {
-    clear:both;
-}
-.section-work .view-work-taxonomy-term .view-content, .section-work .view-taxonomy-term .node-teaser,
-.section-tags .view-taxonomy-term .node-type-work_page, .section-work .view-work-taxonomy-term .view-content .views-row-odd,
-.section-work .view-work-taxonomy-term .view-content .views-row-even, .section-work .view-taxonomy-term .view-content .views-row-odd,
-.section-work .view-taxonomy-term .view-content .views-row-even,
-.section-international-workshops .view-international-workshops .view-content .views-row-odd,
-.section-international-workshops .view-international-workshops .view-content .views-row-even {
-    clear:both;
-    margin-top:10px;
-}
-.section-news-events .view-featured-event .views-field-field-assign-image-value,
-.section-news-events .view-featured-event .views-field-field-image-fid,
-.section-work .node-teaser .views-field-field-image,
-.section-work .views-field-field-image-fid,
-.section-work .views-field-field-image,
-.section-international-workshops .views-field-field-image,
-.view-person-nodes .views-field-field-image,
-.section-taxonomy .views-field-field-image {
-    float:left;
-    margin-right:10px;
-}
-.section-tags .node-type-work_page .views-field-field-image,
-.section-tags .node-type-aggregation_item .field-field-image,
-.section-tags .node-type-aggregation_item .field-field-speaker {
-    display:none;
-}
-.section-tags .node-type-aggregation_item .field-field-date .date-display-single {
-    font-size:12px;
-    font-weight:normal;
-}
-.section-news-events .view-featured-event .views-field-field-assign-image-value img {
-    max-width:217px;
-/* IE Image max-width */
-    width: expression(this.width > 217 ? 217: true);
-}
+
+
 .views-field-edit-node,
 .views-field-field-edit-in-sundial-value,
 .field-field-edit-in-sundial {
@@ -1250,95 +510,7 @@ div.view div.views-admin-links li a:hover {
     color:#CC0000;
     text-decoration:underline;
 }
-.section-tags div.date-display-single {
-    margin-bottom:6px;
-}
-.date-display-start,
-.date-display-separator,
-.date-display-end {
-    font-size:12px;
-    font-weight:normal;
-    margin:0;
-    padding:0;
-}
-.section-calendar br.line-break {
-    padding:0;
-    margin:0;
-}
-.field-field-location,
-.views-field-field-location-value {
-    color:#000000;
-    font-weight:normal;
-    margin:0;
-    padding:0;
-    text-transform:uppercase;
-    width:auto;
-    margin-bottom:10px;
-}
-.views-field-field-location-value p {
-    margin-top:0px;
-}
-.views-field-tid {
-    -x-system-font:none;
-    font-family:Arial,Helvetica,sans-serif;
-    font-size:10px;
-    font-size-adjust:none;
-    font-stretch:normal;
-    font-style:normal;
-    font-variant:normal;
-    font-weight:normal;
-    line-height:normal;
-    margin-bottom:0;
-    margin-top:10px;
-    padding:0;
-    text-transform:uppercase;
-    clear:both;
-}
-/* Event node page */
-#block-views-exhibitions-block_1 div.content,
-#block-block-8 div.content {
-    padding:0 5px 5px 5px;
-}
-.view-exhibitions .views-field-field-image-fid {
-    margin-top:10px;
-    margin-bottom:10px;
-}
-.view-exhibitions .views-field-title {
-    margin:0;
-    padding:0;
-}
-.view-exhibitions .views-field-title .field-content a {
-    margin:0;
-    padding:0;
-}
-.view-exhibitions .views-field-field-location-value {
-    margin-top:8px;
-}
-.view-exhibitions .views-field-field-image {
-    padding-top:2px;
-}
-.view-exhibitions .views-field-field-image img {
-    max-width:217px;
-/* IE Image max-width */
-    width: expression(this.width > 217 ? 217: true);
-}
-.view-exhibitions .views-field-field-teaser {
-    text-transform:none;
-}
-.view-today-events br.line-break,
-.view-exhibitions .line-break {
-    display:none;
-    padding:0;
-    margin:0;
-}
-.view-today-events .date-display-single,
-.view-calendar-events .date-display-single {
-    font-size:12px;
-}
-.section-news-events #node-11 .content,
-.section-news-events #node-11 .links {
-    display: none;
-}
+
 /* Event node css */
 .node-type-event #three_col_rt {
     color:#051215;
@@ -2282,13 +1454,12 @@ margin-top:2px;
 	display:none;
 }
 
-#logo-container {
-	float: left;
-	display: block;
-	height: 70px;
-	width: 483px;
-	margin-top: 5px;
+#gsapplogo{
+	display:block;
+	margin:20px 0 20px 20px;
 }
+
+
 #search-container {
 	float: left;
 	width: 453px;
