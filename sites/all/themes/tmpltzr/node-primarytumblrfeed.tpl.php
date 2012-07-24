@@ -21,24 +21,23 @@
 <div id="tumblr-results">
 	&nbsp;</div>
 <script type="text/javascript">
-	<?php if(!empty($node->field_tumblr_post_count[0]['view'])){ 
-		print 'gsappFetcher.setTumblrPosts('.$node->field_tumblr_post_count[0]['view'].');';
-	} else {
-		print 'gsappFetcher.setTumblrPosts(10);';
-	} ?>
-	
-	<?php
-	try{
-		 if(!empty($node->field_tumblr_feed_url[0]['view'])){ 
-		 	print 'gsappFetcher.getTumblr("'.field_feed_url[0]['view']).'");';
-		 }else{
-		 	throw new Exception('Invalid Tumblr feed URL');
-		 }
-	}catch (Exception $e){
-	
-	}
-	
-  gsappFetcher.getTumblr("http://workflowsp12.tumblr.com/");
+	<?php 
+		if(!empty($node->field_tumblr_post_count[0]['view'])){ 
+			print 'gsappFetcher.setTumblrPosts('.$node->field_tumblr_post_count[0]['view'].');';
+		} else {
+			print 'gsappFetcher.setTumblrPosts(10);';
+		}
+		
+		try{
+			 if(!empty($node->field_feed_url[0]['view'])){ 
+				print 'gsappFetcher.getTumblr("'.$node->field_feed_url[0]['view'].'");';
+			 }else{
+				throw new Exception('Invalid Tumblr feed URL');
+			 }
+		}catch (Exception $e){
+			echo 'Caught exception: ',  $e->getMessage(), "\n";
+		}
+	?>
 </script>
 	
 	

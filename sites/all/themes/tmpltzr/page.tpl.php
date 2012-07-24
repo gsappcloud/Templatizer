@@ -38,18 +38,7 @@
   <script type="text/javascript" src="/templatizer/sites/all/themes/tmpltzr/js/jquery.scrollTo-1.4.2-min.js"></script>
   <script type="text/javascript" src="/templatizer/sites/all/themes/tmpltzr/js/jquery.jcarousel.min.js"></script>
 
-	
-	
-<script src="http://www.google.com/jsapi" type="text/javascript"></script>
-<script type="text/javascript"> 
-  google.load('search', '1', {language : 'en', style : google.loader.themes.MINIMALIST});
-  google.setOnLoadCallback(function() {
-    var customSearchOptions = {};  var customSearchControl = new google.search.CustomSearchControl(
-      '004033327063740628517:awygqf_dy3q', customSearchOptions);
-    customSearchControl.setResultSetSize(google.search.Search.SMALL_RESULTSET);
-    customSearchControl.draw('cse');
-  }, true);
-</script>
+
 	
 	<!-- js assets for fonts.com custom font DIN -->
 	
@@ -67,18 +56,19 @@
           			<img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
         		</a>
 			
-				<div id="search-container">
-					<div id="searchbar">
-						<div id="cse" style="width: 100%;">Loading</div>
-					</div>
+				<div id="search-login-container">
+					<form id="search" method="get" action="search/" class="clearfix">
+						<input id="q" name="q" type="text">
+						<input id="search-button" type="image" src="http://www.experimentsinmotion.com/images/search.png">
+					</form>
+					
+					<?php if (!$user->uid): ?>
+						<div id="login"><?php print l("Login", "user/wind"); ?></div>
+					<?php else:?>
+						<div id="login"><?php print l("My Site", "my-site"); ?></div>
+					<?php endif; ?>
 				</div>
-				
-				<?php if (!$user->uid): ?>
-					<div id="login"><?php print l("Login", "user/wind"); ?></div>
-				<?php else:?>
-					<div id="login"><?php print l("My Site", "my-site"); ?></div>
-				<?php endif; ?>
-			
+
 			</header>
 			
 			<nav id="navigation">
