@@ -11,12 +11,6 @@
   <div id="node-<?php print $node->nid; ?>" class="tmpltzr-module tmpltzr-primary tmpltzr-primarytumblrfeed node<?php if ($sticky) { print ' sticky'; } ?><?php if (!$status) { print ' node-unpublished'; } ?><?php if ($color) { print ' '.$color; } ?> clearfix">
 	<a id="<?php print $node->title; ?>" name="<?php print $node->title; ?>" class="anchorhash"></a>
 <?php } ?>
-	
-	<?php if(!empty($node->field_image[0]['view'])){ ?>
-  		<div class="tmpltzr-image">
-  			<?php print $node->field_image[0]['view']; ?>
-  		</div>
-  	<?php } ?>
 
 <div id="tumblr-results" class="tumblr-results-wrapper">
 	&nbsp;</div>
@@ -40,6 +34,11 @@
 	?>
 </script>
 	
+<?php if(!empty($node->field_feed_url[0]['view'])){ ?>
+	<div class="tumblr-blog-url">
+		<?php print '<a href="'.$node->field_feed_url[0]['view'].'" target="_blank">Click for more updates</a>'; ?>
+	</div>
+<?php } ?>	
 	
 
 <?php if ($user->uid) { ?>
