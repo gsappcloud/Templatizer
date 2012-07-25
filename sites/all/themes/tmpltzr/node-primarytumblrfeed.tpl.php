@@ -18,7 +18,7 @@
   		</div>
   	<?php } ?>
 
-<div id="tumblr-results">
+<div id="tumblr-results" class="tumblr-results-wrapper">
 	&nbsp;</div>
 <script type="text/javascript">
 	<?php 
