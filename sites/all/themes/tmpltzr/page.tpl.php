@@ -41,6 +41,7 @@
 
 	
 	<!-- js assets for fonts.com custom font DIN -->
+	<script type="text/javascript" src="http://fast.fonts.com/jsapi/83f34eca-2e88-4bbf-b358-062ac880084c.js"></script>
 	
 </head>
 
