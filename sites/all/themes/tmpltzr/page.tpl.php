@@ -203,6 +203,7 @@ if ($is_mobile === TRUE) {
 			
 			<div id="tmpltzr">
 				<?php print $content; ?>
+				<div id="right-sidebar"></div>
 			</div>
 				
 			<!-- Footer -->
