@@ -43,11 +43,11 @@ if ($is_mobile === TRUE) {
 	<meta name="viewport" content="width=device-width" />
 	<?php print $styles; ?>
 	
-	<link type="text/css" rel="stylesheet" media="all" href="/templatizer/css/html-elements.css" />
-	<link type="text/css" rel="stylesheet" media="all" href="/templatizer/css/tabs.css" />
-	<link type="text/css" rel="stylesheet" media="all" href="/templatizer/css/gsapp.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="/templatizer/sites/all/themes/tmpltzr/css/html-elements.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="/templatizer/sites/all/themes/tmpltzr/css/tabs.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="/templatizer/sites/all/themes/tmpltzr/css/gsapp.css" />
 	
-	<link type="text/css" rel="stylesheet" media="print" href="/templatizer/css/print.css" />
+	<link type="text/css" rel="stylesheet" media="print" href="/templatizer/sites/all/themes/tmpltzr/css/print.css" />
 	
 	<!--[if IE]>
 	  <link rel="stylesheet" href="<?php print $includes_dir; ?>/ie.css" type="text/css">
@@ -63,7 +63,7 @@ if ($is_mobile === TRUE) {
 	<![endif]-->
 	
 	
-	<link type="text/css" rel="stylesheet" media="print" href="/templatizer/css/mobile-specific.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="/templatizer/sites/all/themes/tmpltzr/css/mobile-specific.css" />
 	
 	
 	<?php print $scripts; ?>
@@ -76,23 +76,89 @@ if ($is_mobile === TRUE) {
   <script type="text/javascript" src="http://postfog.org/assets/js/jquery.masonry.min.js"></script>
   <script type="text/javascript" src="/templatizer/sites/all/themes/tmpltzr/js/jquery.scrollTo-1.4.2-min.js"></script>
   <script type="text/javascript" src="/templatizer/sites/all/themes/tmpltzr/js/jquery.jcarousel.min.js"></script>
+  
+  
+  <!-- mobile NOT WORKING must be some cache insanity-->
+	<script type="text/javascript" src="/templatizer/sites/all/themes/tmpltzr/js/mobile.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$('body').css('color', 'red');
+	
+	
+	
+	$('#mobile-switch-bar').click(function() {
+	
+	});
+	
+	
+	$('#about-deans').click(function() {
+			alert('click about');
+	});
+});
+	</script>
 
 	<!-- js assets for fonts.com custom font DIN -->
 	<script type="text/javascript" src="http://fast.fonts.com/jsapi/83f34eca-2e88-4bbf-b358-062ac880084c.js"></script>
+	
+	<style>
+
+/** 640 x 960 */
+
+#mobile-wrapper {
+	width: 640px;
+	min-height: 960px
+	background-color: black;
+}
+
+#mobile-menu {
+	width: 500px;
+	border: 1px solid black;
+	float: left;
+	background-color: yellow;
+	height: 2000px;
+}
+
+#mobile-switch-bar {
+	float: right;
+	background-color: blue;
+	width: 100px;
+	height: 2000px;
+	
+}
+
+#mobile-content {
+	position: absolute;
+	left: -2000px;
+	height: 2000px;
+	width: 600px;
+	background-color: green;
+	
+}
+	</style>
 </head>
 <body class="<?php print $body_classes;?>">
 
 <div id="mobile-wrapper">
 	<div id="mobile-menu">
-		MENU HERE
+		MENU HERE<br/>
+		(non option)<br/>
+		(non option)<br/>
+		(non option)<br/>
+		<a href="#" id="about-deans">ABOUT PAGE</a><br/>
+		(non option)<br/>
+		(non option)<br/>
+		(non option)<br/>
+		<a href="#" id="programs-page">PROGRAMS PAGE</a><br/>
+		(non option)<br/>
+		(non option)<br/>
+		(non option)<br/>
 	</div>
 	<div id="mobile-switch-bar">
-	SWITCH
+&lt;<br/>&lt;<br/>&lt;<br/>&lt;<br/>&lt;<br/>&lt;<br/>&lt;<br/>&lt;<br/>
 	</div>
 	<div id="mobile-content">
-		<?php
-			print $content;
-		?>
+		<?php print $content; ?>
 	</div>
 </div>
 
@@ -129,10 +195,12 @@ if ($is_mobile === TRUE) {
 	<meta name="viewport" content="width=device-width" />
 	
 	<?php print $styles; ?>
-	<link type="text/css" rel="stylesheet" media="all" href="/templatizer/css/html-elements.css" />
-	<link type="text/css" rel="stylesheet" media="all" href="/templatizer/css/tabs.css" />
-	<link type="text/css" rel="stylesheet" media="all" href="/templatizer/css/gsapp.css" />
-	<link type="text/css" rel="stylesheet" media="print" href="/templatizer/css/print.css" />
+		<link type="text/css" rel="stylesheet" media="all" href="/templatizer/sites/all/themes/tmpltzr/css/html-elements.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="/templatizer/sites/all/themes/tmpltzr/css/tabs.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="/templatizer/sites/all/themes/tmpltzr/css/gsapp.css" />
+	
+	<link type="text/css" rel="stylesheet" media="print" href="/templatizer/sites/all/themes/tmpltzr/css/print.css" />
+	
 	
 	<!--[if IE]>
 	  <link rel="stylesheet" href="<?php print $includes_dir; ?>/ie.css" type="text/css">
