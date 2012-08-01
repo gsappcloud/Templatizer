@@ -9,7 +9,7 @@ body {
 
     padding: 0;
 
-    font: bold 14px/18px "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font: 14px/18px "DIN Next W02 Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
     color: #051215;
 
@@ -62,7 +62,7 @@ blockquote {
 /* HEADINGS */
 
 h1 {
-    font: bold 45px "DIN", Arial, Helvetica, sans-serif;
+    font: 45px "DIN Next W02 Bold", Arial, Helvetica, sans-serif;
     margin: 0;
     padding:0 0 50px;
     text-transform:uppercase;
@@ -71,7 +71,7 @@ h1 {
 
 h2 {
 
-    font:bold 36px "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font: 36px "DIN Next W02 Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	text-transform:uppercase;
 	margin:0 0 30px 0;
 }
@@ -88,7 +88,7 @@ h2 {
 
 h3 {
 
-    font: bold 14px "DIN", Arial, Helvetica, sans-serif;
+    font: 14px "DIN Next W02 Bold", Arial, Helvetica, sans-serif;
     text-transform:uppercase;
     margin: 0 0 15px;
     padding:0px 0px 0px 0px;
@@ -99,7 +99,7 @@ h3 {
 
 h4 {
 
-    font: bold 14px "DIN", Arial, Helvetica, sans-serif;
+    font: 14px "DIN Next W02 Bold", Arial, Helvetica, sans-serif;
     text-transform:uppercase;
     margin: 0 0 15px;
     padding:0px 0px 0px 0px;
@@ -107,7 +107,7 @@ h4 {
 }
 
 h5 {
-	font: bold 14px "DIN", Arial, Helvetica, sans-serif;
+	font: 14px "DIN Next W02 Bold", Arial, Helvetica, sans-serif;
     text-transform:uppercase;
     margin: 0 0 15px;
     padding:0px 0px 0px 0px;
@@ -324,7 +324,7 @@ dl dd {
 
     text-transform: uppercase;
 
-	font: bold 28px "DIN", Arial, Helvetica, sans-serif;
+	font: 28px "DIN Next W02 Bold", Arial, Helvetica, sans-serif;
 
 	display:block;
 
@@ -356,7 +356,7 @@ dl dd {
 
 .menu .expanded.active-trail .menu li a {
 
-	font: bold 18px "DIN", Arial, Helvetica, sans-serif;
+	font: 18px "DIN Next W02 Bold", Arial, Helvetica, sans-serif;
 
 }
 
@@ -590,7 +590,7 @@ dl dd {
 
 #tmpltzr .tmpltzr-primaryhalf h2, #tmpltzr .tmpltzr-primaryquarter h2 {
 
-	font:bold 14px/21px "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font: 14px/21px "DIN Next W02 Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 	text-transform:uppercase;
 
@@ -649,7 +649,7 @@ dl dd {
 
 
 #tmpltzr .tmpltzr-body {
-	font: bold 14px/18px "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font: 14px/18px "DIN Next W02 Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	padding:0 !important;
 }
 
@@ -718,7 +718,7 @@ dl dd {
 
 	display:block;
 
-	font: bold 24px/28.8px "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font: 24px/28.8px "DIN Next W02 Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 }
 
@@ -740,7 +740,7 @@ dl dd {
 
 #tmpltzr .tmpltzr-secondary h2 {
 
-	font:bold 14px "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font: 14px "DIN Next W02 Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 	text-transform:uppercase;
 
@@ -773,7 +773,7 @@ dl dd {
 
 
 #tmpltzr .tumblr-post-date {
-	font:bold 14px/18px "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font: 14px/18px "DIN Next W02 Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	text-transform:uppercase;
 	margin-bottom: 4px;
 }
@@ -783,7 +783,7 @@ dl dd {
 }
 
 #tmpltzr .embed-tumblr-conversation-speaker {
-	font:bold 14px/18px "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font: 14px/18px "DIN Next W02 Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	text-transform:uppercase;
 }
 #tmpltzr .embed-tumblr-conversation-segment {
@@ -1018,7 +1018,7 @@ dl dd {
 #tmpltzr .content #event-output .embedded-event {
 	width: 500px;
 	margin-bottom: 50px;
-	font: bold 14px/18px "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font: 14px/18px "DIN Next W02 Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 #tmpltzr .content #event-output .embedded-event a.region, #tmpltzr .content #event-output .embedded-event a.region:hover {
