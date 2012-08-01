@@ -478,6 +478,7 @@ dl dd {
 #tmpltzr .views-row {
 	display:block;
 	float:left;
+	
 }
 
 /*
@@ -1130,10 +1131,12 @@ dl dd {
 }
 
 #tmpltzr #main {
+	width:540px;
 	float:left;
 }
 
 #tmpltzr #right-sidebar {
+	width:260px;
 	float:right;
 }
 
