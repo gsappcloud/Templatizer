@@ -1,0 +1,12 @@
+/** 
+ * mobile specific styles, only used when mobile browser detected
+ *
+ * jlh2199
+ * 8/1/2012
+ */
+
+
+body {
+	background-color: green !important;
+
+}
