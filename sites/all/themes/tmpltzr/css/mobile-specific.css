@@ -4,3 +4,100 @@
  * jlh2199
  * 8/1/2012
  */
+ 
+#mobile-wrapper {
+	width: 640px;
+	min-height: 960px;
+	background-color: #333;
+}
+
+#mobile-header {
+	height: 130px;
+	width: 100%;
+	clear: both;
+	background-color: #000;
+	color: #fff;
+	border-bottom: 2px solid white;
+}
+
+.mobile-header-item {
+	height: 130px;
+	float: left;
+}
+
+#gsapp-logo {
+	width: 260px;
+	padding-top: 46px;
+}
+
+#gsapp-news {
+	width: 127px;
+	padding-top: 26px;
+	float: left;
+}
+
+#gsapp-search {
+	width: 82px;
+	padding-top: 40px;
+	float: left;
+}
+
+#gsapp-login {
+	float: left;
+	padding-top: 54px;
+	padding-left: 40px;
+	height: 47px;
+}
+#gsapp-login a {
+	font-family: courier new, monospace;
+	font-weight: bold;
+	color: #fff;
+}
+
+#mobile-menu {
+	width: 570px;
+	float: left;
+	position:absolute;
+	background-color: black;
+	color: white;
+	text-align: left;
+}
+
+#mobile-switch-bar {
+	position: absolute;
+	top: 132px;
+	left: 570px;
+	width: 70px;
+	height: 1000px;
+	background-color: #fff;
+	z-index: 999;
+	padding-top:300px;
+}
+
+#mobile-switch-bar div {
+	width: 26px;
+	margin-left: 20px;
+}
+
+#mobile-content {
+	position: absolute;
+	left: -2000px;
+	width: 500px;
+	background-color: yellow;
+	border: 5px solid red;
+	
+} 
+
+/* menu */
+#mobile-menu ul li {
+	list-style: none;
+	padding-bottom:10px;
+}
+
+#mobile-menu ul li a {
+	color: #999;
+	font-size: 28px;
+	text-decoration: none;
+}
+
+
