@@ -7,9 +7,9 @@ stylesheets[all][] = dashboard-widgets.css
 
 ; moving custom css files away from cuit server and storing locally
 ; in /sites/all/themes/tmpltzr/css
-stylesheets[all][] = css/html-elements.css
-stylesheets[all][] = css/tabs.css
-stylesheets[all][] = css/gsapp.css
+; stylesheets[all][] = css/html-elements.css
+; stylesheets[all][] = css/tabs.css
+; stylesheets[all][] = css/gsapp.css
 
 
 regions[left] = Left sidebar

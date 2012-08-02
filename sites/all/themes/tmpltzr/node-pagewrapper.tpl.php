@@ -5,6 +5,8 @@
 <?php } ?>
 
 
+
+
 <?php //wrapper div with Page Wrapper color code based on color-code taxonomy
 	print '<div class="';
     $terms = taxonomy_node_get_terms_by_vocabulary($node, 9); // vid=9 => color-code
@@ -27,7 +29,7 @@
 	</div>
 <?php } ?>
 
-
+	<div id="main">
 	<?php
 	/*
 		Use the "Page" view to pull in all the modules associated with this page
@@ -36,6 +38,8 @@
 		$display_id = 'page_1';
 		print views_embed_view($viewName, $display_id, $node->nid);
 	?>
+	</div>
+	<div id="right-sidebar"></div>
 
 	<footer id="page-wrapper-footer">
 		<div id="gsapp-url">

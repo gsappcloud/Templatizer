@@ -8,7 +8,7 @@
 ?>
 
 <?php if (!$page) { ?>
-  <div id="node-<?php print $node->nid; ?>" class="tmpltzr-module tmpltzr-primary tmpltzr-primarytumblrfeed node<?php if ($sticky) { print ' sticky'; } ?><?php if (!$status) { print ' node-unpublished'; } ?><?php if ($color) { print ' '.$color; } ?> clearfix">
+  <div id="node-<?php print $node->nid; ?>" class="tmpltzr-module tmpltzr-module-500 tmpltzr-primary tmpltzr-primaryfull node<?php if ($sticky) { print ' sticky'; } ?><?php if (!$status) { print ' node-unpublished'; } ?><?php if ($color) { print ' '.$color; } ?> clearfix">
 	<a id="<?php print $node->title; ?>" name="<?php print $node->title; ?>" class="anchorhash"></a>
 <?php } ?>
 	
@@ -17,29 +17,25 @@
   			<?php print $node->field_image[0]['view']; ?>
   		</div>
   	<?php } ?>
+	
+	<?php if(!empty($node->field_title_link[0]['view'])){ ?>
+  		<h2>
+  			<?php print $node->field_title_link[0]['view']; ?>
+  		</h2>
+  	<?php } ?>
+  	
 
-<div id="tumblr-results">
-	&nbsp;</div>
-<script type="text/javascript">
-	<?php if(!empty($node->field_tumblr_post_count[0]['view'])){ 
-		print 'gsappFetcher.setTumblrPosts('.$node->field_tumblr_post_count[0]['view'].');';
-	} else {
-		print 'gsappFetcher.setTumblrPosts(10);';
-	} ?>
-	
-	<?php
-	try{
-		 if(!empty($node->field_tumblr_feed_url[0]['view'])){ 
-		 	print 'gsappFetcher.getTumblr("'.field_feed_url[0]['view']).'");';
-		 }else{
-		 	throw new Exception('Invalid Tumblr feed URL');
-		 }
-	}catch (Exception $e){
-	
-	}
-	
-  gsappFetcher.getTumblr("http://workflowsp12.tumblr.com/");
-</script>
+  	<?php if(!empty($node->field_subtitle[0]['view'])){ ?>
+  		<div class="tmpltzr-subtitle">
+  			<?php print $node->field_subtitle[0]['view']; ?>
+  		</div>
+  	<?php } ?>
+  	
+  	<?php if(!empty($node->field_body[0]['view'])){ ?>
+  		<div class="tmpltzr-body">
+  			<?php print $node->field_body[0]['view']; ?>
+  		</div>
+  	<?php } ?>
 	
 	
 

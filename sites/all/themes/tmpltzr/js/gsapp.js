@@ -1,4 +1,19 @@
-$(document) .ready(function () {
+function BuildWall(){
+	var $container = $('#tmpltzr #main .view .view-content');
+	$container.imagesLoaded( function(){
+		$container.masonry({
+			itemSelector: '.views-row',
+			columnWidth: 240,
+			isAnimated: false,
+			gutterWidth: 20,
+			isFitWidth: true,
+		});
+	});
+}
+
+$(document).ready(function () {
+	gsappFetcher.start();
+
 	/*************************** UTILITIES ***************************/
 	jQuery.fn.exists = function(){return this.length>0;}
 	
@@ -17,7 +32,11 @@ $(document) .ready(function () {
     		});
 		});
     }
+    
+    /*************************** MASONRY ***************************/
 	
+	  
+	  
     /*************************** MENU ***************************/
 	var scrollMenu = function(){
 		var target = $('#menu ul li.active-trail');
@@ -71,9 +90,6 @@ $(document) .ready(function () {
 	}
 	
 	menuActiveTrailColor();
-	
-	
-	
 	
 	/*************************** COURSE BLOGS INDEX ***************************/
 	/*
@@ -171,7 +187,6 @@ $(document) .ready(function () {
 	//scrollCourseBlogsIndex();
 	
 	$(document).scroll(function() {
-		console.log($(document).scrollTop());
 		if($(document).scrollTop() >= 270){
 			$("#fixed-header").addClass('fix-header');
 			$("#course-blogs-index-listing").css('margin-top','395px');
@@ -180,40 +195,58 @@ $(document) .ready(function () {
 			$("#course-blogs-index-listing").css('margin-top','0');
 		}
 	});
-
+	
 	/*************************** RESIZE ***************************/
 	var resized = false; 
 	var resizeFunc = function(post){
 	
 		resizeMenu(); //resize the height of the menu
-	
+		//$('#tmpltzr .tmpltzr-primaryquarter').parent('.views-row').wrapAll('<div class="tmpltzr-primaryquarter-container" />');
+		
 		var ww = window.innerWidth;
-		$('#tmpltzr .tmpltzr-primaryquarter').parent('.views-row').wrapAll('<div class="tmpltzr-primaryquarter-container" />');
-		
-		
 		if(ww >= 1270){
 			$('.wrapper #content').css('width', '800px');
-			if(!$('#tmpltzr .tmpltzr-secondary-float').parent('.views-row').hasClass('views-row-first')){
-				//$('#tmpltzr .tmpltzr-secondaryquote').css('width', '200px').css('margin-top', '0');
-				$('#tmpltzr .tmpltzr-secondary-float').parent('.views-row').css('float', 'right');
+			
+			var id ='';
+			$('#tmpltzr #main .view .views-row').each(function(i){
+				if($('.tmpltzr-secondary-float', this).length != 0){
+					id = $('.tmpltzr-secondary-float', this).attr('id');
+					console.log('id: ' + id);
+					$(this).addClass(id).addClass('empty');
+					$('#tmpltzr #right-sidebar').append($('.tmpltzr-secondary-float', this));
+					
 				}
+			});					
 		}else{
 			$('.wrapper #content').css('width', '520px');
-			//$('#tmpltzr .tmpltzr-secondary').css('float', 'none');
-			//$('#tmpltzr .tmpltzr-primary').css('float', 'none');
-			$('#tmpltzr .tmpltzr-secondary-float').parent('.views-row').css('float', 'left');
-			//$('#tmpltzr .tmpltzr-secondaryquote').css('width', '460px').css('margin-top', '-50px');
+			
+			var insertClass = '';
+			$('#tmpltzr #right-sidebar .tmpltzr-secondary-float').each(function(){
+				insertClass = '#tmpltzr #main .view .views-row.' + $(this).attr('id');
+				
+				$(insertClass).append($(this)).removeClass('empty');
+			});			
 		}
+		if(resized){ BuildWall(); }
 		evenColumnsCourseBlogsIndex(resized); //even out columns in course blog index
 		resized = true; //set to true after the resize function has run once
 	}
 	
+	
+	/*************************** STARTUP FUNCTIONS ***************************/
+	
+	
 	resizeFunc(); //run the resize function on page load
 	$(window).resize(resizeFunc); //bind the resize function to the page
 	
+	//setTimeout(BuildWall,5000);
 	
+
 	
-	/*************************** LAYOUT ***************************/
-	
-   
+});
+
+
+$(window).load(function(){
+	setTimeout(BuildWall,100);
+	setTimeout(BuildWall,500);
 });
