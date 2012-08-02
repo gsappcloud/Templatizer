@@ -1,5 +1,18 @@
+function BuildWall(){
+	var $container = $('#tmpltzr #main .view .view-content');
+	$container.imagesLoaded( function(){
+		$container.masonry({
+			itemSelector: '.views-row',
+			columnWidth: 240,
+			isAnimated: false,
+			gutterWidth: 20,
+			isFitWidth: true,
+		});
+	});
+}
+
 $(document).ready(function () {
-	//gsappFetcher.start();
+	gsappFetcher.start();
 
 	/*************************** UTILITIES ***************************/
 	jQuery.fn.exists = function(){return this.length>0;}
@@ -21,30 +34,8 @@ $(document).ready(function () {
     }
     
     /*************************** MASONRY ***************************/
-	var BuildWall = function(){
-		var $container = $('#tmpltzr #main .view .view-content');
-		$container.imagesLoaded( function(){
-			$container.masonry({
-				itemSelector: '.views-row',
-				columnWidth: 240,
-				isAnimated: true,
-				gutterWidth: 20,
-				isFitWidth: true,
-			});
-		});
-	}
-	  
-	var setMasonryBrickWidths = function(){
-		$('#tmpltzr #main .view .view-content .views-row').each(function(){
-			if($(this).children('.node').hasClass('tmpltzr-module-500')){
-				$(this).css('width', '500px');
-			}else{
-				$(this).css('width', '240px');
-			}
-		});
-	}  
 	
-	setMasonryBrickWidths();
+	  
 	  
     /*************************** MENU ***************************/
 	var scrollMenu = function(){
@@ -221,8 +212,9 @@ $(document).ready(function () {
 				if($('.tmpltzr-secondary-float', this).length != 0){
 					id = $('.tmpltzr-secondary-float', this).attr('id');
 					console.log('id: ' + id);
-					$(this).addClass(id);
+					$(this).addClass(id).addClass('empty');
 					$('#tmpltzr #right-sidebar').append($('.tmpltzr-secondary-float', this));
+					
 				}
 			});					
 		}else{
@@ -231,11 +223,11 @@ $(document).ready(function () {
 			var insertClass = '';
 			$('#tmpltzr #right-sidebar .tmpltzr-secondary-float').each(function(){
 				insertClass = '#tmpltzr #main .view .views-row.' + $(this).attr('id');
-				console.log('insertClass: ' + insertClass);
-				$(insertClass).append($(this));
+				
+				$(insertClass).append($(this)).removeClass('empty');
 			});			
 		}
-		BuildWall();
+		if(resized){ BuildWall(); }
 		evenColumnsCourseBlogsIndex(resized); //even out columns in course blog index
 		resized = true; //set to true after the resize function has run once
 	}
@@ -247,8 +239,14 @@ $(document).ready(function () {
 	resizeFunc(); //run the resize function on page load
 	$(window).resize(resizeFunc); //bind the resize function to the page
 	
-	
+	//setTimeout(BuildWall,5000);
 	
 
 	
+});
+
+
+$(window).load(function(){
+	setTimeout(BuildWall,100);
+	setTimeout(BuildWall,500);
 });

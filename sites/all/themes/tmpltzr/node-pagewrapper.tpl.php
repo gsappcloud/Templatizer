@@ -5,6 +5,8 @@
 <?php } ?>
 
 
+
+
 <?php //wrapper div with Page Wrapper color code based on color-code taxonomy
 	print '<div class="';
     $terms = taxonomy_node_get_terms_by_vocabulary($node, 9); // vid=9 => color-code
