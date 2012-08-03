@@ -828,6 +828,7 @@ dl dd {
 
 #tmpltzr .tmpltzr-tags, #tmpltzr .embedded-tumblr-permalink {
 	padding-top:10px;
+	font: 11px/14px "Courier New", Courier, Verdana, sans-serif;
 }
 
 #tmpltzr .embedded-tumblr .tmpltzr-image-small{
@@ -848,6 +849,13 @@ dl dd {
 	float:left;
 }
 
+#tmpltzr .embedded-tumblr .link h2 a{
+	border-bottom:1px solid black;
+}
+
+#tmpltzr .embedded-tumblr .link h2 a:hover{
+	border-bottom:none;
+}
 
 /******************** PHOTOSET WITH JCAROUSEL ********************/
 
