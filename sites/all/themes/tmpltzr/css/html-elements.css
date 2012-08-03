@@ -1196,3 +1196,11 @@ dl dd {
 
 /* end custom event widget styles */
 
+
+/* TMPLTZR COURSE */
+#tmpltzr tmpltzr-primarycourse .tmpltzr-course-code, #tmpltzr tmpltzr-primarycourse .tmpltzr-course-instructor {
+	font: 11px/14px "Courier New", Courier, Verdana, sans-serif;
+}
+
+
+
