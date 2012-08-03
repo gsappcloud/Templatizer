@@ -226,7 +226,7 @@ if ($is_mobile === TRUE) { ?>
 	
 </head>
 
-<body class="<?php print $body_classes;?>">
+<body class="<?php if($is_mobile === TRUE) { print 'mobile '; }?><?php print $body_classes;?>">
 
 	<!-- .wrapper -->
 	<div class="wrapper <?php print (array_intersect(array('Faculty','TA','Student','Director','Alumni'),$user->roles) ? 'faculty' : ''); ?>">
@@ -241,7 +241,7 @@ if ($is_mobile === TRUE) { ?>
 				<div id="search-login-container">
 					<form id="search" method="get" action="search/" class="clearfix">
 						<input id="q" name="q" type="text">
-						<input id="search-button" type="image" src="http://www.experimentsinmotion.com/images/search.png">
+						<input id="search-button" type="image" src="/templatizer/sites/all/themes/tmpltzr/assets/search.png">
 					</form>
 					
 					<?php if (!$user->uid): ?>

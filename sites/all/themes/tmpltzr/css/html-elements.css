@@ -828,6 +828,7 @@ dl dd {
 
 #tmpltzr .tmpltzr-tags, #tmpltzr .embedded-tumblr-permalink {
 	padding-top:10px;
+	font: 11px/14px "Courier New", Courier, Verdana, sans-serif;
 }
 
 #tmpltzr .embedded-tumblr .tmpltzr-image-small{
@@ -848,6 +849,13 @@ dl dd {
 	float:left;
 }
 
+#tmpltzr .embedded-tumblr .link h2 a{
+	border-bottom:1px solid black;
+}
+
+#tmpltzr .embedded-tumblr .link h2 a:hover{
+	border-bottom:none;
+}
 
 /******************** PHOTOSET WITH JCAROUSEL ********************/
 
@@ -919,8 +927,8 @@ dl dd {
 }
 
 #tmpltzr .tmpltzr-primary .jcarousel-list {
-	height:350px;
-	line-height:350px;
+	height:333px;
+	line-height:333px;
 	text-align:center;
 }
 
@@ -942,6 +950,7 @@ dl dd {
 	display: block;
 	vertical-align:middle;
 	display:inline;
+	margin-top: -3px;
 }
 
 /* COURSE BLOG INDEX PAGE */

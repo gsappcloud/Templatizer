@@ -12,6 +12,12 @@
 	<a id="<?php print $node->title; ?>" name="<?php print $node->title; ?>" class="anchorhash"></a>
 <?php } ?>
 
+	<?php if(!empty($node->field_title[0]['view'])){ ?>
+  		<h2>
+  			<?php print $node->field_title[0]['view']; ?>
+  		</h2>
+  	<?php } ?>
+
 <div id="tumblr-results" class="tumblr-results-wrapper">
 	&nbsp;</div>
 <script type="text/javascript">
