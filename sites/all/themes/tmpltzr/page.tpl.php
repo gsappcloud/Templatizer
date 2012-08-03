@@ -249,6 +249,19 @@ if ($is_mobile === TRUE) { ?>
 	<!-- js assets for fonts.com custom font DIN -->
 	<script type="text/javascript" src="http://fast.fonts.com/jsapi/83f34eca-2e88-4bbf-b358-062ac880084c.js"></script>
 	
+	<!-- js google custom search -->
+<script>
+  (function() {
+    var cx = '003393102229092046768:tizniokxcsq';
+    var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
+    gcse.src = (document.location.protocol == 'https' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+	
+	
+
 </head>
 
 <body class="<?php if($is_mobile === TRUE) { print 'mobile '; }?><?php print $body_classes;?>">
@@ -289,15 +302,15 @@ function gsapp_customsearch(&$form_state) {
 }
 
 function gsapp_customsearch_submit($form, &$form_state) {
-	$xyz = $form_state['values']['searchterm'];
-	$form_state['redirect'] = array('/search-results2/', 'searchterm=' . $xyz);
-	//	drupal_set_message(print_r($xyz, true));
-	//	drupal_set_message(t('Your form has been saved'));
+	$search_term = $form_state['values']['searchterm'];
+	$form_state['redirect'] = array(
+		'/search-results2/', 
+		'searchterm=' . $search_term);
 }
 
 print '<pre style="background-color: white">';
-$f = drupal_get_form('gsapp_customsearch');
-print $f;
+$search_form = drupal_get_form('gsapp_customsearch');
+print $search_form;
 print '</pre>';
 
 ?>
