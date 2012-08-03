@@ -278,16 +278,6 @@ if ($is_mobile === TRUE) { ?>
 			
 				<div id="search-login-container">
 <?php
-				
-				
-				/* old form
-				
-					<form id="search" method="get" action="/templatizer/node/1307" class="clearfix">
-						<input id="q" name="q" type="text">
-						<input id="search-button" type="image" src="/templatizer/sites/all/themes/tmpltzr/assets/search.png">
-					</form>
-					
-					*/
 					
 function gsapp_customsearch(&$form_state) {
 	$form['searchterm'] = array(
@@ -300,6 +290,8 @@ function gsapp_customsearch(&$form_state) {
   $form['submit'] = array('#type' => 'submit', '#value' => t('Search'));
   return $form;
 }
+
+
 
 function gsapp_customsearch_submit($form, &$form_state) {
 	$search_term = $form_state['values']['searchterm'];
