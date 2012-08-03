@@ -1,6 +1,15 @@
 /** 
  * mobile specific styles, only used when mobile browser detected
  *
+ 
+ or embed
+ 
+ <link rel="stylesheet" media="all" href="/static/css/base.min.css" />
+<link rel="stylesheet" media="only screen and (max-width: 800px)" 
+  href="/static/css/mobile.min.css" />
+  
+  
+ 
  * jlh2199
  * 8/1/2012
  */
@@ -75,6 +84,8 @@
 }
 
 #mobile-switch-bar div {
+
+
 	width: 26px;
 	margin-left: 20px;
 }
@@ -94,10 +105,15 @@
 	padding-bottom:10px;
 }
 
+#mobile-menu ul li.child {
+	display: none;
+}
+
 #mobile-menu ul li a {
 	color: #999;
 	font-size: 28px;
 	text-decoration: none;
+	text-transform: uppercase;
 }
 
 

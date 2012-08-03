@@ -96,32 +96,57 @@ if ($is_mobile === TRUE) { ?>
 	</div>
 	<div id="mobile-menu">
 	<?php
-	
-	function print_children($item, $level = 0) {
-				
-		if ($item['link']['has_children'] > 0) {
+	global $previous_depth;
+	$previous_depth = 1;
 
-			print $item['link']['title'] . '<br/>';
-			
-			foreach($item['below'] as $k=>$v) {
-				print_children($v, $level++);
+	function print_children($item) {
+		global $previous_depth;
+		if ($item['link']['depth'] > $previous_depth) {
+			print '<ul>';
+		} elseif ($item['link']['depth'] < $previous_depth) {
+			$levels = $previous_depth - $item['link']['depth'];
+			for ($x = 0; $x < $levels; $x++) {
+				print '</ul></li>';
 			}
+		}
+		if ($item['link']['has_children'] > 0) {
+			if ($item['link']['depth'] != 1) {
+				print '<li class="menu-level-' . $item['link']['depth'] .
+				' children child"><a href="' . $item['link']['link_path'] . '">' . 
+				$item['link']['title'] . '</a>';
+			} else {
+				print '<li class="menu-level-' . $item['link']['depth'] .
+				' children"><a href="' . $item['link']['link_path'] . '">' . 
+				$item['link']['title'] . '</a>';
 
+}
+		
+			$previous_depth = $item['link']['depth'];
+			foreach($item['below'] as $k=>$v) {
+				print_children($v, $level);
+			}
 		} else {
-			print $level . '- ' . $item['link']['title'] . '<br/>';
-			// go back up
-			$level--;
+		
+					if ($item['link']['depth'] != 1) {
+			print '<li class="menu-level-' . $item['link']['depth'] . ' child">' . 
+				'<a href="' . $item['link']['link_path'] . '">' . 
+				$item['link']['title'] . '</a>';
 			
+			} else {
+			
+						print '<li class="menu-level-' . $item['link']['depth'] . '">' . 
+				'<a href="' . $item['link']['link_path'] . '">' . 
+				$item['link']['title'] . '</a>';
 
+}
+		
+	
+			$previous_depth = $item['link']['depth'];
 		}	
 	}
 
-
-
-
 	$pl = menu_tree_all_data('primary-links');
 	print '<ul>';
-	
 	
 	
 
