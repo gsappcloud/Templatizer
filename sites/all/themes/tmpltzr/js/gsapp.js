@@ -33,9 +33,25 @@ $(document).ready(function () {
 		});
     }
     
-    /*************************** MASONRY ***************************/
+    /*************************** NON-MOBILE FRIENDLY EMBEDDED CONTENT ***************************/
+	var convertFlashEmbedsToLinks = function(){
+		if($('.tmpltzr-primaryvideo object').length > 0){
+			$('.tmpltzr-primaryvideo object').each(function(){
+				if($(this).attr('type') == "application/x-shockwave-flash"){
+					$(this).parents('.views-row').remove();
+				}
+			});	
+		}
+	}	
 	
-	  
+	/* if viewing the stock site on a mobile device, like an iPad or other tablet,
+	   this function will remove any non-mobile friendly embeds, like the flickr
+	   image set flash-based <object>
+	*/
+	if($('body').hasClass('mobile')){
+		convertFlashEmbedsToLinks();
+	}
+	
 	  
     /*************************** MENU ***************************/
 	var scrollMenu = function(){

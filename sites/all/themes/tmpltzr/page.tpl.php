@@ -226,7 +226,7 @@ if ($is_mobile === TRUE) { ?>
 	
 </head>
 
-<body class="<?php print $body_classes;?>">
+<body class="<?php if($is_mobile === TRUE) { print 'mobile '; }?><?php print $body_classes;?>">
 
 	<!-- .wrapper -->
 	<div class="wrapper <?php print (array_intersect(array('Faculty','TA','Student','Director','Alumni'),$user->roles) ? 'faculty' : ''); ?>">
