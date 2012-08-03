@@ -33,6 +33,19 @@ $(document).ready(function () {
 		});
     }
     
+    
+    var setMasonryBrickWidths = function(){	
+		$('#tmpltzr #main .view .view-content .views-row').each(function(){
+			if($(this).children('.node').hasClass('tmpltzr-module-500')){
+				$(this).css('width', '500px');
+			}else{
+				$(this).css('width', '240px');
+			}
+		});
+	 }  
+	
+	setMasonryBrickWidths();
+    
     /*************************** NON-MOBILE FRIENDLY EMBEDDED CONTENT ***************************/
 	var convertFlashEmbedsToLinks = function(){
 		if($('.tmpltzr-primaryvideo object').length > 0){
