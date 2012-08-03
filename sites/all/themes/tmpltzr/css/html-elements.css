@@ -950,6 +950,7 @@ dl dd {
 	display: block;
 	vertical-align:middle;
 	display:inline;
+	margin-top: -3px;
 }
 
 /* COURSE BLOG INDEX PAGE */
