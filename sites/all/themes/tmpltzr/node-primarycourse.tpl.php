@@ -31,7 +31,7 @@
 
   	<?php if(!empty($node->field_course_points[0]['view'])){ ?>
   		<div class="tmpltzr-course-points">
-  			<?php print $node->field_course_points[0]['view']; ?>
+  			<?php print $node->field_course_points[0]['view']. ' Points'; ?>
   		</div>
   	<?php } ?>
   	

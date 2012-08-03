@@ -1,23 +1,22 @@
 <?php if ($user->uid) { ?>
 	<div class="tmpltzr-edit">
-		<a href="http://postfog.org/templatizer/node/<?php print $node->nid; ?>/edit" title="<?php print $node_url; ?>">EDIT THIS PAGE</a>
+		<a href="http://postfog.org/templatizer/node/<?php print $node->nid; ?>/edit" title="<?php print $node_url; ?>">EDIT THE SECTION BELOW</a>
 	</div>
 <?php } ?>
 
 
 
 
-<?php //wrapper div with Page Wrapper color code based on color-code taxonomy
-	print '<div class="';
+<?php 
+	$color = array();
     $terms = taxonomy_node_get_terms_by_vocabulary($node, 9); // vid=9 => color-code
 		if(!empty($terms)) {
         	foreach ($terms as $term){
-            	print $term->name;
+            	$color[] = $term->name;
             }
         } else {
-            print 'none';
-        }      
-        print '" >';       
+            $color[] = 'none';
+        }          
 ?>
 
 
@@ -44,7 +43,7 @@
 
 
 <?php if (!$page) { ?>
-  <div id="node-<?php print $node->nid; ?>" class="tmpltzr-module tmpltzr-module-500 tmpltzr-primary tmpltzr-courselisting node<?php if ($sticky) { print ' sticky'; } ?><?php if (!$status) { print ' node-unpublished'; } ?><?php if ($color) { print ' '.$color; } ?> clearfix">
+  <div id="node-<?php print $node->nid; ?>" class="tmpltzr-module tmpltzr-module-500 tmpltzr-primary tmpltzr-courselisting node<?php if ($sticky) { print ' sticky'; } ?><?php if (!$status) { print ' node-unpublished'; } ?><?php if ($color[0]) { print ' '.$color[0]; } ?> clearfix">
 	<a id="<?php print $node->title; ?>" name="<?php print $node->title; ?>" class="anchorhash"></a>
 <?php } ?>
 
