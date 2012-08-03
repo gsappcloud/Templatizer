@@ -111,14 +111,12 @@ if ($is_mobile === TRUE) { ?>
 		}
 		if ($item['link']['has_children'] > 0) {
 			if ($item['link']['depth'] != 1) {
-			print '<li class="menu-level-' . $item['link']['depth'] . ' children child">' . 
-				'<a href="' . $item['link']['link_path'] . '">' . 
+				print '<li class="menu-level-' . $item['link']['depth'] .
+				' children child"><a href="' . $item['link']['link_path'] . '">' . 
 				$item['link']['title'] . '</a>';
-			
 			} else {
-			
-						print '<li class="menu-level-' . $item['link']['depth'] . ' children">' . 
-				'<a href="' . $item['link']['link_path'] . '">' . 
+				print '<li class="menu-level-' . $item['link']['depth'] .
+				' children"><a href="' . $item['link']['link_path'] . '">' . 
 				$item['link']['title'] . '</a>';
 
 }

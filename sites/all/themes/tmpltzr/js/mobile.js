@@ -10,6 +10,8 @@ $(document).ready(function() {
 		console.log(this);
 		
 		
+		
+		
 		// show children
 		$("ul li" , $(this)).show(300);
 		
