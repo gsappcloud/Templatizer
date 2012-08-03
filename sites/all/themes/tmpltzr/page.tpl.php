@@ -96,23 +96,34 @@ if ($is_mobile === TRUE) { ?>
 	</div>
 	<div id="mobile-menu">
 	<?php
-	
+	$previous_depth = 0;
+
 	function print_children($item, $level = 0) {
-				
+		global $previous_depth;
+		
 		if ($item['link']['has_children'] > 0) {
-			$level++;
-			print $item['link']['title'] . '<br/>';
+		
+			print '<li class="menu-level-' . $level . ' children">' . 
+				'<a href="' . $item['link']['link_path'] . '">' . 
+				$item['link']['title'] . '</a></li>';
+
+		if ($item['depth'] > $previous_depth) {
 			
+		}
+				
+				
+			$level++;
 			foreach($item['below'] as $k=>$v) {
 				print_children($v, $level);
 			}
 
 		} else {
-			print $level . '- ' . $item['link']['title'] . '<br/>';
-			// go back up
-			$level = 0;
+		
+			print '<li class="menu-level-' . $level . '">' . 
+				'<a href="' . $item['link']['link_path'] . '">' . 
+				$item['link']['title'] . '</a></li>';
+			$level--;
 			
-
 		}	
 	}
 
