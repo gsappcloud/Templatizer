@@ -3,6 +3,30 @@ $(document).ready(function() {
 	// iphone full screen
 	window.scrollTo(0,0);
 	
+	// hide children in menu
+	//$("li:not(.menu-level-1)").hide();
+	
+	$("#mobile-menu ul li").click(function() {
+		console.log(this);
+		
+		
+		// show children
+		$("ul li" , $(this)).show(300);
+		
+		
+		
+		// load content
+		var anchors = $("a", this);
+		var first_anchor = anchors[0];
+		var link_target = ['/templatizer/', 
+			$(first_anchor).attr('href')].join('');
+		load_content(link_target);
+		
+		
+		return false;
+	});
+	
+	
 	$('#mobile-switch-bar').css('left', '570px');
 
 	$('#mobile-switch-bar').toggle(function() {
