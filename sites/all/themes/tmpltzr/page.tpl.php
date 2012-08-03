@@ -264,10 +264,43 @@ if ($is_mobile === TRUE) { ?>
         		</a>
 			
 				<div id="search-login-container">
-					<form id="search" method="get" action="search/" class="clearfix">
+<?php
+				
+				
+				/* old form
+				
+					<form id="search" method="get" action="/templatizer/node/1307" class="clearfix">
 						<input id="q" name="q" type="text">
 						<input id="search-button" type="image" src="/templatizer/sites/all/themes/tmpltzr/assets/search.png">
 					</form>
+					
+					*/
+					
+function gsapp_customsearch(&$form_state) {
+	$form['searchterm'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Searchterm'),
+    '#size' => 30,
+    '#maxlength' => 64,
+    '#description' => t('Enter term'),
+  );
+  $form['submit'] = array('#type' => 'submit', '#value' => t('Search'));
+  return $form;
+}
+
+function gsapp_customsearch_submit($form, &$form_state) {
+	$xyz = $form_state['values']['searchterm'];
+	$form_state['redirect'] = array('/search-results2/', 'searchterm=' . $xyz);
+	//	drupal_set_message(print_r($xyz, true));
+	//	drupal_set_message(t('Your form has been saved'));
+}
+
+print '<pre style="background-color: white">';
+$f = drupal_get_form('gsapp_customsearch');
+print $f;
+print '</pre>';
+
+?>
 					
 					<?php if (!$user->uid): ?>
 						<div id="login"><?php print l("Login", "user/wind"); ?></div>
