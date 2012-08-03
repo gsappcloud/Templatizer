@@ -79,33 +79,46 @@
 	top:120px;
 	left:20px;
 	width: 360px;
-	height:20px;
-}
-#search {
-	display:inline-block;
-	background-color:white;
-	width:225px;
 	height:24px;
+}
+#gsapp-customsearch{
+	display: inline-block;
+	width:225px;
+	height:100%;
 	-webkit-border-radius: 12px;
 	-moz-border-radius: 12px;
 	border-radius: 12px;
+	background-color:white;
+}
+#gsapp-customsearch #edit-searchterm-wrapper{
+	display:inline-block;
+	margin:0 !important;
+	vertical-align: top;
+	padding: 0 0 0 10px;
 }
 
-#q{
+#gsapp-customsearch #edit-searchterm{
 	border: none;
-	background-color: transparent;
-	width:180px;
-	padding-left:10px;
+	padding: 0;
 }
-#q:focus {
+
+#gsapp-customsearch #edit-searchterm:focus{
 	outline:none;
 	outline-offset:none;
 }
 
-#search-button{
-	float: right;
-	padding-right: 10px;
-	padding-top: 4px;
+#gsapp-customsearch #edit-submit{
+	width:16px; 		
+	height:16px;
+	background:url(/templatizer/sites/all/themes/tmpltzr/assets/search.png) no-repeat; 
+	border:none;
+	overflow:hidden;
+	cursor:pointer;
+	vertical-align: middle;
+}
+
+.form-item {
+	display:inline;
 }
 
 
@@ -313,7 +326,7 @@ div.error, tr.error {
 
 
 /* Drupal forms */
-/* Wrapper for a form element (or group of form elements) and its label */.form-item,
+/* Wrapper for a form element (or group of form elements) and its label */
 .form-checkboxes,
 .form-radios {
     margin: 1em 0;

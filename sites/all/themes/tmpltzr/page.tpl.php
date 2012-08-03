@@ -252,14 +252,13 @@ if ($is_mobile === TRUE) { ?>
 	<!-- js google custom search -->
 <script>
   (function() {
-    var cx = '003393102229092046768:tizniokxcsq';
+    var cx = '004033327063740628517:awygqf_dy3q';
     var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
     gcse.src = (document.location.protocol == 'https' ? 'https:' : 'http:') +
         '//www.google.com/cse/cse.js?cx=' + cx;
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
   })();
-</script>
-	
+</script>	
 	
 
 </head>
@@ -282,28 +281,30 @@ if ($is_mobile === TRUE) { ?>
 function gsapp_customsearch(&$form_state) {
 	$form['searchterm'] = array(
     '#type' => 'textfield',
-    '#title' => t('Searchterm'),
-    '#size' => 30,
+    '#size' => 33,
     '#maxlength' => 64,
-    '#description' => t('Enter term'),
   );
-  $form['submit'] = array('#type' => 'submit', '#value' => t('Search'));
+  
+  $form['submit'] = array('#type' => 'submit', '#value' => t(''));
+  /*
+  $form['submit'] = array(
+    '#type' => 'imagebutton',
+    '#image' => '/templatizer/sites/all/themes/tmpltzr/assets/search.png',  // provide the path to your image here
+    '#default_value' => t('Login'), // original value of button text
+  );*/
   return $form;
 }
-
-
 
 function gsapp_customsearch_submit($form, &$form_state) {
 	$search_term = $form_state['values']['searchterm'];
 	$form_state['redirect'] = array(
-		'/search-results2/', 
+		'/search/', 
 		'searchterm=' . $search_term);
 }
 
-print '<pre style="background-color: white">';
 $search_form = drupal_get_form('gsapp_customsearch');
 print $search_form;
-print '</pre>';
+
 
 ?>
 					
