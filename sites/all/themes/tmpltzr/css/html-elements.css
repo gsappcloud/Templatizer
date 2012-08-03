@@ -725,6 +725,31 @@ dl dd {
 	background-color: #ffebf8;
 }
 
+#tmpltzr .other .tmpltzr-secondary{
+	color:gray;
+}
+
+#tmpltzr .north-america .tmpltzr-secondary, {
+	background-color:#e0faff;
+}
+
+#tmpltzr .south-asia .tmpltzr-secondary {
+	background-color:#fff3e0;
+}
+
+#tmpltzr .africa .tmpltzr-secondary { 
+	background-color:#e0f1ff;
+}
+
+#tmpltzr .europe .tmpltzr-secondary {
+	background-color:#f5e4ff;
+}
+
+#tmpltzr .asia .tmpltzr-secondary {
+	background-color:#ffe7e8;
+}
+
+
 
 
 
@@ -893,20 +918,30 @@ dl dd {
 	display:none !important;
 }
 
+#tmpltzr .tmpltzr-primary .jcarousel-list {
+	height:350px;
+	line-height:350px;
+	text-align:center;
+}
+
 #tmpltzr .tmpltzr-primary .jcarousel-item {
 	background-color:black;
 	padding:0 !important;
+	height:100%;
 }
 
 #tmpltzr .tmpltzr-secondary .jcarousel-item {
 	background-color:transparent;
 	padding:0 !important;
+	height:100%;
 }
 
 #tmpltzr .jcarousel-item img{
 	text-align: center;
 	margin: 0 auto;
 	display: block;
+	vertical-align:middle;
+	display:inline;
 }
 
 /* COURSE BLOG INDEX PAGE */
