@@ -1,6 +1,15 @@
 /** 
  * mobile specific styles, only used when mobile browser detected
  *
+ 
+ or embed
+ 
+ <link rel="stylesheet" media="all" href="/static/css/base.min.css" />
+<link rel="stylesheet" media="only screen and (max-width: 800px)" 
+  href="/static/css/mobile.min.css" />
+  
+  
+ 
  * jlh2199
  * 8/1/2012
  */

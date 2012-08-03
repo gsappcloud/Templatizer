@@ -100,17 +100,17 @@ if ($is_mobile === TRUE) { ?>
 	function print_children($item, $level = 0) {
 				
 		if ($item['link']['has_children'] > 0) {
-
+			$level++;
 			print $item['link']['title'] . '<br/>';
 			
 			foreach($item['below'] as $k=>$v) {
-				print_children($v, $level++);
+				print_children($v, $level);
 			}
 
 		} else {
 			print $level . '- ' . $item['link']['title'] . '<br/>';
 			// go back up
-			$level--;
+			$level = 0;
 			
 
 		}	
