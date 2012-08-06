@@ -1211,6 +1211,10 @@ dl dd {
 
 /* TMPLTZR GOOGLE SEARCH */
 
+#tmpltzr .gsc-resultsbox-visible {
+	width:500px;
+}
+
 #tmpltzr .gsc-control-cse, #tmpltzr .gsc-control-cse .gsc-table-result {
 	background: none;
 	border-color: none;

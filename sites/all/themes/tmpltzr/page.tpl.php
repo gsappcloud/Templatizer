@@ -102,7 +102,7 @@ if ($is_mobile === TRUE) { ?>
 	function print_children($item) {
 		global $previous_depth;
 		if ($item['link']['depth'] > $previous_depth) {
-			print '<ul>';
+			print '<ul class="menu">';
 		} elseif ($item['link']['depth'] < $previous_depth) {
 			$levels = $previous_depth - $item['link']['depth'];
 			for ($x = 0; $x < $levels; $x++) {
@@ -111,11 +111,11 @@ if ($is_mobile === TRUE) { ?>
 		}
 		if ($item['link']['has_children'] > 0) {
 			if ($item['link']['depth'] != 1) {
-				print '<li class="menu-level-' . $item['link']['depth'] .
+				print '<li class="collapsed menu-level-' . $item['link']['depth'] .
 				' children child"><a href="' . $item['link']['link_path'] . '">' . 
 				$item['link']['title'] . '</a>';
 			} else {
-				print '<li class="menu-level-' . $item['link']['depth'] .
+				print '<li class="collapsed menu-level-' . $item['link']['depth'] .
 				' children"><a href="' . $item['link']['link_path'] . '">' . 
 				$item['link']['title'] . '</a>';
 
@@ -128,13 +128,13 @@ if ($is_mobile === TRUE) { ?>
 		} else {
 		
 					if ($item['link']['depth'] != 1) {
-			print '<li class="menu-level-' . $item['link']['depth'] . ' child">' . 
+			print '<li class="collapsed menu-level-' . $item['link']['depth'] . ' child">' . 
 				'<a href="' . $item['link']['link_path'] . '">' . 
 				$item['link']['title'] . '</a>';
 			
 			} else {
 			
-						print '<li class="menu-level-' . $item['link']['depth'] . '">' . 
+						print '<li class="collapsed menu-level-' . $item['link']['depth'] . '">' . 
 				'<a href="' . $item['link']['link_path'] . '">' . 
 				$item['link']['title'] . '</a>';
 
@@ -163,18 +163,13 @@ if ($is_mobile === TRUE) { ?>
 	
 	?>
 	
-		<ul>
-			<li><a href="#" id="about-deans">ABOUT</a></li>
-			<li><a href="#" id="programs-page">PROGRAMS</a></li>
-			<li><a href="#" >STUDIO-X-GLOBAL</a></li>
-			<li><a href="#" >CENTERS</a></li>
-		</ul>			
+					
 	</div>
 	<div id="mobile-switch-bar">
 		<div>
-		<img src="/templatizer/sites/all/themes/tmpltzr/assets/mobile/view_page_arrow_26x33.jpg" width="26" height="33" alt="VIEW PAGE" />
-		<img src="/templatizer/sites/all/themes/tmpltzr/assets/mobile/view_page_26x155.jpg" width="26" height="155" alt="VIEW PAGE" />
-		<img src="/templatizer/sites/all/themes/tmpltzr/assets/mobile/view_page_arrow_26x33.jpg" width="26" height="33" alt="VIEW PAGE" />
+			<div class="arrow">.</div>
+			<div class="view-page">.</div>
+			<div class="arrow">.</div>
 		</div>
 	</div>
 	<div id="mobile-content">
