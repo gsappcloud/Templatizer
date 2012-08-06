@@ -1193,8 +1193,6 @@ dl dd {
 	float:right;
 }
 
-/* end custom event widget styles */
-
 
 /* TMPLTZR COURSE */
 #tmpltzr .tmpltzr-primarycourse .tmpltzr-course-code, #tmpltzr .tmpltzr-primarycourse .tmpltzr-course-points {
@@ -1211,3 +1209,20 @@ dl dd {
 	padding: 0 0 10px 0;
 }
 
+/* TMPLTZR GOOGLE SEARCH */
+
+#tmpltzr .gsc-control-cse {
+	background: none;
+	border-color: none;
+	font-family: "DIN Next W02 Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#tmpltzr .gsc-table-result, .gsc-thumbnail-inside, .gsc-url-top{
+	padding-left: none !important;
+	padding-right: none !important;
+}
+
+#tmpltzr .gsc-result .gs-title, .gs-result .gs-title, .gs-result .gs-title * {
+	height: auto;
+	text-decoration: none !important;
+}
