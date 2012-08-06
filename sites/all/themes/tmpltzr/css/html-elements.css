@@ -49,16 +49,6 @@ a:focus {
 
 }
 
-blockquote {
-
-    padding: 10px;
-
-    background-color:#efefef;
-
-    margin:0px;
-
-}
-
 /* HEADINGS */
 
 h1 {
@@ -676,10 +666,6 @@ dl dd {
 
 }
 
-#tmpltzr .tmpltzr-secondaryquote, #tmpltzr .tmpltzr-secondaryimage {
-	margin:0 20px 20px 0;
-}
-
 
 #tmpltzr .tmpltzr-subtitle p {
 	margin:0 !important;
@@ -704,6 +690,13 @@ dl dd {
 
 }
 
+#tmpltzr .tmpltzr-primaryquote {
+	display:block;
+	padding: 20px;
+	width:460px;
+	float:left;
+}
+
 
 
 #tmpltzr .tmpltzr-secondaryvideo, #tmpltzr .tmpltzr-secondaryembed, #tmpltzr .tmpltzr-secondaryphotoset {
@@ -713,39 +706,39 @@ dl dd {
 	float:left;
 }
 
-#tmpltzr .none .tmpltzr-secondary, #tmpltzr .none .tmpltzr-secondary, #tmpltzr .other .tmpltzr-secondary, #tmpltzr .none .tmpltzr-secondary {
+#tmpltzr .none .tmpltzr-secondary, #tmpltzr .none .tmpltzr-secondary, #tmpltzr .other .tmpltzr-secondary, #tmpltzr .none .tmpltzr-secondary, #tmpltzr .none .tmpltzr-primaryquote, #tmpltzr .other .tmpltzr-primaryquote {
 	background-color: #efefef;
 }
 
-#tmpltzr .latin-america .tmpltzr-secondary{
+#tmpltzr .latin-america .tmpltzr-secondary, #tmpltzr .latin-america .tmpltzr-primaryquote{
 	background-color: #e0fcea;
 }
 
-#tmpltzr .middle-east .tmpltzr-secondary{
+#tmpltzr .middle-east .tmpltzr-secondary, #tmpltzr .middle-east .tmpltzr-primaryquote{
 	background-color: #ffebf8;
 }
 
-#tmpltzr .other .tmpltzr-secondary{
+#tmpltzr .other .tmpltzr-secondary, #tmpltzr .other.tmpltzr-primaryquote{
 	color:gray;
 }
 
-#tmpltzr .north-america .tmpltzr-secondary, {
+#tmpltzr .north-america .tmpltzr-secondary, #tmpltzr .north-america .tmpltzr-primaryquote {
 	background-color:#e0faff;
 }
 
-#tmpltzr .south-asia .tmpltzr-secondary {
+#tmpltzr .south-asia .tmpltzr-secondary, #tmpltzr .south-asia .tmpltzr-primaryquote {
 	background-color:#fff3e0;
 }
 
-#tmpltzr .africa .tmpltzr-secondary { 
+#tmpltzr .africa .tmpltzr-secondary, #tmpltzr .africa .tmpltzr-primaryquote { 
 	background-color:#e0f1ff;
 }
 
-#tmpltzr .europe .tmpltzr-secondary {
+#tmpltzr .europe .tmpltzr-secondary, #tmpltzr .europe .tmpltzr-primaryquote {
 	background-color:#f5e4ff;
 }
 
-#tmpltzr .asia .tmpltzr-secondary {
+#tmpltzr .asia .tmpltzr-secondary, #tmpltzr .asia .tmpltzr-primaryquote {
 	background-color:#ffe7e8;
 }
 
@@ -753,7 +746,7 @@ dl dd {
 
 
 
-#tmpltzr .tmpltzr-secondary .tmpltzr-quote {
+#tmpltzr .tmpltzr-quote {
 
 	display:block;
 
@@ -761,7 +754,7 @@ dl dd {
 
 }
 
-#tmpltzr .tmpltzr-secondary .tmpltzr-quote p {
+#tmpltzr .tmpltzr-quote p {
 
 	margin:0 !important;
 
