@@ -90,7 +90,8 @@ $(document).ready(function () {
 			var href = anchor.attr('href');
 			href = href.substring(0,4);
 			if(href == 'http'){
-				anchor.append(" •");
+				offsite = '<img class="hover-only" src="/templatizer/sites/all/themes/tmpltzr/assets/offsite.png" />';
+				anchor.append(offsite);
 				anchor.attr("target", "_blank"); //make sure it opens in a new tab/window
 			}
 		});
