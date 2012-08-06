@@ -1218,8 +1218,8 @@ dl dd {
 }
 
 #tmpltzr .gsc-table-result, #tmpltzr .gsc-thumbnail-inside, #tmpltzr .gsc-url-top{
-	padding-left: none !important;
-	padding-right: none !important;
+	padding-left: 0px !important;
+	padding-right: 0px !important;
 }
 
 #tmpltzr .gsc-control-cse .gs-spelling, #tmpltzr .gsc-control-cse .gs-result .gs-title, #tmpltzr .gsc-control-cse .gs-result .gs-title * {
@@ -1236,4 +1236,26 @@ dl dd {
 	font: 11px/14px "Courier New", Courier, Verdana, sans-serif;
 	color: black;
 	padding:5px 0 0 0;
+}
+
+#tmpltzr .gsc-above-wrapper-area{
+	border-bottom: none;
+}
+
+#tmpltzr .gsc-results .gsc-cursor-box .gsc-cursor-current-page{
+	color: black !important;
+}
+
+#tmpltzr .gsc-results .gsc-cursor-box .gsc-cursor-page{
+	color: gray;
+}
+
+#tmpltzr .gcsc-branding{
+	display: none;
+}
+
+#tmpltzr .gsc-result-info{
+	padding: 0;
+	font: 11px/14px "Courier New", Courier, Verdana, sans-serif;
+
 }
