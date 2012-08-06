@@ -1211,9 +1211,10 @@ dl dd {
 
 /* TMPLTZR GOOGLE SEARCH */
 
-#tmpltzr .gsc-control-cse {
+#tmpltzr .gsc-control-cse, #tmpltzr .gsc-control-cse .gsc-table-result {
 	background: none;
 	border-color: none;
+	font-family: "DIN Next W01 Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 #tmpltzr .gsc-table-result, #tmpltzr .gsc-thumbnail-inside, #tmpltzr .gsc-url-top{
