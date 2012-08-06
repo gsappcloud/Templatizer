@@ -1259,3 +1259,7 @@ dl dd {
 	font: 11px/14px "Courier New", Courier, Verdana, sans-serif;
 
 }
+
+#tmpltzr .gs-web-image-box img.gs-image, .gs-promotion-image-box img.gs-promotion-image {
+	border: none !important;
+}
