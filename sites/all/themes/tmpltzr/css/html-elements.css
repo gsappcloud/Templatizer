@@ -1214,15 +1214,25 @@ dl dd {
 #tmpltzr .gsc-control-cse {
 	background: none;
 	border-color: none;
-	font-family: "DIN Next W02 Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-#tmpltzr .gsc-table-result, .gsc-thumbnail-inside, .gsc-url-top{
+#tmpltzr .gsc-table-result, #tmpltzr .gsc-thumbnail-inside, #tmpltzr .gsc-url-top{
 	padding-left: none !important;
 	padding-right: none !important;
 }
 
-#tmpltzr .gsc-result .gs-title, .gs-result .gs-title, .gs-result .gs-title * {
+#tmpltzr .gsc-control-cse .gs-spelling, #tmpltzr .gsc-control-cse .gs-result .gs-title, #tmpltzr .gsc-control-cse .gs-result .gs-title * {
 	height: auto;
+	font: 16px/20px "DIN Next W02 Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	text-decoration: none !important;
+	color: black;
+	text-transform: uppercase;
+
+}
+
+
+#tmpltzr .gs-webResult div.gs-visibleUrl, #tmpltzr .gs-imageResult div.gs-visibleUrl {
+	font: 11px/14px "Courier New", Courier, Verdana, sans-serif;
+	color: black;
+	padding:5px 0 0 0;
 }
