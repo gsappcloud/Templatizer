@@ -1197,12 +1197,17 @@ dl dd {
 
 
 /* TMPLTZR COURSE */
-#tmpltzr .tmpltzr-primarycourse .tmpltzr-course-code, #tmpltzr .tmpltzr-primarycourse, #tmpltzr.tmpltzr-course-points #tmpltzr.tmpltzr-course-instructor{
+#tmpltzr .tmpltzr-primarycourse .tmpltzr-course-code, #tmpltzr .tmpltzr-primarycourse .tmpltzr-course-points {
 	font: 11px/14px "Courier New", Courier, Verdana, sans-serif !important;
 }
 
+#tmpltzr .tmpltzr-primarycourse .tmpltzr-course-instructor {
+	font: 14px/21px "DIN Next W02 Bold", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+	text-transform: uppercase !important;
 
-#tmpltzr .tmpltzr-course-points{
-	padding: 10px 0 10px 0;
+}
+
+#tmpltzr .tmpltzr-primarycourse .tmpltzr-course-points{
+	padding: 0 0 10px 0;
 }
 
