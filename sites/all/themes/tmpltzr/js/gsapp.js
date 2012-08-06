@@ -99,6 +99,15 @@ $(document).ready(function () {
 	
 	var menu = $("#menu ul.menu");
 	addDotToMenu(menu);
+	
+	/*
+		Hover effect for menu - shows offsite.png if offsite link on hover
+	*/
+	var menuHoverOffsiteToggle = function(){
+		$(".hover-only", this).toggle();
+	}
+	
+	$(".menu a").bind('mouseenter', menuHoverOffsiteToggle).bind('mouseleave', menuHoverOffsiteToggle);
 
 	/*
 		Resizes the height of the menu based on the actual page size
@@ -115,7 +124,7 @@ $(document).ready(function () {
 	*/
 	var menuActiveTrailColor = function(){
 		$("#menu .active-trail").each(function(){
-			$('a:eq(0)', this).css('color', '#00D6FF');
+			$('a:eq(0)', this).css('color', 'gray');
 		});
 	}
 	
