@@ -114,7 +114,7 @@ $(document).ready(function () {
 	*/
 	var menuActiveTrailColor = function(){
 		$("#menu .active-trail").each(function(){
-			$('a:eq(0)', this).css('color', '#00D6FF');
+			$('a:eq(0)', this).css('color', 'gray');
 		});
 	}
 	
