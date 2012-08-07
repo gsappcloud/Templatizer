@@ -6,27 +6,47 @@ $(document).ready(function() {
 	// hide children in menu
 	//$("li:not(.menu-level-1)").hide();
 	
-	$("#mobile-menu ul li").click(function() {
-		console.log(this);
+	var MAX_MENU_LEVELS = 6;
+	
+	var collapseMenu = function(level){
+		var selector = '';
+		for(i = level; i <= MAX_MENU_LEVELS; i++){
+			selector = '#mobile-menu ul li.menu-level-'+i;
+			$(selector).removeClass('expanded').addClass('collapsed');
+		}
+	};
+	
+	$("#mobile-menu ul li a").click(function() {
+		//console.log(this);
+		
+		var classes = $(this).parent('li').attr('class');
+		
+		var levelIdx = classes.indexOf('menu-level-') + 11;
+		var level = classes.substring(levelIdx, levelIdx+1);
+		collapseMenu(level);
+		
+		$('a.active').removeClass('active');
+		$(this).addClass('active');
+		
+		$(this).parent('li').addClass("expanded").removeClass("collapsed").addClass("active-trail");//.children("ul").show(300);
 		
 		
-		
-		
-		// show children
-		$("ul li" , $(this)).show(300);
+		$("#mobile-menu .active-trail").each(function(){
+			$('a:eq(0)', this).css('color', '#00D6FF');
+		});
+	
 		
 		
 		
 		// load content
-		var anchors = $("a", this);
-		var first_anchor = anchors[0];
 		var link_target = ['/templatizer/', 
-			$(first_anchor).attr('href')].join('');
+			$(this).attr('href')].join('');
 		load_content(link_target);
 		
 		
 		return false;
 	});
+	
 	
 	
 	$('#mobile-switch-bar').css('left', '570px');
@@ -38,7 +58,9 @@ $(document).ready(function() {
 			'left': '-2000px',
 		};
 		$('#mobile-menu').css(offscreen);
-		$('#mobile-switch-bar').css('left', 0);
+		$('#mobile-switch-bar').css('left', '0');
+		$('#mobile-switch-bar div').css('left', '26px').css('right', '');
+		$('#mobile-switch-bar div div').addClass('page');
 		$('#mobile-content').css('left', '100px');
 	},
 	function() {
@@ -49,8 +71,12 @@ $(document).ready(function() {
 		};
 		$('#mobile-menu').css('left', 0);
 		$('#mobile-switch-bar').css('left', '570px');
+		$('#mobile-switch-bar div').css('right', '26px').css('left', '');
+		$('#mobile-switch-bar div div').removeClass('page');
 		$('#mobile-content').css(offscreen);
 	});
+	
+	
 	
 	
 	// load content inline via ajax	

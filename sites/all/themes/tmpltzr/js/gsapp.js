@@ -90,7 +90,8 @@ $(document).ready(function () {
 			var href = anchor.attr('href');
 			href = href.substring(0,4);
 			if(href == 'http'){
-				anchor.append(" •");
+				offsite = '<img class="hover-only" src="/templatizer/sites/all/themes/tmpltzr/assets/offsite.png" />';
+				anchor.append(offsite);
 				anchor.attr("target", "_blank"); //make sure it opens in a new tab/window
 			}
 		});
@@ -98,6 +99,15 @@ $(document).ready(function () {
 	
 	var menu = $("#menu ul.menu");
 	addDotToMenu(menu);
+	
+	/*
+		Hover effect for menu - shows offsite.png if offsite link on hover
+	*/
+	var menuHoverOffsiteToggle = function(){
+		$(".hover-only", this).toggle();
+	}
+	
+	$(".menu a").bind('mouseenter', menuHoverOffsiteToggle).bind('mouseleave', menuHoverOffsiteToggle);
 
 	/*
 		Resizes the height of the menu based on the actual page size
