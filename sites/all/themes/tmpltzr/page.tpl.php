@@ -65,7 +65,7 @@ if ($is_mobile === TRUE) { ?>
 	<script type="text/javascript" src="http://postfog.org/assets/js/fetcher.js"></script>
   <script type="text/javascript" src="http://postfog.org/assets/js/jquery.cycle.all.pack.js"></script>
   <script type="text/javascript" src="http://postfog.org/assets/js/jquery.masonry.min.js"></script>
-  <script type="text/javascript" src="/templatizer/sites/all/themes/tmpltzr/js/jquery.scrollTo-1.4.2-min.js"></script>
+  <script defer src="http://balupton.github.com/jquery-scrollto/scripts/jquery.scrollto.min.js"></script>
   <script type="text/javascript" src="/templatizer/sites/all/themes/tmpltzr/js/jquery.jcarousel.min.js"></script>
   
   <script src="http://www.postfog.org/templatizer/sites/all/themes/tmpltzr/js/history/scripts/bundled/html4+html5/jquery.history.js"></script>
@@ -241,7 +241,7 @@ if ($is_mobile === TRUE) { ?>
 	<script type="text/javascript" src="http://postfog.org/assets/js/fetcher.js"></script>
   <script type="text/javascript" src="http://postfog.org/assets/js/jquery.cycle.all.pack.js"></script>
   <script type="text/javascript" src="http://postfog.org/assets/js/jquery.masonry.min.js"></script>
-  <script type="text/javascript" src="/templatizer/sites/all/themes/tmpltzr/js/jquery.scrollTo-1.4.2-min.js"></script>
+  <script defer src="http://balupton.github.com/jquery-scrollto/scripts/jquery.scrollto.min.js"></script>
   <script type="text/javascript" src="/templatizer/sites/all/themes/tmpltzr/js/jquery.jcarousel.min.js"></script>
 
 	<script src="http://www.postfog.org/templatizer/sites/all/themes/tmpltzr/js/history/scripts/bundled/html4+html5/jquery.history.js"></script>

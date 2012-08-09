@@ -10,8 +10,6 @@
 	if ( !History.enabled ) {
 		return false;
 	}
-	
-	console.log('rooturl: ' + History.getRootUrl());
 
 	// Wait for Document
 	$(function(){
@@ -29,8 +27,7 @@
 			$body = $(document.body),
 			rootUrl = History.getRootUrl(),
 			scrollOptions = {
-				duration: 800,
-				easing:'swing'
+				duration: 0
 			};
 		
 		
@@ -85,9 +82,13 @@
 			var levelIdx = classes.indexOf('menu-level-') + 11;
 			var level = classes.substring(levelIdx, levelIdx+1);
 			
+			
+			
 			for(i = level; i <= MAX_MENU_LEVELS; i++){
 				selector = '#navigation ul li.menu-level-'+i;
 				$(selector).removeClass('expanded').removeClass('active-trail').addClass('collapsed');
+				selectorArrow = selector + ' .menu-arrow-large, ' + selector + ' .menu-arrow-small';
+				$(selectorArrow).css('backgroundPosition', '');
 			}
 		};
 	
@@ -95,16 +96,19 @@
 	
 		var menuParser = function($this){	
 			collapseMenu($this);
+			
 			$('a.active').removeClass('active');
 			$this.addClass('active');
 	
 			$this.parent('li').addClass("expanded").removeClass("collapsed").addClass("active-trail");//.children("ul").show(300);
 				
+			/*	TODO tct2003 was for testing
 			$("#navigation .active-trail").each(function(){
-				$this.filter('a:eq(0)').css('color', 'red');
+				$this.filter('a:eq(0)').css('color', 'green');
 			});
-	
+			*/
 		}
+		
 		
 		// Ajaxify Helper - binds function to menu clicks that are internal links
 		$.fn.ajaxify = function(){
@@ -113,7 +117,7 @@
 
 			/* TODO tct2003 only do this for templatizer: add /templatizer/ to the front of every internal href in the menu */
 			if(base_path.length > 0){
-				$this.find('a:internal:not(.no-ajaxy, #gsapplogo)').each(function(){
+				$this.find('#navigation a:internal:not(#gsapplogo), #content a:internal:not(#gsapplogo)').each(function(){
 					var url = $(this).attr('href');
 					$(this).attr('href','/templatizer/'+url);
 				});
@@ -121,7 +125,7 @@
 			
 			
 			// Ajaxify
-			$this.find('a:internal:not(.no-ajaxy, #gsapplogo)').click(function(event){
+			$this.find('a:internal:not(#gsapplogo)').click(function(event){ 
 				// Prepare
 				var
 					$this = $(this),
@@ -131,6 +135,11 @@
 				// Continue as normal for cmd clicks etc
 				if ( event.which == 2 || event.metaKey ) { return true; }
 				menuParser($this);
+				
+				$parent = $this.parent('li')
+				if(!$parent.hasClass('children')){
+					$('.menu-arrow-small',$parent).css('backgroundPosition', '-9px 0');
+				}
 				
 				// Ajaxify this link
 				History.pushState(null,title,url);
@@ -192,6 +201,9 @@
 					// Update the content
 					$content.stop(true,true);
 					$content.html(contentHtml).ajaxify().css('opacity',100).show(); // you could fade in here if you'd like 
+					
+					//resize the page to check if room for sidebar
+					resizeFunc();
 
 					// Update the title
 					document.title = $data.find('.document-title:first').text();
