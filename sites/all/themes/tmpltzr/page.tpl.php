@@ -57,6 +57,7 @@ if ($is_mobile === TRUE) { ?>
 	<link type="text/css" rel="stylesheet" media="all" href="/templatizer/sites/all/themes/tmpltzr/css/mobile-specific.css" />
 
 	<?php print $scripts; ?>
+	<script type="text/javascript" src="/templatizer/sites/all/themes/tmpltzr/js/gsapp.js"></script>
 	
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
 	
@@ -66,6 +67,9 @@ if ($is_mobile === TRUE) { ?>
   <script type="text/javascript" src="http://postfog.org/assets/js/jquery.masonry.min.js"></script>
   <script type="text/javascript" src="/templatizer/sites/all/themes/tmpltzr/js/jquery.scrollTo-1.4.2-min.js"></script>
   <script type="text/javascript" src="/templatizer/sites/all/themes/tmpltzr/js/jquery.jcarousel.min.js"></script>
+  
+  <script src="http://www.postfog.org/templatizer/sites/all/themes/tmpltzr/js/history/scripts/bundled/html4+html5/jquery.history.js"></script>
+  <script type="text/javascript" src="/templatizer/sites/all/themes/tmpltzr/js/ajaxify-html5.js"></script>
   
   
   <!-- mobile  js -->
@@ -230,6 +234,7 @@ if ($is_mobile === TRUE) { ?>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 	<?php print $scripts; ?>
+	<script type="text/javascript" src="/templatizer/sites/all/themes/tmpltzr/js/gsapp.js"></script>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
 	
 	<!-- js assets for dashboard -->  
@@ -239,6 +244,11 @@ if ($is_mobile === TRUE) { ?>
   <script type="text/javascript" src="/templatizer/sites/all/themes/tmpltzr/js/jquery.scrollTo-1.4.2-min.js"></script>
   <script type="text/javascript" src="/templatizer/sites/all/themes/tmpltzr/js/jquery.jcarousel.min.js"></script>
 
+	<script src="http://www.postfog.org/templatizer/sites/all/themes/tmpltzr/js/history/scripts/bundled/html4+html5/jquery.history.js"></script>
+	
+	<script type="text/javascript" src="/templatizer/sites/all/themes/tmpltzr/js/ajaxify-html5.js"></script>
+	
+	
 
 	
 	<!-- js assets for fonts.com custom font DIN -->
@@ -271,49 +281,103 @@ if ($is_mobile === TRUE) { ?>
         		</a>
 			
 				<div id="search-login-container">
-<?php
+					<?php
+										
+					function gsapp_customsearch(&$form_state) {
+						$form['searchterm'] = array(
+						'#type' => 'textfield',
+						'#size' => 33,
+						'#maxlength' => 64,
+					  );
+					  
+					  $form['submit'] = array('#type' => 'submit', '#value' => t(''));
+					  /*
+					  $form['submit'] = array(
+						'#type' => 'imagebutton',
+						'#image' => '/templatizer/sites/all/themes/tmpltzr/assets/search.png',  // provide the path to your image here
+						'#default_value' => t('Login'), // original value of button text
+					  );*/
+					  return $form;
+					}
 					
-function gsapp_customsearch(&$form_state) {
-	$form['searchterm'] = array(
-    '#type' => 'textfield',
-    '#size' => 33,
-    '#maxlength' => 64,
-  );
-  
-  $form['submit'] = array('#type' => 'submit', '#value' => t(''));
-  /*
-  $form['submit'] = array(
-    '#type' => 'imagebutton',
-    '#image' => '/templatizer/sites/all/themes/tmpltzr/assets/search.png',  // provide the path to your image here
-    '#default_value' => t('Login'), // original value of button text
-  );*/
-  return $form;
-}
-
-function gsapp_customsearch_submit($form, &$form_state) {
-	$search_term = $form_state['values']['searchterm'];
-	$form_state['redirect'] = array(
-		'/search/', 
-		'searchterm=' . $search_term);
-}
-
-$search_form = drupal_get_form('gsapp_customsearch');
-print $search_form;
-
-
-?>
+					function gsapp_customsearch_submit($form, &$form_state) {
+						$search_term = $form_state['values']['searchterm'];
+						$form_state['redirect'] = array(
+							'/search/', 
+							'searchterm=' . $search_term);
+					}
+					
+					$search_form = drupal_get_form('gsapp_customsearch');
+					print $search_form;
+					
+					
+					?>
 					
 					<?php if (!$user->uid): ?>
 						<div id="login"><?php print l("Login", "user/wind"); ?></div>
 					<?php else:?>
-						<div id="login"><?php print l("My Site", "my-site"); ?></div>
+						<div id="login"><?php print l("My Content", "my-content"); ?></div>
 					<?php endif; ?>
 				</div>
 
 			</header>
 			
 			<nav id="navigation">
-				<?php print $left; ?>
+				
+				<?php
+					global $previous_depth;
+					$previous_depth = 1;
+				
+					function print_children($item) {
+						global $previous_depth;
+						if ($item['link']['depth'] > $previous_depth) {
+							print '<ul class="menu">';
+						} elseif ($item['link']['depth'] < $previous_depth) {
+							$levels = $previous_depth - $item['link']['depth'];
+							for ($x = 0; $x < $levels; $x++) {
+								print '</ul></li>';
+							}
+						}
+						if ($item['link']['has_children'] > 0) {
+							if ($item['link']['depth'] != 1) {
+								print '<li class="collapsed children menu-level-' . $item['link']['depth'] .
+									'"><span class="menu-arrow-small"></span><a href="' . $item['link']['link_path'] . '">' . 
+									$item['link']['title'] . '</a>';
+							} else {
+								print '<li class="collapsed children menu-level-' . $item['link']['depth'] .
+									'"><span class="menu-arrow-large"></span><a href="' . $item['link']['link_path'] . '">' . 
+									$item['link']['title'] . '</a>';
+							}
+						
+							$previous_depth = $item['link']['depth'];
+							foreach($item['below'] as $k=>$v) {
+								print_children($v, $level);
+							}
+						}else{
+							if ($item['link']['depth'] != 1) {
+								print '<li class="collapsed menu-level-' . $item['link']['depth'] . '">' . 
+									'<span class="menu-arrow-small"></span><a href="' . $item['link']['link_path'] . '">' . 
+									$item['link']['title'] . '</a>';
+							}else{
+								print '<li class="collapsed menu-level-' . $item['link']['depth'] . '">' . 
+									'<span class="menu-arrow-large"></span><a href="' . $item['link']['link_path'] . '">' . 
+									$item['link']['title'] . '</a>';
+							}
+						
+							$previous_depth = $item['link']['depth'];
+						}	
+					}
+				
+					$pl = menu_tree_all_data('primary-links');
+					print '<ul class="menu">';
+
+					foreach($pl as $key=>$value) {					
+						print_children($value);
+					}
+					print '</ul>';
+				?>
+
+				<?php /*print $left;*/ ?>
 			</nav><!-- #navigation -->
   
 		</section><!-- #menu -->

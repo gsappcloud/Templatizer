@@ -11,8 +11,23 @@ function BuildWall(){
 	});
 }
 
+
+function externalLinkAppendImg(m){
+	$('li',m).each(function(){
+		var anchor = $('a', this);
+		var href = anchor.attr('href');
+		href = href.substring(0,4);
+		if(href == 'http'){
+			offsite = '<img class="hover-only" src="/templatizer/sites/all/themes/tmpltzr/assets/offsite.png" />';
+			anchor.append(offsite);
+			anchor.attr("target", "_blank"); //make sure it opens in a new tab/window
+		}
+	});
+}
+
 $(document).ready(function () {
 	gsappFetcher.start();
+	
 
 	/*************************** UTILITIES ***************************/
 	jQuery.fn.exists = function(){return this.length>0;}
@@ -84,21 +99,10 @@ $(document).ready(function () {
 	/* 
 		Adds a dot to all menu items that link to pages off the site
 	*/		
-	var addDotToMenu = function(m){
-		$('li',m).each(function(){
-			var anchor = $('a', this);
-			var href = anchor.attr('href');
-			href = href.substring(0,4);
-			if(href == 'http'){
-				offsite = '<img class="hover-only" src="/templatizer/sites/all/themes/tmpltzr/assets/offsite.png" />';
-				anchor.append(offsite);
-				anchor.attr("target", "_blank"); //make sure it opens in a new tab/window
-			}
-		});
-	}
+	
 	
 	var menu = $("#menu ul.menu");
-	addDotToMenu(menu);
+	externalLinkAppendImg(menu);
 	
 	/*
 		Hover effect for menu - shows offsite.png if offsite link on hover
