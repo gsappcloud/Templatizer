@@ -89,7 +89,7 @@ h3 {
 
 h4 {
 
-    font: 14px "DIN Next W02 Bold", Arial, Helvetica, sans-serif;
+    font: 14px/20px "DIN Next W02 Bold", Arial, Helvetica, sans-serif;
     text-transform:uppercase;
     margin: 0 0 15px;
     padding:0px 0px 0px 0px;
@@ -408,6 +408,12 @@ dl dd {
 	background-position:0 0;
 }
 
+#navigation .collapsed .menu-arrow-large{
+	background-position:0 -15px;
+}
+
+
+
 #navigation .active-trail .menu-arrow-small{
 	display:inline-block;
 	width:9px;
@@ -417,6 +423,10 @@ dl dd {
 
 #navigation .active-trail .menu-arrow-small{
 	background-position:0 0;
+}
+
+#navigation .collapsed .menu-arrow-small{
+	background-position:0 -9px;
 }
 
 
@@ -1219,6 +1229,10 @@ dl dd {
 #tmpltzr #right-sidebar {
 	width:260px;
 	float:right;
+}
+
+#tmpltzr #right-sidebar .tmpltzr-module {
+	margin-bottom:20px;
 }
 
 
