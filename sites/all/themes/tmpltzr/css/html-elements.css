@@ -300,27 +300,21 @@ dl dd {
 
 
 
-#main-menu:first-child {
 
-	padding-bottom:40px;
-
-}
-
-#navigation .menu:first-child li a{
-
+#navigation .menu li a{
 	text-decoration:none;
-
     color:#fff;
-
     text-transform: uppercase;
-
 	font: 28px "DIN Next W02 Bold", Arial, Helvetica, sans-serif;
-
 	display:inline-block;
-
 	padding:0 0 10px 10px !important;
 	letter-spacing: .1em;
+}
 
+
+
+#navigation .expanded.active-trail .menu li a {
+	font: 18px "DIN Next W02 Bold", Arial, Helvetica, sans-serif !important;
 }
 
 
@@ -328,38 +322,19 @@ dl dd {
 
 
 #navigation .expanded.active-trail .menu {
-
-	border-left:none;
-
 	display:block;
-
 	position:relative;
-
-	left:28px;
-
+	left:7px;
 	width:300px;
-
 	word-wrap: break-word
+}
 
+#navigation .menu li.collapsed .menu {
+	display:none !important;
 }
 
 
 
-#navigation .expanded.active-trail .menu li a {
-
-	font: 18px "DIN Next W02 Bold", Arial, Helvetica, sans-serif;
-
-}
-
-
-
-#navigation .expanded.active-trail .menu .menu {
-
-	border:none;
-
-	
-
-}
 
 
 

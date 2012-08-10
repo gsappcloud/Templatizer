@@ -115,13 +115,13 @@
 			// Prepare
 			var $this = $(this);
 
-			/* TODO tct2003 only do this for templatizer: add /templatizer/ to the front of every internal href in the menu */
+			/* TODO tct2003 only do this for templatizer: add /templatizer/ to the front of every internal href in the menu 
 			if(base_path.length > 0){
 				$this.find('#navigation a:internal:not(#gsapplogo), #content a:internal:not(#gsapplogo)').each(function(){
 					var url = $(this).attr('href');
 					$(this).attr('href','/templatizer/'+url);
 				});
-			}
+			}*/
 			
 			
 			// Ajaxify
@@ -137,7 +137,7 @@
 				menuParser($this);
 				
 				$parent = $this.parent('li')
-				if(!$parent.hasClass('children')){
+				if($parent.hasClass('leaf')){
 					$('.menu-arrow-small',$parent).css('backgroundPosition', '-9px 0');
 				}
 				

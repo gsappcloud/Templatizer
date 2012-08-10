@@ -323,61 +323,7 @@ if ($is_mobile === TRUE) { ?>
 			</header>
 			
 			<nav id="navigation">
-				
-				<?php
-					global $previous_depth;
-					$previous_depth = 1;
-				
-					function print_children($item) {
-						global $previous_depth;
-						if ($item['link']['depth'] > $previous_depth) {
-							print '<ul class="menu">';
-						} elseif ($item['link']['depth'] < $previous_depth) {
-							$levels = $previous_depth - $item['link']['depth'];
-							for ($x = 0; $x < $levels; $x++) {
-								print '</ul></li>';
-							}
-						}
-						if ($item['link']['has_children'] > 0) {
-							if ($item['link']['depth'] != 1) {
-								print '<li class="collapsed children menu-level-' . $item['link']['depth'] .
-									'"><span class="menu-arrow-small"></span><a href="' . $item['link']['link_path'] . '">' . 
-									$item['link']['title'] . '</a>';
-							} else {
-								print '<li class="collapsed children menu-level-' . $item['link']['depth'] .
-									'"><span class="menu-arrow-large"></span><a href="' . $item['link']['link_path'] . '">' . 
-									$item['link']['title'] . '</a>';
-							}
-						
-							$previous_depth = $item['link']['depth'];
-							foreach($item['below'] as $k=>$v) {
-								print_children($v, $level);
-							}
-						}else{
-							if ($item['link']['depth'] != 1) {
-								print '<li class="collapsed menu-level-' . $item['link']['depth'] . '">' . 
-									'<span class="menu-arrow-small"></span><a href="' . $item['link']['link_path'] . '">' . 
-									$item['link']['title'] . '</a>';
-							}else{
-								print '<li class="collapsed menu-level-' . $item['link']['depth'] . '">' . 
-									'<span class="menu-arrow-large"></span><a href="' . $item['link']['link_path'] . '">' . 
-									$item['link']['title'] . '</a>';
-							}
-						
-							$previous_depth = $item['link']['depth'];
-						}	
-					}
-				
-					$pl = menu_tree_all_data('primary-links');
-					print '<ul class="menu">';
-
-					foreach($pl as $key=>$value) {					
-						print_children($value);
-					}
-					print '</ul>';
-				?>
-
-				<?php /*print $left;*/ ?>
+				<?php print menu_tree_output( menu_tree_all_data('primary-links') ); ?>
 			</nav><!-- #navigation -->
   
 		</section><!-- #menu -->

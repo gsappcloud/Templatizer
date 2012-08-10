@@ -69,10 +69,47 @@ var resizeFunc = function(){
 	//resized = true; //set to true after the resize function has run once
 }
 
+var adjustPrimaryLinksMenu = function(path){
+	$('#navigation .menu li').addClass('collapsed').removeClass('expanded');
+	
+	var selector = '#navigation a:[href="' + path + '"]';
+	$(selector).parents('li.collapsed').removeClass('collapsed').addClass('expanded active-trail');
+	$(selector).addClass('active');
+}
+
+function currentPage(){
+	console.log('window.location.pathname: ' + window.location.pathname);
+
+
+	var path = window.location.pathname;
+	
+	if(path.indexOf('templatizer') > 0){
+		path = path.substring(12);
+	}
+	
+	console.log('path: ' + path);
+	
+	return path;
+}
+
+/*
+	Adds a span to be filled with triangles for hover and menu expand effects
+*/
+function menuAddTriangles(){
+	$('#navigation .menu').each(function(i){
+		if(i == 0){
+			$(this).children('li').addClass('menu-level-'+i).prepend('<span class="menu-arrow-large"></span>');
+		}else{
+			$(this).children('li').addClass('menu-level-'+i).prepend('<span class="menu-arrow-small"></span>');
+		}	
+	});
+}
 
 $(document).ready(function () {
 	gsappFetcher.start();
 	
+	adjustPrimaryLinksMenu( window.location.pathname );
+	menuAddTriangles();
 
 	/*************************** UTILITIES ***************************/
 	jQuery.fn.exists = function(){return this.length>0;}
