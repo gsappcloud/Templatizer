@@ -93,7 +93,7 @@ function currentPage(){
 }
 
 /*
-	Adds a span to be filled with triangles for hover and menu expand effects
+	Adds a span to be filled with triangles for hover and menu expand effects.
 */
 function menuAddTriangles(){
 	var liW = 360;
