@@ -1,4 +1,4 @@
-function BuildWall(){
+var BuildWall = function(){
 	var $container = $('#tmpltzr #main .view .view-content');
 	$container.imagesLoaded( function(){
 		$container.masonry({
@@ -11,8 +11,115 @@ function BuildWall(){
 	});
 }
 
+
+function externalLinkAppendImg(m){
+	$('li',m).each(function(){
+		var anchor = $('a', this);
+		var href = anchor.attr('href');
+		href = href.substring(0,4);
+		if(href == 'http'){
+			offsite = '<img class="hover-only" src="/templatizer/sites/all/themes/tmpltzr/assets/offsite.png" />';
+			anchor.append(offsite);
+			anchor.attr("target", "_blank"); //make sure it opens in a new tab/window
+		}
+	});
+}
+
+
+/*************************** RESIZE ***************************/
+/*
+	Resizes the height of the menu based on the actual page size
+*/
+var resizeMenu = function(){
+	var wh = window.innerHeight;
+	var hh = $("#header").height();
+	$("#menu").css('height', wh-hh);
+}
+
+var resizeFunc = function(){
+	resizeMenu(); //resize the height of the menu
+	//$('#tmpltzr .tmpltzr-primaryquarter').parent('.views-row').wrapAll('<div class="tmpltzr-primaryquarter-container" />');
+	
+	var ww = window.innerWidth;
+	if(ww >= 1270){
+		$('#content').css('width', '800px');
+		
+		var id ='';
+		$('#tmpltzr #main .view .views-row').each(function(i){
+			if($('.tmpltzr-secondary-float', this).length != 0){
+				id = $('.tmpltzr-secondary-float', this).attr('id');
+				console.log('id: ' + id);
+				$(this).addClass(id).addClass('empty');
+				$('#tmpltzr #right-sidebar').append($('.tmpltzr-secondary-float', this));
+				
+			}
+		});					
+	}else{
+		$('#content').css('width', '520px');
+		
+		var insertClass = '';
+		$('#tmpltzr #right-sidebar .tmpltzr-secondary-float').each(function(){
+			insertClass = '#tmpltzr #main .view .views-row.' + $(this).attr('id');
+			
+			$(insertClass).append($(this)).removeClass('empty');
+		});			
+	}
+	BuildWall();
+	//evenColumnsCourseBlogsIndex(resized); //even out columns in course blog index TODO tct2003 reinstate this
+	//resized = true; //set to true after the resize function has run once
+}
+
+var adjustPrimaryLinksMenu = function(path){
+	$('#navigation .menu li').addClass('collapsed').removeClass('expanded');
+	
+	var selector = '#navigation a:[href="' + path + '"]';
+	$(selector).parents('li.collapsed').removeClass('collapsed').addClass('expanded active-trail');
+	$(selector).addClass('active');
+}
+
+function currentPage(){
+	console.log('window.location.pathname: ' + window.location.pathname);
+
+
+	var path = window.location.pathname;
+	
+	if(path.indexOf('templatizer') > 0){
+		path = path.substring(12);
+	}
+	
+	console.log('path: ' + path);
+	
+	return path;
+}
+
+/*
+	Adds a span to be filled with triangles for hover and menu expand effects.
+*/
+function menuAddTriangles(){
+	var liW = 360;
+	var aW = 360 - 25;
+	var aWStr = aW + 'px';
+	var liWStr = liW + 'px';
+	$('#navigation .menu').each(function(i){
+		if(i == 0){
+			$(this).children('li').css('width', liWStr).addClass('menu-level-'+i).prepend('<span class="menu-arrow-large"></span>');
+			$(this).children('li').children('a').css('width',aWStr);
+		}else{
+			liW = 360 - (19*i);
+			liWStr = liW + 'px';
+			aW = liW - 19;
+			aWStr = aW + 'px';
+			$(this).children('li').css('width', liWStr).addClass('menu-level-'+i).prepend('<span class="menu-arrow-small"></span>');
+			$(this).children('li').children('a').css('width',aWStr);
+		}	
+	});
+}
+
 $(document).ready(function () {
 	gsappFetcher.start();
+	
+	adjustPrimaryLinksMenu( window.location.pathname );
+	menuAddTriangles();
 
 	/*************************** UTILITIES ***************************/
 	jQuery.fn.exists = function(){return this.length>0;}
@@ -84,40 +191,28 @@ $(document).ready(function () {
 	/* 
 		Adds a dot to all menu items that link to pages off the site
 	*/		
-	var addDotToMenu = function(m){
-		$('li',m).each(function(){
-			var anchor = $('a', this);
-			var href = anchor.attr('href');
-			href = href.substring(0,4);
-			if(href == 'http'){
-				offsite = '<img class="hover-only" src="/templatizer/sites/all/themes/tmpltzr/assets/offsite.png" />';
-				anchor.append(offsite);
-				anchor.attr("target", "_blank"); //make sure it opens in a new tab/window
-			}
-		});
-	}
+	
 	
 	var menu = $("#menu ul.menu");
-	addDotToMenu(menu);
+	externalLinkAppendImg(menu);
 	
 	/*
 		Hover effect for menu - shows offsite.png if offsite link on hover
 	*/
-	var menuHoverOffsiteToggle = function(){
-		$(".hover-only", this).toggle();
+	var menuHoverOn = function(){
+		$(".hover-only", this).toggle(); //hover effect for offsite.png to appear on external links
+		$(this).parent('li.collapsed').children(".menu-arrow-large").css('backgroundPosition', '-15px 0');
+		$(this).parent('li.collapsed').children(".menu-arrow-small").css('backgroundPosition', '-9px 0');
 	}
 	
-	$(".menu a").bind('mouseenter', menuHoverOffsiteToggle).bind('mouseleave', menuHoverOffsiteToggle);
-
-	/*
-		Resizes the height of the menu based on the actual page size
-	*/
-
-	var resizeMenu = function(){
-		var wh = window.innerHeight;
-		var hh = $("#header").height();
-		$("#menu").css('height', wh-hh);
+	var menuHoverOff = function(){
+		$(".hover-only", this).toggle(); //hover effect for offsite.png to appear on external links
+		$(this).parent('li.collapsed').find(".menu-arrow-large").css('background-position', '');
+		$(this).parent('li.collapsed').find(".menu-arrow-small").css('background-position', '');
 	}
+	
+	$(".menu a").bind('mouseenter', menuHoverOn).bind('mouseleave', menuHoverOff);
+
 	
 	/*
 		Colors the active section of the menu in Columbia Blue
@@ -235,45 +330,10 @@ $(document).ready(function () {
 		}
 	});
 	
-	/*************************** RESIZE ***************************/
-	var resized = false; 
-	var resizeFunc = function(post){
 	
-		resizeMenu(); //resize the height of the menu
-		//$('#tmpltzr .tmpltzr-primaryquarter').parent('.views-row').wrapAll('<div class="tmpltzr-primaryquarter-container" />');
-		
-		var ww = window.innerWidth;
-		if(ww >= 1270){
-			$('.wrapper #content').css('width', '800px');
-			
-			var id ='';
-			$('#tmpltzr #main .view .views-row').each(function(i){
-				if($('.tmpltzr-secondary-float', this).length != 0){
-					id = $('.tmpltzr-secondary-float', this).attr('id');
-					console.log('id: ' + id);
-					$(this).addClass(id).addClass('empty');
-					$('#tmpltzr #right-sidebar').append($('.tmpltzr-secondary-float', this));
-					
-				}
-			});					
-		}else{
-			$('.wrapper #content').css('width', '520px');
-			
-			var insertClass = '';
-			$('#tmpltzr #right-sidebar .tmpltzr-secondary-float').each(function(){
-				insertClass = '#tmpltzr #main .view .views-row.' + $(this).attr('id');
-				
-				$(insertClass).append($(this)).removeClass('empty');
-			});			
-		}
-		if(resized){ BuildWall(); }
-		evenColumnsCourseBlogsIndex(resized); //even out columns in course blog index
-		resized = true; //set to true after the resize function has run once
-	}
 	
 	
 	/*************************** STARTUP FUNCTIONS ***************************/
-	
 	
 	resizeFunc(); //run the resize function on page load
 	$(window).resize(resizeFunc); //bind the resize function to the page

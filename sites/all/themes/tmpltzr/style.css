@@ -121,7 +121,28 @@ Equation for font sizing:
 	padding: 10px 0;
 }
 
+.view-content-by-author .views-row{
+	width:500px !important;
+	margin-bottom: 50px;
+}
 
+.view-content-by-author .view-header{
+	margin-top:50px !important;
+	margin-bottom:77px !important;
+}
 
+.pager li{
+	padding: 0 !important;
+	margin: 0 !important;
+}
 
+.pager li a{
+	border:none !important;
+}
+
+.view-content-by-author .views-field-title{
+	font: 24px "DIN Next W02 Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	text-transform:uppercase;
+	margin:0 0 10px 0;
+}
 

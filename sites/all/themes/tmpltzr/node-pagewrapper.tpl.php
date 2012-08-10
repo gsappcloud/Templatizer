@@ -23,11 +23,18 @@
 		<div></div>
 	</header>
 
-<?php if(!empty($node->field_page_title[0]['view'])){ ?>
-	<div class="title-container">
-		<h1><?php print $node->field_page_title[0]['view']; ?></h1>
-	</div>
-<?php } ?>
+
+	<?php if(!empty($node->field_image[0]['view'])){ ?>
+  		<div class="tmpltzr-image">
+  			<?php print $node->field_image[0]['view']; ?>
+  		</div>
+  	<?php } ?>
+  	
+	<?php if(!empty($node->field_page_title[0]['view'])){ ?>
+		<div class="title-container">
+			<h1><?php print $node->field_page_title[0]['view']; ?></h1>
+		</div>
+	<?php } ?>
 
 	<div id="main">
 	<?php
