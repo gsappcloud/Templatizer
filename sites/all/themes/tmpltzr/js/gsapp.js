@@ -96,11 +96,21 @@ function currentPage(){
 	Adds a span to be filled with triangles for hover and menu expand effects
 */
 function menuAddTriangles(){
+	var liW = 360;
+	var aW = 360 - 25;
+	var aWStr = aW + 'px';
+	var liWStr = liW + 'px';
 	$('#navigation .menu').each(function(i){
 		if(i == 0){
-			$(this).children('li').addClass('menu-level-'+i).prepend('<span class="menu-arrow-large"></span>');
+			$(this).children('li').css('width', liWStr).addClass('menu-level-'+i).prepend('<span class="menu-arrow-large"></span>');
+			$(this).children('li').children('a').css('width',aWStr);
 		}else{
-			$(this).children('li').addClass('menu-level-'+i).prepend('<span class="menu-arrow-small"></span>');
+			liW = 360 - (19*i);
+			liWStr = liW + 'px';
+			aW = liW - 19;
+			aWStr = aW + 'px';
+			$(this).children('li').css('width', liWStr).addClass('menu-level-'+i).prepend('<span class="menu-arrow-small"></span>');
+			$(this).children('li').children('a').css('width',aWStr);
 		}	
 	});
 }

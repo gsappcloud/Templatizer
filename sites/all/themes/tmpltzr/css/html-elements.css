@@ -312,34 +312,18 @@ dl dd {
 }
 
 
-
 #navigation .expanded.active-trail .menu li a {
 	font: 18px "DIN Next W02 Bold", Arial, Helvetica, sans-serif !important;
 }
 
-
-
-
-
 #navigation .expanded.active-trail .menu {
 	display:block;
 	position:relative;
-	left:7px;
-	width:300px;
 	word-wrap: break-word
 }
 
 #navigation .menu li.collapsed .menu {
 	display:none !important;
-}
-
-
-
-
-
-
-#navigation .expanded.active-trail .menu .menu .menu .menu{
-	width:240px;
 }
 
 #navigation li.expanded ul {
@@ -359,17 +343,22 @@ dl dd {
 
 
 #navigation ul {
-
 	margin:0 !important;
-
-	padding:0 0 0 20px !important;
-
+	padding:0;
 	list-style:none !important;
-
 }
 
+
 #navigation {
-	padding-bottom:350px;
+	padding:0 0 350px 20px;
+}
+
+#navigation ul ul{
+	padding-left:25px;
+}
+
+#navigation ul ul ul{
+	padding-left:19px !important;
 }
 
 #navigation .menu-arrow-large{
