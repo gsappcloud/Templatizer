@@ -74,7 +74,7 @@
 		
 		// Menu Helper
 		
-		var MAX_MENU_LEVELS = 6;
+		var MAX_MENU_LEVELS = 5;
 	
 		var collapseMenu = function($this){
 			var selector = '';
@@ -99,7 +99,14 @@
 			collapseMenu($this);
 			
 			$('a.active').removeClass('active');
-			$this.addClass('active').css('color', 'white');;
+			$this.addClass('active').css('color', 'white');
+			$this.parent('li').children('ul.menu').children('li').each(function(){
+				if( $this.attr('href') == $(this).children('a').attr('href')){
+					$(this).children('a').css('color','white');
+					$(this).children('.menu-arrow-small').css('backgroundPosition','-9px 0');
+					$this.children('.menu-arrow-small').css('backgroundPosition','0 0');
+				}
+			});
 	
 			$this.parent('li').addClass("expanded").removeClass("collapsed").addClass("active-trail");//.children("ul").show(300);
 				

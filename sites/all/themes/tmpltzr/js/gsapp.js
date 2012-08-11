@@ -102,24 +102,37 @@ function currentPage(){
 /*
 	Adds a span to be filled with triangles for hover and menu expand effects.
 */
+var MAX_MENU_LEVELS = 5;
 function menuAddTriangles(){
 	var liW = 360;
-	var aW = 360 - 25;
-	var aWStr = aW + 'px';
+	var aW = liW - 25;
 	var liWStr = liW + 'px';
-	$('#navigation .menu').each(function(i){
-		if(i == 0){
-			$(this).children('li').css('width', liWStr).addClass('menu-level-'+i).prepend('<span class="menu-arrow-large"></span>');
-			$(this).children('li').children('a').css('width',aWStr);
-		}else{
-			liW = 360 - (19*i);
-			liWStr = liW + 'px';
-			aW = liW - 19;
-			aWStr = aW + 'px';
-			$(this).children('li').css('width', liWStr).addClass('menu-level-'+i).prepend('<span class="menu-arrow-small"></span>');
-			$(this).children('li').children('a').css('width',aWStr);
-		}	
+	var aWStr = aW + 'px';
+	var selector = '#navigation > ul.menu > li';
+	
+	
+	$(selector).css('width', liWStr).addClass('menu-level-0').prepend('<span class="menu-arrow-large"></span>');
+	$(selector).each(function(){
+		$(this).children('a').css('width',aWStr);
+		console.log('selected: ' + $(this).children('a').attr('href') );
 	});
+	
+	
+	for(var i = 1; i < MAX_MENU_LEVELS; i++){
+		selector += ' > ul.menu > li';
+		liW = aW;
+		liWStr = liW + 'px';
+		aW = liW - 19;
+		console.log('aW: '+ aW);
+		aWStr = aW + 'px';
+		$(selector).css('width', liWStr).addClass('menu-level-'+i).prepend('<span class="menu-arrow-small"></span>');
+		
+		$(selector).each(function(){
+			$(this).children('a').css('width',aWStr);
+		});
+		
+	}
+	
 }
 
 
