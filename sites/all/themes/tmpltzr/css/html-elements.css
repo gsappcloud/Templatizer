@@ -392,6 +392,10 @@ dl dd {
 	background-position:0 0;
 }
 
+#navigation .active-trail.leaf .menu-arrow-small{
+	background-position: -9px 0 !important;
+}
+
 #navigation .collapsed .menu-arrow-small{
 	background-position:0 -9px;
 }
