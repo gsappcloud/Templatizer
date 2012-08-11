@@ -76,10 +76,28 @@ function menuHighlightCurrentPath(){
 	
 }
 
+var force_expanded = Array();
+force_expanded.push('/studio-x-global/locations');
+
 var adjustPrimaryLinksMenu = function(path){
+	var tmpltzr = false;
+	if( window.location.pathname.indexOf('templatizer') > 0){
+		tmpltzr = true;
+	}
 	$('#navigation .menu li').addClass('collapsed').removeClass('expanded');
+	var selector = '';
+	for(i in force_expanded){
+		console.log('i: ' + i + ' f_e[i]: ' + force_expanded[i]);
+		if(tmpltzr){
+			selector = '#navigation a:[href="/templatizer' + force_expanded[i] + '"]';
+		}else{
+			selector = '#navigation a:[href="' + force_expanded[i] + '"]';
+		}
+		console.log('selector: ' + selector);
+		$(selector).parent('li').removeClass('collapsed').addClass('force-expanded');
+	} 
 	
-	var selector = '#navigation a:[href="' + path + '"]';
+	selector = '#navigation a:[href="' + path + '"]';
 	$(selector).parents('li.collapsed').removeClass('collapsed').addClass('expanded active-trail');
 	$(selector).addClass('active');
 }

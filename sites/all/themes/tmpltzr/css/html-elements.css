@@ -319,22 +319,26 @@ dl dd {
 	font: 18px "DIN Next W02 Bold", Arial, Helvetica, sans-serif !important;
 }
 
-#navigation .expanded.active-trail .menu {
+#navigation .active-trail .menu {
 	display:block;
 	position:relative;
 	word-wrap: break-word
 }
 
 #navigation .menu li.collapsed .menu {
-	display:none !important;
+	display:none;
 }
 
-#navigation li.expanded ul {
+#navigation li.expanded .menu {
 	display: block;
 }
 
-#navigation li.collapsed ul li {
-	display: none !important;
+#navigation li.collapsed.force-expanded .menu {
+	display: block;
+}
+
+#navigation li.collapsed.force-expanded .menu .menu {
+	display: none;
 }
 
 
@@ -386,6 +390,9 @@ dl dd {
 	width:9px;
 	height:9px;
 	background:transparent url("/templatizer/sites/all/themes/tmpltzr/assets/menu-arrow-small.png") no-repeat 0 -9px;
+	vertical-align: top;
+	position: relative;
+	top: 7px;
 }
 
 #navigation .active-trail .menu-arrow-small{

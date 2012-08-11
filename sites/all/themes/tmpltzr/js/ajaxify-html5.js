@@ -108,7 +108,7 @@
 				}
 			});
 	
-			$this.parent('li').addClass("expanded").removeClass("collapsed").addClass("active-trail");//.children("ul").show(300);
+			$this.parents('li').addClass("expanded").removeClass("collapsed").addClass("active-trail");//.children("ul").show(300);
 				
 			/*	TODO tct2003 was for testing
 			$("#navigation .active-trail").each(function(){
@@ -170,7 +170,7 @@
 			// Start Fade Out
 			// Animating to opacity to 0 still keeps the element's height intact
 			// Which prevents that annoying pop bang issue when loading in new content
-			$content.animate({opacity:0},800);
+			$content.animate({opacity:0},100);
 			
 			// Ajax Request the Traditional Page
 			$.ajax({
