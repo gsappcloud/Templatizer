@@ -69,6 +69,13 @@ var resizeFunc = function(){
 	//resized = true; //set to true after the resize function has run once
 }
 
+function menuHighlightCurrentPath(){
+	$('#navigation .menu li.active-trail').each(function(){
+		$(this).children('a').css('color', 'white');
+	});
+	
+}
+
 var adjustPrimaryLinksMenu = function(path){
 	$('#navigation .menu li').addClass('collapsed').removeClass('expanded');
 	
@@ -115,10 +122,13 @@ function menuAddTriangles(){
 	});
 }
 
+
+
 $(document).ready(function () {
 	gsappFetcher.start();
 	
 	adjustPrimaryLinksMenu( window.location.pathname );
+	menuHighlightCurrentPath();
 	menuAddTriangles();
 
 	/*************************** UTILITIES ***************************/
@@ -213,17 +223,6 @@ $(document).ready(function () {
 	
 	$(".menu a").bind('mouseenter', menuHoverOn).bind('mouseleave', menuHoverOff);
 
-	
-	/*
-		Colors the active section of the menu in Columbia Blue
-	*/
-	var menuActiveTrailColor = function(){
-		$("#menu .active-trail").each(function(){
-			$('a:eq(0)', this).css('color', 'gray');
-		});
-	}
-	
-	menuActiveTrailColor();
 	
 	/*************************** COURSE BLOGS INDEX ***************************/
 	/*

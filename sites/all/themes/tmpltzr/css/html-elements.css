@@ -303,7 +303,7 @@ dl dd {
 
 #navigation .menu li a{
 	text-decoration:none;
-    color:#fff;
+    color:gray;
     text-transform: uppercase;
 	font: 28px "DIN Next W02 Bold", Arial, Helvetica, sans-serif;
 	display:inline-block;
@@ -311,6 +311,9 @@ dl dd {
 	letter-spacing: .1em;
 }
 
+#navigation .menu li a:hover{
+	color:white;
+}
 
 #navigation .expanded.active-trail .menu li a {
 	font: 18px "DIN Next W02 Bold", Arial, Helvetica, sans-serif !important;

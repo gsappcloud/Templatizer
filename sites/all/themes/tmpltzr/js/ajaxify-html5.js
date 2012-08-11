@@ -87,6 +87,7 @@
 			for(i = level; i <= MAX_MENU_LEVELS; i++){
 				selector = '#navigation ul li.menu-level-'+i;
 				$(selector).removeClass('expanded').removeClass('active-trail').addClass('collapsed');
+				$(selector).children('a').css('color','');
 				selectorArrow = selector + ' .menu-arrow-large, ' + selector + ' .menu-arrow-small';
 				$(selectorArrow).css('backgroundPosition', '');
 			}
@@ -98,7 +99,7 @@
 			collapseMenu($this);
 			
 			$('a.active').removeClass('active');
-			$this.addClass('active');
+			$this.addClass('active').css('color', 'white');;
 	
 			$this.parent('li').addClass("expanded").removeClass("collapsed").addClass("active-trail");//.children("ul").show(300);
 				
@@ -114,18 +115,9 @@
 		$.fn.ajaxify = function(){
 			// Prepare
 			var $this = $(this);
-
-			/* TODO tct2003 only do this for templatizer: add /templatizer/ to the front of every internal href in the menu 
-			if(base_path.length > 0){
-				$this.find('#navigation a:internal:not(#gsapplogo), #content a:internal:not(#gsapplogo)').each(function(){
-					var url = $(this).attr('href');
-					$(this).attr('href','/templatizer/'+url);
-				});
-			}*/
-			
-			
+						
 			// Ajaxify
-			$this.find('a:internal:not(#gsapplogo)').click(function(event){ 
+			$this.find('a:internal:not(#gsapplogo)').click(function(event){ //exempt GSAPP Logo so it reloads everything
 				// Prepare
 				var
 					$this = $(this),
