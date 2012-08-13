@@ -84,37 +84,41 @@
 			
 			
 			
-			for(i = level; i <= MAX_MENU_LEVELS; i++){
+			for(i = 0; i <= MAX_MENU_LEVELS; i++){
 				selector = '#navigation ul li.menu-level-'+i;
 				$(selector).removeClass('expanded').removeClass('active-trail').addClass('collapsed');
 				$(selector).children('a').css('color','');
 				selectorArrow = selector + ' .menu-arrow-large, ' + selector + ' .menu-arrow-small';
 				$(selectorArrow).css('backgroundPosition', '');
 			}
+			
+			return level;
 		};
 	
 	
-	
 		var menuParser = function($this){	
-			collapseMenu($this);
-			
+			var level = collapseMenu($this);			
 			$('a.active').removeClass('active');
-			$this.addClass('active').css('color', 'white');
-			$this.parent('li').children('ul.menu').children('li').each(function(){
-				if( $this.attr('href') == $(this).children('a').attr('href')){
-					$(this).children('a').css('color','white');
-					$(this).children('.menu-arrow-small').css('backgroundPosition','-9px 0');
-					$this.children('.menu-arrow-small').css('backgroundPosition','0 0');
-				}
+
+			//in case of redirect to a lower item, like About > Dean's Statement
+			if($this.parent('li').children('ul.menu').length > 0){
+				$this.parent('li').children('ul.menu').children('li').each(function(){
+					if( $this.attr('href') == $(this).children('a').attr('href')){
+						$(this).children('a').addClass('active');
+					}else{
+						$this.addClass('active');
+					}
+				});
+			}else{
+				$this.addClass('active');
+			}
+			//assign classes to menu items clicked and higher in the tree
+			$('a.active').parents('li').addClass("expanded").removeClass("collapsed").addClass("active-trail");
+			
+			//make each .active-trail element white
+			$('a.active').parents('li').each(function(){
+				$(this).children('a:eq(0)').css('color','white');
 			});
-	
-			$this.parents('li').addClass("expanded").removeClass("collapsed").addClass("active-trail");//.children("ul").show(300);
-				
-			/*	TODO tct2003 was for testing
-			$("#navigation .active-trail").each(function(){
-				$this.filter('a:eq(0)').css('color', 'green');
-			});
-			*/
 		}
 		
 		

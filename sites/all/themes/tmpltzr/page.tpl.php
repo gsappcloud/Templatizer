@@ -322,6 +322,8 @@ if ($is_mobile === TRUE) { ?>
 
 			</header>
 			
+			<a href="/" id="gsapp-news"></a>
+			
 			<nav id="navigation">
 				<?php print menu_tree_output( menu_tree_all_data('primary-links') ); ?>
 			</nav><!-- #navigation -->
@@ -330,11 +332,13 @@ if ($is_mobile === TRUE) { ?>
 
 		<!-- #content -->
 		<section id="content" class="clearfix">
-			<?php if ($tabs): ?><div class="tabs"><?php print $tabs; ?></div><?php endif; ?>
-			<?php print $messages . $help . $header; ?>
+			<?php print $messages . $help; ?>
 			<!--starttmpltzr-->
 			<div id="tmpltzr">
-					<?php print $content; ?>
+				<header id="global-header">
+					<div></div>
+				</header>
+				<?php print $content; ?>
 			</div>
 			<!--endtmpltzr-->
 				

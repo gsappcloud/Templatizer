@@ -243,7 +243,8 @@ $(document).ready(function () {
 	var menuHoverOn = function(){
 		$(".hover-only", this).toggle(); //hover effect for offsite.png to appear on external links
 		$(this).parent('li.collapsed').children(".menu-arrow-large").css('backgroundPosition', '-15px 0');
-		$(this).parent('li.collapsed').children(".menu-arrow-small").css('backgroundPosition', '-9px 0');
+		$(this).parent('li.collapsed:not(.active-trail.leaf)').children(".menu-arrow-small").css('backgroundPosition', '-9px 0');
+		
 	}
 	
 	var menuHoverOff = function(){

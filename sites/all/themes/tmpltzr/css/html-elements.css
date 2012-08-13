@@ -408,7 +408,20 @@ dl dd {
 }
 
 
+#gsapp-news{
+	position:fixed;
+	z-index:10000;
+	top:45%;
+	right: 10px;
+	display:block;
+	height:120px;
+	width:120px;
+	background:transparent url("/templatizer/sites/all/themes/tmpltzr/assets/gsappNews.png") no-repeat 0 0;
+}
 
+#gsapp-news:hover{
+	background-position:-120px 0;
+}
 
 
 /* TMPLTZR */
@@ -1286,4 +1299,19 @@ dl dd {
 
 #tmpltzr .gs-web-image-box img.gs-image, .gs-promotion-image-box img.gs-promotion-image {
 	border: none !important;
+}
+
+/* home page - temporary dashboard */
+#tmpltzr .tmpltzr-home {
+	width:460px;
+	padding:20px;
+	background-color: #efefef;
+}
+
+#tmpltzr .tmpltzr-home .tmpltzr-quote-home {
+    font: 45px "DIN Next W02 Bold", Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding:0 0 10px;
+    text-transform:uppercase;
+    width:100%;
 }

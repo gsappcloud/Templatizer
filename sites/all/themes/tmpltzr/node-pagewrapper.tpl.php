@@ -19,9 +19,7 @@
         }      
         print '" >';       
 ?>
-	<header id="global-header">
-		<div></div>
-	</header>
+	
 
 
 	<?php if(!empty($node->field_image[0]['view'])){ ?>
