@@ -2,7 +2,6 @@
   <article id="node-<?php print $node->nid; ?>" class="node<?php if ($sticky) { print ' sticky'; } ?><?php if (!$status) { print ' node-unpublished'; } ?> clearfix">
   <?php endif;?>
 
-<?php dsm($node); ?>
 
   <div class="content">
   	<div class="entry">
@@ -49,5 +48,6 @@
 
 
 <?php if (!$page): ?>
+	<?php printEditSectionFooter($user->uid, $node->uid, $node->nid, node_url); ?>
   </article> <!-- /.node -->
 <?php endif;?>

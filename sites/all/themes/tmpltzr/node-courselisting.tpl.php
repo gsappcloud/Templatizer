@@ -1,8 +1,4 @@
-<?php if ($user->uid == 1 || $user->uid == 4 || $user->uid == 5 || $user->uid == $node->uid) { ?>
-	<div class="tmpltzr-edit">
-		<a href="http://postfog.org/templatizer/node/<?php print $node->nid; ?>/edit" title="<?php print $node_url; ?>">EDIT THE SECTION BELOW</a>
-	</div>
-<?php } ?>
+<?php printEditPageHeader($user->uid, $node->uid, $node->nid, $node_url); ?>
 
 
 

@@ -195,3 +195,28 @@ function framework_preprocess_block(&$vars, $hook) {
   }
   $vars['edit_links'] = !empty($vars['edit_links_array']) ? '<div class="edit">' . implode(' ', $vars['edit_links_array']) . '</div>' : '';
 }
+
+
+/**
+ * Prints the "EDIT THIS PAGE" button
+ *
+ * @param
+ *   
+ */
+function printEditPageHeader($uid, $nodeUid, $nid, $url) { 
+	if ($uid == 1 || $uid == 4 || $uid == 5 || $uid == $nodeUid) { 
+		print '<div class="tmpltzr-edit"><a href="/templatizer/node/' . $nid . '/edit" title="' . $url . '">EDIT THIS PAGE</a></div>';
+	}
+}
+
+/**
+ * Prints the "EDIT THE SECTION ABOVE" button
+ *
+ * @param
+ *   
+ */
+function printEditSectionFooter($uid, $nodeUid, $nid, $url){
+	if ($uid == 1 || $uid == 4 || $uid == 5 || $uid == $nodeUid) {
+		print '<div class="tmpltzr-edit"><a href="/templatizer/node/' . $nid . '/edit" title="' .$url . '">EDIT THE SECTION ABOVE</a></div>';
+	}
+}

@@ -315,31 +315,27 @@ dl dd {
 	color:white;
 }
 
-#navigation .expanded.active-trail .menu li a {
+#navigation .menu .menu li a {
 	font: 18px "DIN Next W02 Bold", Arial, Helvetica, sans-serif !important;
 }
 
-#navigation .active-trail .menu {
-	display:block;
+#navigation .menu {
 	position:relative;
 	word-wrap: break-word
 }
 
-#navigation .menu li.collapsed .menu {
+#navigation .menu .menu {
 	display:none;
 }
 
-#navigation li.expanded .menu {
+
+#navigation .menu li.force-expanded .menu {
 	display: block;
 }
-
-#navigation li.collapsed.force-expanded .menu {
-	display: block;
-}
-
-#navigation li.collapsed.force-expanded .menu .menu {
+#navigation .force-expanded .menu .menu {
 	display: none;
 }
+
 
 
 #navigation .hover-only{
@@ -372,40 +368,50 @@ dl dd {
 	display:inline-block;
 	width:15px;
 	height:15px;
-	background:transparent url("/templatizer/sites/all/themes/tmpltzr/assets/menu-arrow-large.png") no-repeat 0 -15px;
+	background:transparent url("http://www.columbia.edu/cu/arch/tmpltzr-postfog/assets/menu-arrow-large.png") no-repeat -15px -50px;
 }
 
-#navigation .active-trail .menu-arrow-large{
-	background-position:0 0;
+#navigation .active-trail.expanded .menu-arrow-large{
+	background-position: 0 0;
 }
 
-#navigation .collapsed .menu-arrow-large{
-	background-position:0 -15px;
+#navigation .active-trail.collapsed .menu-arrow-large{
+	background-position: -15px 0;
 }
 
 
 
-#navigation .active-trail .menu-arrow-small{
+#navigation .menu-arrow-small{
 	display:inline-block;
 	width:9px;
 	height:9px;
-	background:transparent url("/templatizer/sites/all/themes/tmpltzr/assets/menu-arrow-small.png") no-repeat 0 -9px;
+	background:transparent url("http://www.columbia.edu/cu/arch/tmpltzr-postfog/assets/menu-arrow-small.png") no-repeat -9px -50px;
 	vertical-align: top;
 	position: relative;
 	top: 7px;
 }
 
-#navigation .active-trail .menu-arrow-small{
-	background-position:0 0;
+#navigation .active-trail.expanded .menu-arrow-small:first-child{
+	background-position: 0 0;
 }
 
-#navigation .active-trail.leaf .menu-arrow-small{
+
+#navigation .leaf.active-trail .menu-arrow-small:first-child{
 	background-position: -9px 0 !important;
 }
 
-#navigation .collapsed .menu-arrow-small{
-	background-position:0 -9px;
+#navigation .active-trail .collapsed .menu-arrow-small:first-child{
+	background-position: 0 -50px;
 }
+
+#navigation .active-trail.collapsed .menu-arrow-small:first-child{
+	background-position: -9px 0;
+}
+
+#navigation .active-trail.collapsed .menu .menu-arrow-small{
+	background-position: 0 -50px;
+}
+
 
 
 #gsapp-news{
@@ -416,7 +422,7 @@ dl dd {
 	display:block;
 	height:120px;
 	width:120px;
-	background:transparent url("/templatizer/sites/all/themes/tmpltzr/assets/gsappNews.png") no-repeat 0 0;
+	background:transparent url("http://www.columbia.edu/cu/arch/tmpltzr-postfog/assets/gsappNews.png") no-repeat 0 0;
 }
 
 #gsapp-news:hover{
@@ -916,7 +922,7 @@ dl dd {
 	width:20px;
 	height:20px;
 	cursor: pointer;
-    background: transparent url("/templatizer/sites/all/themes/tmpltzr/assets/photoslider_prev.png") no-repeat 0 0;
+    background: transparent url("http://www.columbia.edu/cu/arch/tmpltzr-postfog/assets/photoslider_prev.png") no-repeat 0 0;
 }
 
 #tmpltzr .jcarousel-prev:hover,
@@ -930,7 +936,7 @@ dl dd {
 	width:20px;
 	height:20px;
 	cursor: pointer;
-    background: transparent url("/templatizer/sites/all/themes/tmpltzr/assets/photoslider_next.png") no-repeat -35px 0;
+    background: transparent url("http://www.columbia.edu/cu/arch/tmpltzr-postfog/assets/photoslider_next.png") no-repeat -35px 0;
 }
 
 #tmpltzr .tmpltzr-primary .tmpltzr-photoset-container .jcarousel-prev, #tmpltzr .tmpltzr-primary .tmpltzr-photoset-container .jcarousel-next  {
@@ -1127,6 +1133,9 @@ dl dd {
 	font-size: 18px;
 }
 
+#tmpltzr .content #event-output .embedded-event-date-box.filled {
+	background-color:#999;
+}
 
 #tmpltzr .content #event-output .embedded-event-date-box.north-america.filled {
 	background-color:#00D6FF;
@@ -1248,10 +1257,15 @@ dl dd {
 	width:500px;
 }
 
+#tmpltzr .gsc-resultsbox-visible .gsc-resultsHeader{
+	margin:0;
+}
+
 #tmpltzr .gsc-control-cse, #tmpltzr .gsc-control-cse .gsc-table-result {
 	background: none;
 	border-color: none;
 	font-family: "DIN Next W01 Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	padding:0;
 }
 
 #tmpltzr .gsc-table-result, #tmpltzr .gsc-thumbnail-inside, #tmpltzr .gsc-url-top{
@@ -1265,7 +1279,20 @@ dl dd {
 	text-decoration: none !important;
 	color: black;
 	text-transform: uppercase;
+	padding:0;
+}
 
+#tmpltzr .gsc-control-cse .gs-spelling a{
+	border-bottom:1px solid black;
+}
+
+#tmpltzr .gsc-control-cse .gs-spelling a b{
+	font-weight:normal !important;
+}
+
+#tmpltzr .gsc-control-cse .gs-spelling a b i{
+	font-style:normal !important;
+	color:black !important;
 }
 
 
@@ -1277,8 +1304,13 @@ dl dd {
 
 #tmpltzr .gsc-above-wrapper-area{
 	border-bottom: none;
+	padding-bottom:0;
 }
 
+#tmpltzr .gsc-above-wrapper-area table{
+	margin:0;
+}
+	
 #tmpltzr .gsc-results .gsc-cursor-box .gsc-cursor-current-page{
 	color: black !important;
 }

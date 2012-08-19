@@ -1,8 +1,4 @@
-<?php if ($user->uid) { ?>
-	<div class="tmpltzr-edit">
-		<a href="http://postfog.org/templatizer/node/<?php print $node->nid; ?>/edit" title="<?php print $node_url; ?>">EDIT THIS PAGE</a>
-	</div>
-<?php } ?>
+<?php printEditPageHeader($user->uid, $node->uid, $node->nid, $node_url); ?>
 
 <div id="fixed-header">
 	<h1><?php print $title; ?></h1>

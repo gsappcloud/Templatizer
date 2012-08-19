@@ -17,7 +17,7 @@
     position:fixed;
     top:0;
     left:0;
-    background-color:black; /* tct2003 111228 #fff; */
+    background-color:green; /* tct2003 111228 #fff; */
     overflow: hidden;
 }
 
@@ -31,7 +31,7 @@
 
 #menu {
     width: 400px;
-    background-color:black; /* tct2003 111228 #fff; */
+    background-color:green; /* tct2003 111228 #fff; */
     height:100%;
     position:fixed;
     top:170px;
@@ -110,7 +110,7 @@
 #gsapp-customsearch #edit-submit{
 	width:16px; 		
 	height:16px;
-	background:url(/templatizer/sites/all/themes/tmpltzr/assets/search.png) no-repeat; 
+	background:url("http://www.columbia.edu/cu/arch/tmpltzr-postfog/assets/search.png") no-repeat; 
 	border:none;
 	overflow:hidden;
 	cursor:pointer;

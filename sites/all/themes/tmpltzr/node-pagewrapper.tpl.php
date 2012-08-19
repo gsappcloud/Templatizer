@@ -1,10 +1,4 @@
-<?php if ($user->uid == 1 || $user->uid == 4 || $user->uid == 5 || $user->uid == $node->uid) { ?>
-	<div class="tmpltzr-edit">
-		<a href="http://postfog.org/templatizer/node/<?php print $node->nid; ?>/edit" title="<?php print $node_url; ?>">EDIT THIS PAGE</a>
-	</div>
-<?php } dsm($node);?>
-
-
+<?php printEditPageHeader($user->uid, $node->uid, $node->nid, $node_url); ?>
 
 
 <?php //wrapper div with Page Wrapper color code based on color-code taxonomy
