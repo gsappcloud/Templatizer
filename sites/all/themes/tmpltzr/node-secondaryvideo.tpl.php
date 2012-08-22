@@ -1,13 +1,21 @@
 <?php
 	$terms = taxonomy_node_get_terms_by_vocabulary($node, 9); // vid=9 => color-code
-		if(!empty($terms)) {
-        	foreach ($terms as $term){
-            	$color = $term->name;
-            }
-        }      
+	if(!empty($terms)) {
+		foreach ($terms as $term){
+			$color = $term->name;
+		}
+	}    
+	
+	$sidebar = false;
+	if(!empty($node->field_sidebar)){
+		if($node->field_sidebar[0]['view'] == 'Yes'){
+			$sidebar = true;
+		}
+	}
+
 ?>
 <?php if (!$page){ ?>
-<div id="node-<?php print $node->nid; ?>" class="tmpltzr-module tmpltzr-module-240 tmpltzr-secondary tmpltzr-secondaryvideo node<?php if ($sticky) { print ' sticky'; } ?><?php if (!$status) { print ' node-unpublished'; } ?><?php if ($color) { print ' '.$color; } ?> clearfix">
+<div id="node-<?php print $node->nid; ?>" class="tmpltzr-module <?php if($sidebar){ print 'tmpltzr-module-240 tmpltzr-secondary-float'; }else{ print 'tmpltzr-module-500'; } ?> tmpltzr-secondary tmpltzr-secondaryvideo node<?php if ($sticky) { print ' sticky'; } ?><?php if (!$status) { print ' node-unpublished'; } ?><?php if ($color) { print ' '.$color; } ?> clearfix">
 <a id="<?php print $node->title; ?>" name="<?php print $node->title; ?>" class="anchorhash"></a>
 <?php } ?>
 	

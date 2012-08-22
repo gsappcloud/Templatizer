@@ -136,7 +136,6 @@
 				var redirect = 'a:[href="' + path + '"]';
 				$redirectAnchor = $this.parent('li').children('.menu').find(redirect);
 				if($redirectAnchor.length > 0){
-					console.log('a redirect');
 					$redirectAnchor.addClass('active');
 					var cl = $redirectAnchor.parent('li').attr('class');	
 					var index = cl.indexOf('menu-level-') + 11;
@@ -145,11 +144,9 @@
 					$this.addClass('redirect-active');
 					
 				}else{
-					console.log('submenu but not redirect');
 					$this.addClass('active');
 				}
 			}else{
-				console.log('no submenu');
 				$this.addClass('active');
 			}
 			
@@ -158,14 +155,11 @@
 			
 			//open parent menu (and child menu) if a redirect
 			if(redirect == true){
-				
 				$('a.active').parents('li').children('.menu').each(function(){
 					if( !( $(this).is(":visible") ) ){
 						$(this).slideToggle(500);
 					}
 				});
-				
-				
 			} 
 			
 			if(trunk == false){//open the submenu if applicable and not a redirect
@@ -202,14 +196,12 @@
 				$this.parent('li').children('span').css('backgroundPosition', '');
 
 				if( $this.hasClass('active') ){
-					console.log('is active');
 					if( $this.parent('li').hasClass('expanded') ){
 						$this.parent('li').removeClass("expanded").addClass("collapsed").children('.menu').slideToggle(500);
 					}else{
 						$this.parent('li').addClass("expanded").removeClass("collapsed").children('.menu').slideToggle(500);
 					}
 				}else if( $this.hasClass('redirect-active') ){
-					console.log('is redirect-active');
 					if( $this.parent('li').hasClass('expanded') ){
 						$this.parent('li').removeClass("expanded").addClass("collapsed").children('.menu').slideToggle(500);
 						//$('active').removeClass('active');
@@ -217,7 +209,6 @@
 					}else{
 						$this.parent('li').addClass("expanded").removeClass("collapsed").children('.menu').slideToggle(500);
 					}
-					//setCurrentLevel( getElementLevel( $this.parent('li') ) );
 				}else{	
 					var trunk = false;
 					if($this.parent('li').hasClass('active-trail')){

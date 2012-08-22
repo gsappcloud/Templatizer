@@ -741,11 +741,23 @@ dl dd {
 
 
 
-#tmpltzr .tmpltzr-secondaryvideo, #tmpltzr .tmpltzr-secondaryembed, #tmpltzr .tmpltzr-secondaryphotoset {
+#tmpltzr .tmpltzr-secondaryvideo.tmpltzr-module-500, #tmpltzr .tmpltzr-secondaryembed, #tmpltzr .tmpltzr-secondaryphotoset {
 	display:block;
 	padding: 20px;
 	width:460px;
 	float:left;
+}
+
+#tmpltzr .tmpltzr-secondaryvideo.tmpltzr-module-240, #tmpltzr .tmpltzr-secondaryembed.tmpltzr-module-240, #tmpltzr .tmpltzr-secondaryphotoset.tmpltzr-module-240 {
+	display:block;
+	padding: 20px;
+	width:200px;
+	float:left;
+}
+
+#tmpltzr .tmpltzr-secondaryvideo.tmpltzr-module-240 .tmpltzr-embed-flickr object{
+	width:200px;
+	height:150px;
 }
 
 #tmpltzr .none .tmpltzr-secondary, #tmpltzr .none .tmpltzr-secondary, #tmpltzr .other .tmpltzr-secondary, #tmpltzr .none .tmpltzr-secondary, #tmpltzr .none .tmpltzr-primaryquote, #tmpltzr .other .tmpltzr-primaryquote {
