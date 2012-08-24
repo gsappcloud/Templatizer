@@ -422,6 +422,9 @@
 		 *	$active: the active menu link (anchor).
 		*/
 		$.fn._is_sibling = function($active){
+			safelog('active href: ' + $active.attr('href'));
+			safelog('sib test, this href: ' + $(this).parent('li').parent('.menu').parent('li').children('a:eq(0)').attr('href'));
+			safelog('sib test, active href: ' + $active.parent('li').parent('.menu').parent('li').children('a:eq(0)').attr('href'));
 			if( $(this).parent('li').parent('.menu').parent('li').children('a:eq(0)').attr('href') == $active.parent('li').parent('.menu').parent('li').children('a:eq(0)').attr('href')){
 				safelog('is sibling!!');
 				return true;
@@ -575,6 +578,7 @@
 								fetch = false;
 								break;
 							}else if( ( $this.parent('li').hasClass('active-trail') ) && ($this.level() <= $('.redirect-active').level()) ){
+								safelog('wrong!!');
 								$('redirect-active').removeClass('redirect-active');
 							}
 							$this.climb($active);

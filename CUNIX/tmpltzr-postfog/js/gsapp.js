@@ -1,9 +1,12 @@
 var LOG = true;
+var TMPLTZR = true;
 var safelog = function(msg){
 	if(LOG === true && msg != undefined){
 		console.log(msg);
 	}
 }
+
+var HOME_URL = 'http://www.postfog.org/templatizer';
 
 var CURRENT_LEVEL = 0;
 var CURRENT_STATE_INDEX = 0;
@@ -150,7 +153,8 @@ force_expanded.push('/studio-x-global/locations/studio-x-beijing');
 
 var adjustPrimaryLinksMenu = function(path){
 	$('#navigation .menu li').addClass('collapsed menu-item').removeClass('expanded');
-	var selector = '';
+	var selector = '',
+		$selected;
 	for(i in force_expanded){
 		selector = '#navigation a:[href="' + force_expanded[i] + '"]';		
 		$(selector).parent('li').removeClass('collapsed').addClass('force-expanded');
@@ -160,18 +164,62 @@ var adjustPrimaryLinksMenu = function(path){
 	safelog('not the homepage: ' + path.substring(13));
 	if( (path.length > 13) && (path.substring(13,19) != 'search') ){
 		selector = '#navigation a:[href="' + path + '"]';
-		$(selector).parents('li.collapsed').removeClass('collapsed').addClass('expanded active-trail');
-		$('.active-trail a:eq(0)').css('color', 'white');
-		$(selector).addClass('active').css('color', 'white');
-		$(selector).parents('.menu').show();
-		$(selector).parent('li').children('.menu').show();
-		setCurrentState(1);
 		
-		var classes = $(selector).parent('li').attr('class');
-		var levelIdx = classes.indexOf('level-') + 6;
-		var level = classes.substring(levelIdx, levelIdx+1);
+		
+		var selLen = $(selector).length;
+		if( selLen < 0 ){//the page doesn't exist on the site
+			window.location.href = HOME_URL;//redirect to homepage
+		}else{//page exists
+			if( selLen == 1 ){
+				safelog('single selector');
+				$selected = $(selector);
+				setCurrentState(1);
+			}else if(selLen > 1){//redirect, internal or not
+				
+				if( $('#navigation a:[href="' + path + '"]:eq(0)').parent('li').children('.menu').find('li a:[href="' + path + '"]:eq(0)').length > 0 ){//redirect
+					$selected = $('#navigation a:[href="' + path + '"]:eq(0)').parent('li').children('.menu').find('li a:[href="' + path + '"]:eq(0)');
+					$('#navigation a:[href="' + path + '"]:eq(0)').parent('li').addClass('redirect-active');
+					$('#navigation a:[href="' + path + '"]:eq(0)').removeClass('active');
+					
+					safelog('redirected at birth');
+					setCurrentState(3);
+				}else{//internal redirect
+					$(selector).each(function(){
+						var stub = $(this).closest('.menu').parent('li').children('a:eq(0)').attr('href');
+						if(TMPLTZR == true){
+							stub = stub.substring(13, 18);// change 13 to 1 for non-templatizer
+							if( stub == path.substring(13, 18) ){
+								$selected = $(this);
+							}else{
+								$(this).removeClass('active');
+							}
+						}else{
+							stub = stub.substring(1, 6);
+							safelog('stub: ' + stub);
+							safelog('path stub: ' + path.substring(1, 6));
+							if( stub == path.substring(1, 6) ){
+								$selected = $(this);
+							}else{
+								$(this).removeClass('active');
+							}
+						}
+					});	
+					setCurrentState(1);
+				}
+			}
+			$selected.parents('li.collapsed').removeClass('collapsed').addClass('expanded active-trail');
+			$('.active-trail').each(function(){
+				$('a:eq(0)', this).css('color', 'white');
+			});
+			$selected.addClass('active').css('color', 'white');
+			$selected.parents('.menu').show();
+			$selected.parent('li').children('.menu').show();
+			
+		}
 	}
 }
+
+
 
 /*
 	Adds a span to be filled with triangles for hover and menu expand effects.
@@ -270,20 +318,6 @@ $(document).ready(function () {
 	
 	  
     /*************************** MENU ***************************/
-	var scrollMenu = function(){
-		var target = $('#menu ul li.active-trail');
-		
-		if($('#menu ul li.active-trail').exists()){
-			if($('#menu ul li.active-trail li.active-trail').exists()){
-				$('#menu').scrollTo( target, 0 );
-			}else{
-				$('#menu').scrollTo( target, 800, {easing:'linear'} );
-			}
-		}
-	}
-	
-	//scrollMenu(); //scrolls highest level of .active-trail to the top of the menu
-	
 	/* 
 		Adds a dot to all menu items that link to pages off the site
 	*/		
