@@ -1,4 +1,43 @@
+var LOG = true;
+var safelog = function(msg){
+	if(LOG === true && msg != undefined){
+		console.log(msg);
+	}
+}
+
 var CURRENT_LEVEL = 0;
+var CURRENT_STATE_INDEX = 0;
+var CURRENT_STATES = Array();
+CURRENT_STATES[0] = 'home';
+CURRENT_STATES[1] = 'menu';
+CURRENT_STATES[3] = 'redirected';
+
+var CURRENT_STATE = CURRENT_STATES[CURRENT_STATE_INDEX];
+
+
+var initCurrentState = function(state_index){
+	if(state_index != undefined){
+		CURRENT_STATE = CURRENT_STATES[state_index];
+	}else{
+		CURRENT_STATE = CURRENT_STATES[CURRENT_STATE_INDEX];
+	}
+}
+
+var setCurrentState = function(state_index){
+	try{
+		CURRENT_STATE = CURRENT_STATES[state_index];
+	}catch(e){
+		safelog('error: ' + e.message);
+	}
+}
+
+var getCurrentState = function(){
+	return CURRENT_STATE;
+}
+
+var getCurrentStateIndex = function(){
+	return CURRENT_STATE_INDEX;
+}
 
 var initCurrentLevel = function(){
 	CURRENT_LEVEL = 0;
@@ -14,8 +53,8 @@ var getCurrentLevel = function(){
 
 var getElementLevel = function($element){
 	var classes = $element.attr('class');
-	if( classes.indexOf('menu-level-').length > 0 ){
-		var levelIdx = classes.indexOf('menu-level-') + 11;
+	if( classes.indexOf('level-').length > 0 ){
+		var levelIdx = classes.indexOf('level-') + 6;
 		var level = classes.substring(levelIdx, levelIdx+1);
 		return level;
 	}else{
@@ -110,7 +149,7 @@ force_expanded.push('/studio-x-global/locations');
 force_expanded.push('/studio-x-global/locations/studio-x-beijing');
 
 var adjustPrimaryLinksMenu = function(path){
-	$('#navigation .menu li').addClass('collapsed').removeClass('expanded');
+	$('#navigation .menu li').addClass('collapsed menu-item').removeClass('expanded');
 	var selector = '';
 	for(i in force_expanded){
 		selector = '#navigation a:[href="' + force_expanded[i] + '"]';		
@@ -118,19 +157,19 @@ var adjustPrimaryLinksMenu = function(path){
 	} 
 	
 	/* if not the homepage, where path = '/' */
-	console.log('tct2003: ' + path.substring(13,19));
+	safelog('not the homepage: ' + path.substring(13));
 	if( (path.length > 13) && (path.substring(13,19) != 'search') ){
 		selector = '#navigation a:[href="' + path + '"]';
 		$(selector).parents('li.collapsed').removeClass('collapsed').addClass('expanded active-trail');
 		$('.active-trail a:eq(0)').css('color', 'white');
 		$(selector).addClass('active').css('color', 'white');
 		$(selector).parents('.menu').show();
+		$(selector).parent('li').children('.menu').show();
+		setCurrentState(1);
 		
 		var classes = $(selector).parent('li').attr('class');
-		var levelIdx = classes.indexOf('menu-level-') + 11;
+		var levelIdx = classes.indexOf('level-') + 6;
 		var level = classes.substring(levelIdx, levelIdx+1);
-		setCurrentLevel(level);	
-
 	}
 }
 
@@ -145,20 +184,22 @@ function menuAddTriangles(){
 	var aWStr = aW + 'px';
 	var selector = '#navigation > .menu > li';
 	
-	
-	$(selector).css('width', liWStr).addClass('menu-level-0').prepend('<span class="menu-arrow-large"></span>');
+	$('#navigation > .menu').addClass('level-0');
+	$(selector).css('width', liWStr).prepend('<span class="menu-arrow-large"></span>');
 	$(selector).each(function(){
 		$(this).children('a').css('width',aWStr);
 	});
 	
 	
 	for(var i = 1; i < MAX_MENU_LEVELS; i++){
-		selector += ' > ul.menu > li';
+		selector += ' > ul.menu';
+		$(selector).addClass('level-'+i);
+		selector += ' > li';
 		liW = aW;
 		liWStr = liW + 'px';
 		aW = liW - 19;
 		aWStr = aW + 'px';
-		$(selector).css('width', liWStr).addClass('menu-level-'+i).prepend('<span class="menu-arrow-small"></span>');
+		$(selector).css('width', liWStr).prepend('<span class="menu-arrow-small"></span>');
 		
 		$(selector).each(function(){
 			$(this).children('a').css('width',aWStr);
