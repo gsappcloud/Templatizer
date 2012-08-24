@@ -8,6 +8,16 @@ var safelog = function(msg){
 
 var HOME_URL = 'http://www.postfog.org/templatizer';
 
+var MENU_TOGGLE = 'shown';
+
+var setMenuToggle = function(state){
+	MENU_TOGGLE = state;
+}
+
+var getMenuToggle = function(){
+	return MENU_TOGGLE;
+}
+
 var CURRENT_LEVEL = 0;
 var CURRENT_STATE_INDEX = 0;
 var CURRENT_STATES = Array();
@@ -148,8 +158,11 @@ var resizeFunc = function(){
 }
 
 var force_expanded = Array();
-force_expanded.push('/studio-x-global/locations');
-force_expanded.push('/studio-x-global/locations/studio-x-beijing');
+force_expanded.push('/templatizer/studio-x-global/locations');
+force_expanded.push('/templatizer/studio-x-global/locations/studio-x-beijing');
+force_expanded.push('/templatizer/studio-x-global/locations/studio-x-rio-de-janiero');
+
+
 
 var adjustPrimaryLinksMenu = function(path){
 	$('#navigation .menu li').addClass('collapsed menu-item').removeClass('expanded');
@@ -158,6 +171,7 @@ var adjustPrimaryLinksMenu = function(path){
 	for(i in force_expanded){
 		selector = '#navigation a:[href="' + force_expanded[i] + '"]';		
 		$(selector).parent('li').removeClass('collapsed').addClass('force-expanded');
+		$(selector).parent('li').children('.menu').children('li').removeClass('collapsed').addClass('force-expanded');
 	} 
 	
 	/* if not the homepage, where path = '/' */
@@ -247,9 +261,11 @@ function menuAddTriangles(){
 		liWStr = liW + 'px';
 		aW = liW - 19;
 		aWStr = aW + 'px';
-		$(selector).css('width', liWStr).prepend('<span class="menu-arrow-small"></span>');
 		
 		$(selector).each(function(){
+			if( !($(this).hasClass('force-expanded')) ){//don't add the arrow for force-expanded
+				$(this).css('width', liWStr).prepend('<span class="menu-arrow-small"></span>');
+			}
 			$(this).children('a').css('width',aWStr);
 		});
 		

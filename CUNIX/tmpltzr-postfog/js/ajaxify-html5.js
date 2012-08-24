@@ -198,7 +198,7 @@
 							$(this).children('.menu-arrow-large, .menu-arrow-small').css('backgroundPosition','0 0');
 						}
 						
-						$(this).children('.menu').slideToggle(TOGGLE_TIME);
+						$(this).children('.menu:not(:visible)').slideToggle(TOGGLE_TIME);
 					});	
 					$(this).find(selector).addClass('active');
 					$(this).find(selector).scrollMenu();
@@ -233,16 +233,35 @@
 		 *	Expand the menu and add active settings.
 		*/
 		$.fn.expandMenu = function(){
-			$(this).parent('li').removeClass('collapsed').addClass('expanded active-trail');
-			var $parent = $(this).parent('li');
-			if($parent.hasClass('leaf')){
-				$parent.children('.menu-arrow-small').css('backgroundPosition','-9px 0');
+			if( !($(this).parent('li').hasClass('force-expanded')) ){
+				$(this).parent('li').removeClass('collapsed').addClass('expanded active-trail');
+				var $parent = $(this).parent('li');
+				if($parent.hasClass('leaf')){
+					$parent.children('.menu-arrow-small').css('backgroundPosition','-9px 0');
+				}else{
+					$parent.children('.menu-arrow-large, .menu-arrow-small').css('backgroundPosition','0 0');
+				}
+				$(this).parent('li').children('.menu:not(:visible)').slideToggle(TOGGLE_TIME);
 			}else{
-				$parent.children('.menu-arrow-large, .menu-arrow-small').css('backgroundPosition','0 0');
+				$(this).parents('li').each(function(){
+					$(this).removeClass('collapsed').addClass('expanded active-trail');
+					$(this).children('a:eq(0)').css('color', 'white');
+				});
+				
 			}
 			$(this).addClass('active').css('color', 'white');
-			
-			$(this).parent('li').children('.menu').slideToggle(TOGGLE_TIME);
+		}
+		
+		/* 	function: collapseMenu()
+		 *	Collapse the menu and remove active settings.
+		*/
+		$.fn.collapseMenu = function(){
+			$(this).removeClass('expanded').removeClass('active-trail').addClass('collapsed');
+			$(this).children('a').css('color','');
+			if( !($(this).hasClass('force-expanded')) ){
+				$(this).children('.menu-arrow-large, .menu-arrow-small').css('backgroundPosition', '');
+				$(this).children('.menu:visible').slideToggle(TOGGLE_TIME);
+			}
 		}
 		
 		/* 	function: collapseMenus()
@@ -260,7 +279,6 @@
 		*/
 		$.fn.collapseMenuInterval = function($active, lev){
 			$this = $(this);
-			
 			if(lev < 0){
 				$active.parents('li').each(function(){
 					if( $(this).children('a:eq(0)').get(0) === $this.get(0) ){
@@ -282,15 +300,7 @@
 		}
 		
 
-		/* 	function: collapseMenu()
-		 *	Collapse the menu and remove active settings.
-		*/
-		$.fn.collapseMenu = function(){
-			$(this).removeClass('expanded').removeClass('active-trail').addClass('collapsed');
-			$(this).children('a').css('color','');
-			$(this).children('.menu-arrow-large, .menu-arrow-small').css('backgroundPosition', '');
-			$(this).children('.menu:visible').slideToggle(TOGGLE_TIME);
-		}
+		
 		
 		/* 	function: collapseBranch()
 		 *	Collapse the branch above $(this).
@@ -301,14 +311,20 @@
 			});
 		}
 		
-		/* 	function: _is_branch()
+		/* 	function: _is_active_trail()
 		 *	Checks if the selected menu item is in the same branch as the current.
 		 *
 		 *	$active: the active menu link (anchor).
 		*/
-		$.fn._is_branch = function($active){
+		$.fn._is_active_trail = function($active){
 			var returnval = false;
-			$(this).parents('li').each(function(){
+			var $parents;
+			if( $(this)._is_force_expanded() ){
+				$parents = $(this).parents('li.force-expanded');//only check the f-e parents
+			}else{
+				$parents = $(this).parents('li');
+			}
+			$parents.each(function(){
 				if( $(this).hasClass('active-trail') ){
 					returnval = true;
 				}
@@ -321,7 +337,6 @@
 		 *	is selected. It checks for hard-wired redirects and internal-redirects.
 		*/
 		$.fn.dig = function($active){
-			safelog('called dig');
 			var $redir = $(this).digRedirect();
 			if($active != undefined){
 				var internalRedir = $(this).internalRedirect($active);
@@ -330,22 +345,33 @@
 			}
 			
 			if( $redir != false ){
-				/*	
-				*/
-				safelog('redirecting');
 				$(this).parent('li').addClass('redirect-active');
 				$redir.expandMenus();
 				setCurrentState(3);
 			}else if( internalRedir != false ){
-				/*	
-				*/
-				safelog('internal redirecting');
 				$active.collapseBranch();
 				$(this).expandBranch(internalRedir);
 				setCurrentState(1);
 			}else{
-				/* dig code here */
-				safelog('digging');
+				if($active != undefined){
+					if( $(this).parent('li').hasClass('force-expanded') ){
+						safelog('!!!!! ERROR WHAT AM I DOING HERE?????');
+						var $this = $(this);
+						if( $active.parent('li').hasClass('force-expanded') ){
+							/* if not a parent of $(this) then collapseMenu */
+							var parent = false;
+							$active.parent('li').find('.menu').each(function(){
+								if( $(this).children('li').children('a:eq(0)').get(0) == $this.get(0) ){
+									parent = true;
+								}
+							});
+							if(parent == false){
+								$active.parent('li').collapseMenu();//this will just turn off the white and classes
+							}
+							
+						}
+					}
+				}
 				$(this).expandMenu();
 				setCurrentState(1);
 			}	
@@ -360,7 +386,7 @@
 		 *	$active: the active menu link (anchor).
 		*/
 		$.fn._is_dig = function($active){
-			if($(this)._is_branch($active) && ( $(this).level() > $active.level() ) ){
+			if($(this)._in_active_branch($active) && ( $(this).level() > $active.level() ) ){
 				return true;
 			}else{
 				return false;
@@ -488,11 +514,64 @@
 		 *	$active: the active menu link (anchor).
 		*/
 		$.fn._is_climb = function($active){
-			if($(this)._is_branch($active) && ( $(this).level() < $active.level() ) ){
+			if($(this)._is_active_trail($active) && ( $(this).level() < $active.level() ) ){
 				return true;
 			}else{
 				return false;
 			}
+		}
+		
+		
+		/* 	function: _is_force_expanded()
+		 *	Checks if $(this) is force expanded
+		 *
+		 *	$active: the active menu link (anchor).
+		*/
+		$.fn._is_force_expanded = function($active){
+			if( $(this).parent('li').hasClass('force-expanded') ){
+				return true;
+			}else{
+				return false;
+			}
+		}
+		
+		
+		/* 	function: _is_branch()
+		 *	Checks if linked to a force-expanded link inside the same branch
+		 *
+		 *	$active: the active menu link (anchor).
+		*/
+		$.fn._is_branch = function($active){
+			var thisBranch = $(this).closest('.level-1').parent('li').children('a:eq(0)').attr('href');
+			var activeBranch = $active.closest('.level-1').parent('li').children('a:eq(0)').attr('href');
+			
+			if(thisBranch == activeBranch){
+				return true;
+			}else{
+				return false;
+			}
+		}
+		
+		
+		
+		/* 	function: _in_active_branch()
+		 *	Checks if $(this) is a descendant of $active
+		*/
+		$.fn._in_active_branch = function($active){
+			var parent = false;
+			var $this = $(this);
+			if($active != undefined){
+				$active.parent('li').find('.menu').each(function(i){
+					safelog('&&&&&&  NUM: ' + i);
+					$(this).children('li').each(function(){
+						if( $(this).children('a:eq(0)').get(0) === $this.get(0) ){
+							safelog('_in_active_branch is true!!!');
+							parent = true;
+						}
+					});
+				});
+			}
+			return parent;
 		}
 		
 		/* 	function: branch()
@@ -513,8 +592,10 @@
 			if( $(this).children('.menu').is(':visible') ){
 				$(this).children('.menu-arrow-large').css('backgroundPosition', '-15px 0');
 				$(this).children('.menu-arrow-small').css('backgroundPosition', '-9px 0');
+				setMenuToggle('hidden');
 			}else{
 				$(this).children('.menu-arrow-large, .menu-arrow-small').css('backgroundPosition', '');
+				setMenuToggle('shown');
 			}
 			$(this).children('.menu').slideToggle(TOGGLE_TIME);
 		}
@@ -544,13 +625,21 @@
 						$this.dig($active);
 						break;
 					case 'menu':
+					
+						safelog('$this._is_force_expanded(): ' + $this._is_force_expanded());
+						safelog('$this._is_branch($active): ' + $this._is_branch($active));
+						safelog('$this._is_active_trail($active): ' + $this._is_active_trail($active));
+						safelog('$this._is_dig($active): ' + $this._is_dig($active));
+						safelog('$this._in_active_branch($active): ' + $this._in_active_branch($active));
+						safelog('getMenuToggle(): ' +  getMenuToggle() );
+					
 						if( $this.hasClass('active') ){//clicked self
 							if( !($this.parent('li').hasClass('leaf')) ){
 								$this.parent('li').menuToggleVisibility();
 							}
 							fetch = false;
 							break;
-						}else if( $this._is_dig($active) ){
+						}else if( $this._in_active_branch($active) && $this._is_dig($active) ){
 							safelog('MENU, this is dig');
 							$this.dig($active);
 						}else if( ($active != undefined) && $this._is_sibling($active) ){
@@ -559,6 +648,24 @@
 						}else if( ($active != undefined) && $this._is_climb($active) ){/* need to climb */
 							safelog('MENU, this is climb');
 							$this.climb($active);
+						}else if( ($active != undefined) && ($this._is_force_expanded()) && ($this._is_branch($active)) ){
+						
+							if(!($this._is_active_trail($active))){
+								safelog("*********F-E BRANCH");
+								var $last = $this.parents('li.force-expanded').last();
+								safelog('last: ' + $last.children('a:eq(0)').attr('href') );
+								$last.children('a:eq(0)').collapseMenuInterval($active, $last.children('a:eq(0)').level());
+								if( getMenuToggle() == 'hidden'){
+									$active.menuToggleVisibility();
+								}
+								$this.expandMenus();
+								$this.addClass('active');
+								$active.removeClass('active');
+							}else{
+								$this.dig($active);
+							}
+						
+							
 						}else{
 							safelog('MENU, this is branch');
 							$this.branch($active);
