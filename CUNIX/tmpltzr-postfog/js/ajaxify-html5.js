@@ -406,18 +406,12 @@
 			var currentState = getCurrentState();
 			
 			if( $redir != false ){
-				/*	
-				*/
-				safelog('sibling redirecting');
 				$active.parent('li').collapseMenu();
 				$(this).parent('li').addClass('redirect-active');//add it to the list item
 				$redir.expandMenus();
 				$active.removeClass('active');
 				setCurrentState(3);
 			}else if( internalRedir != false ){
-				/*	
-				*/
-				safelog('sibling internal redirecting');
 				$active.collapseBranch();
 				if($active != undefined){
 					$active.removeClass('active');
@@ -428,8 +422,6 @@
 				}
 				setCurrentState(1);
 			}else{
-				/* dig code here */
-				safelog('sibling digging');
 				$active.parent('li').collapseMenu();
 				$(this).expandMenu();
 				if($active != undefined){
@@ -448,11 +440,7 @@
 		 *	$active: the active menu link (anchor).
 		*/
 		$.fn._is_sibling = function($active){
-			safelog('active href: ' + $active.attr('href'));
-			safelog('sib test, this href: ' + $(this).parent('li').parent('.menu').parent('li').children('a:eq(0)').attr('href'));
-			safelog('sib test, active href: ' + $active.parent('li').parent('.menu').parent('li').children('a:eq(0)').attr('href'));
 			if( $(this).parent('li').parent('.menu').parent('li').children('a:eq(0)').attr('href') == $active.parent('li').parent('.menu').parent('li').children('a:eq(0)').attr('href')){
-				safelog('is sibling!!');
 				return true;
 			}
 			return false;
@@ -471,9 +459,6 @@
 			}
 			
 			if( $redir != false ){
-				/*	TODO
-				*/
-				safelog('climb redirecting');
 				if( $(this).parent('li').hasClass('active-trail') ){
 					$redir.collapseMenuInterval($active, $(this).level()+1 );
 				}else{
@@ -484,15 +469,10 @@
 				$(this).parent('li').addClass('redirect-active');
 				setCurrentState(3);
 			}else if( internalRedir != false ){
-				/*
-				*/
-				safelog('climb internalRedir');
 				$active.collapseBranch();
 				$(this).expandBranch(internalRedir);
 				setCurrentState(1);
 			}else{
-				/* climb code here */
-				safelog('climb dig');
 				
 				if( $(this).parent('li').hasClass('active-trail') ){
 					$(this).collapseMenuInterval($active, -1);
@@ -562,10 +542,8 @@
 			var $this = $(this);
 			if($active != undefined){
 				$active.parent('li').find('.menu').each(function(i){
-					safelog('&&&&&&  NUM: ' + i);
 					$(this).children('li').each(function(){
 						if( $(this).children('a:eq(0)').get(0) === $this.get(0) ){
-							safelog('_in_active_branch is true!!!');
 							parent = true;
 						}
 					});
@@ -649,11 +627,9 @@
 							safelog('MENU, this is climb');
 							$this.climb($active);
 						}else if( ($active != undefined) && ($this._is_force_expanded()) && ($this._is_branch($active)) ){
-						
+							safelog("MENU*********F-E BRANCH");
 							if(!($this._is_active_trail($active))){
-								safelog("*********F-E BRANCH");
 								var $last = $this.parents('li.force-expanded').last();
-								safelog('last: ' + $last.children('a:eq(0)').attr('href') );
 								$last.children('a:eq(0)').collapseMenuInterval($active, $last.children('a:eq(0)').level());
 								if( getMenuToggle() == 'hidden'){
 									$active.menuToggleVisibility();
@@ -664,8 +640,6 @@
 							}else{
 								$this.dig($active);
 							}
-						
-							
 						}else{
 							safelog('MENU, this is branch');
 							$this.branch($active);
